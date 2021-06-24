@@ -79,8 +79,6 @@
 								<a href="#" class="image main"><img src="images/kidss.png" alt="" /></a>
                         		
 							</article>
-							
-							
 						
 					</div>
 
