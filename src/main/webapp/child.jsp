@@ -39,6 +39,7 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
+							<li><a href="main.jsp">Dodam E</a></li>
 							<li><a href="join.jsp">Join</a></li>
 							<li><a href="login.jsp">Login</a></li>
 							<li><a href="mypage.jsp">My Page</a></li>
@@ -83,12 +84,14 @@
 									</div>
 									
 									<div class="col-4 col-12-small">
-										<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+										<input type="radio" id="demo-priority-low" name="gender" value="female">
 										<label for="demo-priority-low">여아</label>
 										
-										<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-										<label for="demo-priority-low">남아</label>
+										<input type="radio" id="demo-priority-normal" name="gender" value="male">
+										<label for="demo-priority-normal">남아</label>
+										
 									</div>
+									
 									
 									
 									<div class="col-8">

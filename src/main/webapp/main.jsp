@@ -20,75 +20,68 @@
 -->
 <html>
 	<head>
-		<title>Generic Page - Massively by HTML5 UP</title>
-		<meta charset="utf-8" />
+		<title>Massively by HTML5 UP</title>
+		<meta charset="EUC-KR" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
 	</head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>Dodam Dodam<br />
+						Alien</h1>
+						<p>Dodam Dodam is a location safety school service for children.
+						<br>Let's watch the child's safety with us.</p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
 
 				<!-- Header -->
 					<header id="header">
-						<a href="join.jsp" class="logo">Dodam E</a>
+						<a href="main.jsp" class="logo">Dodam E</a>
 					</header>
-					
-					
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li><a href="main.jsp">Dodam E</a></li>
+							<li class="active"><a href="main.jsp">Dodam E</a></li>
 							<li><a href="join.jsp">Join</a></li>
-							<li class="active"><a href="login.jsp">Login</a></li>
+							<li><a href="login.jsp">Login</a></li>
 							<li><a href="mypage.jsp">My Page</a></li>
 							<li><a href="child.jsp">Child Sign Up</a></li>
 							<li><a href="faq.jsp">FAQ</a></li>
 							<li><a href="board.jsp">Board</a></li>
 							<li><a href="route.jsp">Route</a></li>
+							
 						</ul>
-						<%-- 아이콘 (공간 부족하면 지우기) --%>
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
+						
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
-					
-					<header class="major">
-									<h1><a href="#">Login<br /></a></h1>
+
+						<!-- Featured Post -->
+							<article class="post featured">
+								<header class="major">
+									<span class="date">April 25, 2017</span>
+									<h2><a href="#">Dodam Dodam<br />
+									WELCOME</a></h2>
+									
 								</header>
-
-				<!-- Me -->
-                    <article id="main" class="panel intro">
-                       <header>
-                       <form action="LoginService" method="post">
-                          <div>
-                             <div class="row">
-                                <div class="col-12">
-                                   <input type="text" name="id" placeholder="ID" />
-                                </div>
-                                <div class="col-12">
-                                   <input type="text" name="pw" placeholder="PW" />
-                                </div>
-                                <div class="col-6 col-6-medium">
-                                   <input type="submit" value="  로그인  " />
-                                </div>
-                        
-                                <div class="col-6 col-6-medium">
-                                   <input type="button" value="회원가입" onClick="window.location='#join'" />
-                                </div>
-                          </div>
-                       </form>
-                       </header>
-
+								
+								<a href="#" class="image main"><img src="images/kidss.png" alt="" /></a>
+                        		
+							</article>
+							
+							
+						
 					</div>
 
 				<!-- Footer -->
