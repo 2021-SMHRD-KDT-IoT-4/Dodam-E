@@ -39,6 +39,7 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
+							<li><a href="main.jsp">Dodam E</a></li>
 							<li><a href="join.jsp">Join</a></li>
 							<li><a href="login.jsp">Login</a></li>
 							<li class="active"><a href="mypage.jsp">My Page</a></li>

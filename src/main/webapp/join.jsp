@@ -36,7 +36,8 @@
 					<div id="intro">
 						<h1>Dodam Dodam<br />
 						Alien</h1>
-						<p>Dodam Dodam is a location safety school service for children.</p>
+						<p>Dodam Dodam is a location safety school service for children.
+						<br>Let's watch the child's safety with us.</p>
 						<ul class="actions">
 							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
@@ -50,6 +51,7 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
+							<li><a href="main.jsp">Dodam E</a></li>
 							<li class="active"><a href="join.jsp">Join</a></li>
 							<li><a href="login.jsp">Login</a></li>
 							<li><a href="mypage.jsp">My Page</a></li>
@@ -94,14 +96,15 @@
                               			</div>
                            			</div>
                         		</form>
-                        		
+                        		<%--
 								<ul class="actions special">
 									<li><a href="#" class="button large">JOIN</a></li>
 								</ul>
+								 --%>
 							</article>
 							
 							
-
+						<%--
 						<!-- Footer -->
 							<footer>
 								<div class="pagination">
@@ -116,7 +119,7 @@
 									<a href="#" class="next">Next</a>
 								</div>
 							</footer>
-
+						 --%>
 					</div>
 
 				<!-- Footer -->
