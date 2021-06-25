@@ -1,4 +1,3 @@
-
 <%@page import="COM.Model.childDAO"%>
 <%@page import="COM.Model.childDTO"%>
 <%@page import="COM.Model.UserDAO"%>
@@ -46,21 +45,21 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="join.jsp" class="logo">Dodam E</a>
+						<a href="main.jsp" class="logo">Dodam E</a>
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li><a href="main.jsp">Dodam E</a></li>
-							<li class="active"><a href="join.jsp">Join</a></li>
+							<li class="active"><a href="main.jsp">Dodam E</a></li>
+							<li><a href="join.jsp">Join</a></li>
 							<li><a href="login.jsp">Login</a></li>
 							<li><a href="mypage.jsp">My Page</a></li>
 							<li><a href="child.jsp">Child Sign Up</a></li>
 							<li><a href="faq.jsp">FAQ</a></li>
 							<li><a href="board.jsp">Board</a></li>
-							<li>Route<%@include file="/route.jsp"%></li>
-						<!-- 	<a href="route.jsp">Route</a> -->
+							<li><a href="route.jsp">Route</a></li>
+							
 						</ul>
 						
 					</nav>
@@ -72,55 +71,17 @@
 							<article class="post featured">
 								<header class="major">
 									<span class="date">April 25, 2017</span>
-									<h2><a href="#">JOIN<br />
+									<h2><a href="#">Dodam Dodam<br />
 									WELCOME</a></h2>
 									
 								</header>
-								<form action="JoinService" method="post" >
-                          			<div>
-                             			<div class="row" >
-                                 			<div class="col-6">
-                                   				<input type="text" name="id" placeholder="ID" />
-                                 			</div>
-                                 			<div class="col-6">
-                                    			<input type="text" name="pw" placeholder="PW" />
-                                 			</div>
-                                 			<div class="col-8">
-                                    			<input type="text" name="name" placeholder="이름" />
-                                 			</div>
-                                    		<div class="col-8">
-                                    			<input type="text" name="tel" placeholder="핸드폰" />
-                                 			</div>
-                                 			<div class="col-12">
-                                    			<input type="submit" value="회원가입" onClick="window.location='#main'" />
-                                 			</div>
-                              			</div>
-                           			</div>
-                        		</form>
-                        		<%--
-								<ul class="actions special">
-									<li><a href="#" class="button large">JOIN</a></li>
-								</ul>
-								 --%>
+								
+								<a href="#" class="image main"><img src="images/kidss.png" alt="" /></a>
+                        		
 							</article>
 							
 							
-						<%--
-						<!-- Footer -->
-							<footer>
-								<div class="pagination">
-									<!--<a href="#" class="previous">Prev</a>-->
-									<a href="#" class="page active">1</a>
-									<a href="#" class="page">2</a>
-									<a href="#" class="page">3</a>
-									<span class="extra">&hellip;</span>
-									<a href="#" class="page">8</a>
-									<a href="#" class="page">9</a>
-									<a href="#" class="page">10</a>
-									<a href="#" class="next">Next</a>
-								</div>
-							</footer>
-						 --%>
+						
 					</div>
 
 				<!-- Footer -->

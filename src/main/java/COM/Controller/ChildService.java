@@ -44,8 +44,8 @@ public class ChildService extends HttpServlet {
 			
 		}else {
 			System.out.println("아이등록 실패!");
+			response.sendRedirect("child.jsp");
 		}
-		response.sendRedirect("child.jsp");
 		
 		//System.out.println(info);
 		//System.out.println(id);
