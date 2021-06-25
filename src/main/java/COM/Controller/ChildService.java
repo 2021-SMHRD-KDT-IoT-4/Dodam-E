@@ -26,20 +26,19 @@ public class ChildService extends HttpServlet {
 		String gender = request.getParameter("gender");
 		String age = request.getParameter("age");
 		String school = request.getParameter("school");
+		String send_machine = request.getParameter("send_machine");
 		
 		
-		childDTO dto = new childDTO(id, name, age, gender, school);
+		childDTO dto = new childDTO(id, name, age, gender, school, send_machine);
 		childDAO dao = new childDAO();
 		
 		int cnt = dao.child_insert(dto);
 		
-		//childDTO info = dao.child_check(dto);
 		
 		if(cnt > 0) {
 			System.out.println("아이등록 성공!");
 			
 			session.setAttribute("id", id);
-			//session.setAttribute("child_info", info);
 			response.sendRedirect("mypage.jsp");
 			
 		}else {

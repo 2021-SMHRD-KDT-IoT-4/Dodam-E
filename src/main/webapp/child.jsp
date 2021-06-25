@@ -102,6 +102,10 @@
 										<input type="text" name="school" placeholder="학교" />
 									</div>
 									
+									<div class="col-8">
+										<input type="text" name="send_machine" placeholder="기기" />
+									</div>
+									
 									<div class="col-12">
 										<input type="submit" value="확인"  />
 									</div>

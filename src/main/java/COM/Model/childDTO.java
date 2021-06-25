@@ -7,14 +7,17 @@ public class childDTO {
 	private String c_age;
 	private String c_gender;
 	private String c_school;
+	private String c_send_machine;
 	
-	public childDTO(String c_id, String c_name, String c_age, String c_gender, String c_school) {
+	public childDTO(String c_id, String c_name, String c_age, String c_gender, String c_school, String c_send_machine) {
 		super();
 		this.c_id = c_id;
 		this.c_name = c_name;
 		this.c_age = c_age;
 		this.c_gender = c_gender;
 		this.c_school = c_school;
+		this.c_send_machine = c_send_machine;
+		
 	}
 	
 	
@@ -70,5 +73,15 @@ public class childDTO {
 	public void setC_school(String c_school) {
 		this.c_school = c_school;
 	}
+
+	public String getC_send_machine() {
+		return c_send_machine;
+	}
+
+	public void setC_send_machine(String c_send_machine) {
+		this.c_send_machine = c_send_machine;
+	}
+	
+	
 
 }

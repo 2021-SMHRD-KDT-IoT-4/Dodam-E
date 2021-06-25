@@ -97,7 +97,7 @@ public class childDAO {
 		
 		conn();
 		
-		String sql = "insert into child values(?, ?, ?, ?, ?)";
+		String sql = "insert into child values(?, ?, ?, ?, ?, ?)";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -107,6 +107,7 @@ public class childDAO {
 			psmt.setString(3, dto.getC_age());
 			psmt.setString(4, dto.getC_gender());
 			psmt.setString(5, dto.getC_school());
+			psmt.setString(6, dto.getC_send_machine());
 			
 			cnt = psmt.executeUpdate();
 			
@@ -183,8 +184,10 @@ public childDTO child_check(childDTO dto) {
 				String c_age = rs.getString(3);
 				String c_gender = rs.getString(4);
 				String c_school = rs.getString(5);
+				String c_send_machine = rs.getString(6);
 				
-				c_dto = new childDTO(user_id, c_name, c_age, c_gender, c_school);
+				
+				c_dto = new childDTO(user_id, c_name, c_age, c_gender, c_school, c_send_machine);
 				
 				c_one_list.add(c_dto);
 			}

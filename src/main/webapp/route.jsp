@@ -70,6 +70,7 @@
 
 						<script type="text/javascript"
 							src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eead32d6ed0b289eaf8fb67836c885d3"></script>
+							<h1>스크립트</h1>
 						<script>
 							var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 							mapOption = {
@@ -140,6 +141,7 @@
 
 							}
 							</script>
+							<h1>스크립트</h1>
 				</article>
 			</section>
 		</div>
