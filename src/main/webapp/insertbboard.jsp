@@ -27,6 +27,7 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
+		<article>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -44,8 +45,8 @@
 							<li><a href="login.jsp">Login</a></li>
 							<li><a href="mypage.jsp">My Page</a></li>
 							<li><a href="child.jsp">Child Sign Up</a></li>
-							<li class="active"><a href="faq.jsp">FAQ</a></li>
-							<li><a href="board.jsp">Board</a></li>
+							<li><a href="faq.jsp">FAQ</a></li>
+							<li class="active"><a href="board.jsp">Board</a></li>
 							<li><a href="route.jsp">Route</a></li>
 						</ul>
 						<ul class="icons">
@@ -57,57 +58,87 @@
 					</nav>
 					
 					<%
-      					UserDTO info = (UserDTO)session.getAttribute("login_info");
-      
-   					%>
+						UserDTO info = (UserDTO)session.getAttribute("login_info");
+				
+					%>
 
-				<!-- Main -->
+
+
+		<!-- Wrapper-->
+			<div id="wrapper">
+
+				<!-- Nav -->
+				<!-- Admin!!!!!!!!!!!!!! -->
+					<nav id="nav">
+				<%if(info == null) {%>
+						<a href="#main" class="icon solid fa-home"><span>메인</span></a>
+						<a href="#join" class="icon solid fa-user-plus"><span>회원가입</span></a>
+						<%}else{ %>
+						<% if(info.getId().equals("admin")){%>
+						
+						<a href="#admin_Userinfo" class="icon solid fa-users-cog"><span>회원정보</span></a>
+						<%}else{ %>		
+						<a href="#faq" class="icon Regular fa-question-circle"><span>FAQ</span></a>
+						<% }%>
+					<%} %>
+					
+					
+					</nav>
+					
 					<div id="main">
+                    	<body>
 
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<h1><a href="#">FAQ<br /></a></h1>
-								</header>
+							<%
+								NoticeWriteDAO Noticedao = new NoticeWriteDAO();
+							%>
+					<h1 class="con">게시글 상세</h1>
+					<section class="article-detail table-common con row">
+						<div class="article-writer cell">
+							<div class="writer-icon">이미지</div>
+							<span></span>
+						</div>
+						<form action="InsertBoard">
+							<table class="cell" border="1">
+								<colgroup>
+									<col width="100px">
+								</colgroup>
+								<tbody>
+									<tr class="article-title">
+										<th>제목 :</th>
+										<td colspan="3" width="200"><input type="text" name="title"></td>
+									</tr>
+									
+									<tr class="article-title">
+										<th>작성자 :</th>
+										<td colspan="3" width="200"><input type="text" name="writer"></td>
+									</tr>
+									
+									<tr class="article-info">
+										<th>내용 :</th>
+										<td colspan="3"><textarea name="content"></textarea></td>
+									</tr>
+									
+									<tr class="article-body">
+										<td colspan="4"></td>
+									</tr>
+									
+									<tr>
+										<td colspan="2"><a href="index2.jsp#board"><button>뒤로가기</button></a></td>
+									</tr>
 
-								<!-- FAQ -->
-                     <article id="faq" class="panel">
-                        <form action="#" method="post">
-                           <%
-                           FaqWriteDAO dao = new FaqWriteDAO();
-                           ArrayList<FaqDTO> list = dao.showFaq();
-                           %>
-                           <div>
-                              <table border="1">
-                                 <tr align="center">
-                                 
-                                    <td>번호</td>
-                                    <td>제목</td>
-                                    <td>글쓴이</td>
-                                    <td>내용</td>
-                                    <td>날짜</td>
-                                 </tr>
-                                 <%
-                                 for (int i = 0; i <list.size(); i++){
-                                 %>
-                                 <tr align="center">
-                                    <td><%=list.get(i).getFaq_seq()%></td>
-                                    
-                                    <td><a href="viewfaqq.jsp?faq_seq=<%=list.get(i).getFaq_seq()%>">
-                                    <%=list.get(i).getFaq_title()%></a>
-                                    </td>
-                                    <td><%=list.get(i).getFaq_writer()%></td>
-                                    <td><%=list.get(i).getFaq_content()%></td>
-                                    <td><%=list.get(i).getFaq_answer()%></td>
-                                 </tr>
-                                 <%
-                                 }
-                                 %>                              
+									<tr>
+										<td colspan="2"><input type="submit" value="작성하기"></td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+
+					</section>
+					</article>
+				</body>
                               
-                              </table>
-                           </div>
-                        </form>
-                     </article> 
+
+			
 
 				
 

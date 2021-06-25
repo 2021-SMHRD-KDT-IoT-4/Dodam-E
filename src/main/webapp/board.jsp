@@ -33,7 +33,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="join.jsp" class="logo">Dodam E</a>
+						<a href="main.jsp" class="logo">Dodam E</a>
 					</header>
 
 				<!-- Nav -->
@@ -79,7 +79,7 @@
                      <article id="board" class="panel">
                      <header>
                         
-                           <a href="insertBoard.jsp">글 작성</a>
+                           <a href="insertbboard.jsp">글 작성</a>
                      </header>
                      <form action="#" method="post">
 
@@ -106,7 +106,7 @@
                      <tr align="center">
                         <td><%=Nlist.get(i).getNotice_seq()%></td>
                         <td><a
-                           href="detailsBoard.jsp?notice_seq=<%=Nlist.get(i).getNotice_seq()%>">
+                           href="detailsBBoard.jsp?notice_seq=<%=Nlist.get(i).getNotice_seq()%>">
                               <%=Nlist.get(i).getNotice_title()%></a></td>
                         <td><%=Nlist.get(i).getNotice_writer()%></td>
                         <td><%=Nlist.get(i).getNotice_content()%></td>

@@ -31,8 +31,8 @@
 	<body class="is-preload">
 
 		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
-
+			<div id="wrapper" <%--class="fade-in"--%>>
+<%-- 
 				<!-- Intro -->
 					<div id="intro">
 						<h1>Dodam Dodam<br />
@@ -43,10 +43,10 @@
 							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
 					</div>
-
+--%>
 				<!-- Header -->
 					<header id="header">
-						<a href="join.jsp" class="logo">Dodam E</a>
+						<a href="main.jsp" class="logo">Dodam E</a>
 					</header>
 
 				<!-- Nav -->
