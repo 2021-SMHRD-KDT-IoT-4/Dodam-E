@@ -96,7 +96,7 @@
 		<div id="map" style="width: 100%; height: 350px;"></div>
 
 		<script type="text/javascript"
-			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=baabcdaa6e2d28d90ba9f9ace42f8e6c"></script>
+			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eead32d6ed0b289eaf8fb67836c885d3"></script>
 		<script>
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 			mapOption = {
@@ -107,8 +107,7 @@
 
 			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-			var iwContent = '<div style="padding:5px;">Hello World! <br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-			iwPosition = new kakao.maps.LatLng(35.112171, 126.873735); //인포윈도우 표시 위치입니다
+			
 
 			// 마커를 표시할 위치와 title 객체 배열입니다 
 			var positions = [ {
@@ -127,16 +126,7 @@
 				latlng : new kakao.maps.LatLng(35.110974, 126.877459)
 			} ];
 
-						<script type="text/javascript"
-							src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eead32d6ed0b289eaf8fb67836c885d3"></script>
-						<script>
-							var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-							mapOption = {
-								center : new kakao.maps.LatLng(35.110974,
-										126.877459), // 지도의 중심좌표
-								level : 4
-							// 지도의 확대 레벨
-							};
+					
 			// 마커 이미지의 이미지 주소입니다
 			var imageSrc = [ "./images/school.png", "./images/piano.png",
 					"./images/traffic.png", "./images/house.png" ];
@@ -162,8 +152,26 @@
 				// 마커 이미지 
 
 				});
+			}	
+			var polyline = new kakao.maps.Polyline({
+				map: map, // 선을 표시할 지도 객체 
+				path: [ // 선을 구성하는 좌표 배열
+					new kakao.maps.LatLng(35.112171, 126.873735),
+					new kakao.maps.LatLng(35.112445, 126.875642),
+					new kakao.maps.LatLng(35.111548, 126.876066),
+					new kakao.maps.LatLng(35.110974, 126.877459)
+					
+				],
+				strokeWeight: 3, // 선의 두께
+				strokeColor: '#CC33FF', // 선 색
+				strokeOpacity: 0.9, // 선 투명도
+				strokeStyle: 'dash' // 선 스타일
+			});	
+		   
+				
+				
 
-			}
+		
 		</script>
 		<br>
 <table border="1" id="hhh">
