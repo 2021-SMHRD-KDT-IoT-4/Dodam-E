@@ -51,6 +51,7 @@
 							<%}else{ %>
 							<%if(info.getId().equals("admin")) { %>
 							<li class="active"><a href = "admin_userinfo.jsp">user info</a></li>
+							<li><a href = "sendview.jsp">send</a></li>
 							<%}else{ %>
 							<li><a href="mypage.jsp">My Page</a></li>
 							<li><a href="child.jsp">Child Sign Up</a></li>
@@ -100,7 +101,7 @@
                                     <td>전화번호</td>
                                  </tr>
                                   <%for(int i = 0; i<Ulist.size(); i++) { %>
-                        <tr>
+                        <tr align="center">
                            <td><%=Ulist.get(i).getName() %></td>
                            <td><%=Ulist.get(i).getId() %></td>
                            <td><%=Ulist.get(i).getPw()%></td>   

@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpSession;
 
 
-
 public class childDAO {
 	childDTO info = null;
 	ArrayList<childDTO> c_list = null;
@@ -20,6 +19,7 @@ public class childDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	int cnt = 0;
+	int result=0;
 	ResultSet rs = null;
 	
 	public void conn() {
@@ -92,13 +92,13 @@ public class childDAO {
 		return c_list;
 	}
 	
-	int result=0;
+	
 	
 	public int child_insert(childDTO dto, SendDTO sdto) {
 		
 		conn();
 		
-		String sql = "insert into child values(?, ?, ?, ?, ?,?)";
+		String sql = "insert into child values(?, ?, ?, ?, ?, ?)";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -117,8 +117,8 @@ public class childDAO {
 				sql = "insert into send values (send_seq.nextval, ?, sysdate)";
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, sdto.getSend_machine());
-				System.out.println("dhfb");
-			result=psmt.executeUpdate();
+				
+				result=psmt.executeUpdate();
 				
 			}
 			System.out.println(result);
@@ -136,47 +136,10 @@ public class childDAO {
 	}
 	
 
-public childDTO child_check(childDTO dto) {
-		
-		conn();
-		
-		String sql = "select * from child where users_id = ?";
-		
-		try {
-			psmt = conn.prepareStatement(sql);
-			
-			psmt.setString(1, dto.getC_name());
-			
-			//select : executeQuery(ResultSet형태로 반환)
-			rs = psmt.executeQuery();
-			
-			if(rs.next()) {
-				String child_name = rs.getString(1);
-				String child_age = rs.getString(2);
-				String child_gender = rs.getString(3);
-				String child_school = rs.getString(4);
-				
-				info = new childDTO(child_name, child_age, child_gender, child_school);
-			}
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			
-		}finally {
-			close();
-		}
-		
-		return info;
-	}
-
-
 
 	public ArrayList<childDTO> Child_one_info(UserDTO dto) {
 
 		c_one_list = new ArrayList<childDTO>();
-		
-		
 		
 		conn();
 
@@ -211,5 +174,8 @@ public childDTO child_check(childDTO dto) {
 		}
 		return c_one_list;
 	}
+	
+	
+	
 
 }
