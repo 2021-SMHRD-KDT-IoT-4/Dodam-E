@@ -325,7 +325,7 @@ input, select, textarea {
 /* Row */
 
 	.row {
-		display: flex;
+		display : flex;
 		flex-wrap: wrap;
 		box-sizing: border-box;
 		align-items: stretch;
