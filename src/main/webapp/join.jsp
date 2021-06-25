@@ -29,6 +29,12 @@
 		
 	</head>
 	<body class="is-preload">
+	
+			 <%
+      UserDTO info = (UserDTO)session.getAttribute("login_info");
+      %>
+	
+	
 
 		<!-- Wrapper -->
 			<div id="wrapper" <%--class="fade-in"--%>>
@@ -43,7 +49,9 @@
 							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
 					</div>
---%>
+--%>			
+		
+      	
 				<!-- Header -->
 					<header id="header">
 						<a href="main.jsp" class="logo">Dodam E</a>
@@ -52,14 +60,13 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
+							<%if(info == null) { %>
 							<li><a href="main.jsp">Dodam E</a></li>
 							<li class="active"><a href="join.jsp">Join</a></li>
 							<li><a href="login.jsp">Login</a></li>
-							<li><a href="mypage.jsp">My Page</a></li>
-							<li><a href="child.jsp">Child Sign Up</a></li>
-							<li><a href="faq.jsp">FAQ</a></li>
-							<li><a href="board.jsp">Board</a></li>
-							<li>Route<%@include file="/route.jsp"%></li>
+							
+							<%}%>
+							
 						<!-- 	<a href="route.jsp">Route</a> -->
 						</ul>
 						

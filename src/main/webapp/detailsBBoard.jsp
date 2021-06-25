@@ -27,6 +27,10 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
+	
+	 <%
+      UserDTO info = (UserDTO)session.getAttribute("login_info");
+      %>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -39,14 +43,21 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
+						<%if(info == null) { %>
 							<li><a href="main.jsp">Dodam E</a></li>
 							<li><a href="join.jsp">Join</a></li>
 							<li><a href="login.jsp">Login</a></li>
+							<%}else{ %>
+							<%if(info.getId().equals("admin")) { %>
+							<li><a href = "admin_userinfo.jsp">user info</a></li>
+							<%}else{ %>
 							<li><a href="mypage.jsp">My Page</a></li>
 							<li><a href="child.jsp">Child Sign Up</a></li>
-							<li><a href="faq.jsp">FAQ</a></li>
-							<li class="active"><a href="board.jsp">Board</a></li>
 							<li><a href="route.jsp">Route</a></li>
+							<%}%>
+							<li><a href="faq.jsp">FAQ</a></li>
+							<li  class="active"><a href="board.jsp">Board</a></li>
+							<%}%>
 						</ul>
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -56,10 +67,7 @@
 						</ul>
 					</nav>
 					
-					<%
-      					UserDTO info = (UserDTO)session.getAttribute("login_info");
-      
-   					%>
+					
 
 				<!-- Main -->
 					<div id="main">
@@ -85,24 +93,14 @@
 			%>
 			<a href="#main" class="icon solid fa-home"><span>메인</span></a> <a
 				href="#join" class="icon solid fa-user-plus"><span>회원가입</span></a>
-			<%
-			} else {
-			%>
-			<%
-			if (info.getId().equals("admin")) {
-			%>
+			<%} else {%>
+			<%if (info.getId().equals("admin")) {%>
 
 			<a href="#admin_Userinfo" class="icon solid fa-users-cog"><span>회원정보</span></a>
-			<%
-			} else {
-			%>
+			<%} else {%>
 			<a href="#faq" class="icon Regular fa-list-alt"><span>게시판</span></a>
-			<%
-			}
-			%>
-			<%
-			}
-			%>
+			<%}%>
+			<%}%>
 
 
 		</nav>

@@ -31,6 +31,7 @@
 	 <%
       UserDTO info = (UserDTO)session.getAttribute("login_info");
       %>
+	
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -49,15 +50,16 @@
 							<li><a href="login.jsp">Login</a></li>
 							<%}else{ %>
 							<%if(info.getId().equals("admin")) { %>
-							<li><a href = "admin_userinfo.jsp">user info</a></li>
+							<li class="active"><a href = "admin_userinfo.jsp">user info</a></li>
 							<%}else{ %>
 							<li><a href="mypage.jsp">My Page</a></li>
 							<li><a href="child.jsp">Child Sign Up</a></li>
 							<li><a href="route.jsp">Route</a></li>
 							<%}%>
-							<li class="active"><a href="faq.jsp">FAQ</a></li>
+							<li><a href="faq.jsp">FAQ</a></li>
 							<li><a href="board.jsp">Board</a></li>
 							<%}%>
+							
 						</ul>
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -67,7 +69,10 @@
 						</ul>
 					</nav>
 					
-					
+					 <%
+                        UserDAO Udao = new UserDAO();
+                        ArrayList<UserDTO> Ulist = Udao.All_info();
+                     %>
 
 				<!-- Main -->
 					<div id="main">
@@ -75,7 +80,7 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1><a href="#">FAQ<br /></a></h1>
+									<h1><a href="#">회원 목록<br /></a></h1>
 								</header>
 
 								<!-- FAQ -->
@@ -89,29 +94,19 @@
                               <table border="1">
                                  <tr align="center">
                                  
-                                    <td>번호</td>
-                                    <td>제목</td>
-                                    <td>글쓴이</td>
-                                    <td>내용</td>
-                                    <td>날짜</td>
+                                    <td>이름</td>
+                                    <td>아이디</td>
+                                    <td>비밀번호</td>
+                                    <td>전화번호</td>
                                  </tr>
-                                 <%
-                                 for (int i = 0; i <list.size(); i++){
-                                 %>
-                                 <tr align="center">
-                                    <td><%=list.get(i).getFaq_seq()%></td>
-                                    
-                                    <td><a href="viewfaqq.jsp?faq_seq=<%=list.get(i).getFaq_seq()%>">
-                                    <%=list.get(i).getFaq_title()%></a>
-                                    </td>
-                                    <td><%=list.get(i).getFaq_writer()%></td>
-                                    <td><%=list.get(i).getFaq_content()%></td>
-                                    <td><%=list.get(i).getFaq_answer()%></td>
-                                 </tr>
-                                 <%
-                                 }
-                                 %>                              
-                              
+                                  <%for(int i = 0; i<Ulist.size(); i++) { %>
+                        <tr>
+                           <td><%=Ulist.get(i).getName() %></td>
+                           <td><%=Ulist.get(i).getId() %></td>
+                           <td><%=Ulist.get(i).getPw()%></td>   
+                           <td><%=Ulist.get(i).getTel()%></td>                     
+                        </tr>
+                     <%} %>
                               </table>
                            </div>
                         </form>

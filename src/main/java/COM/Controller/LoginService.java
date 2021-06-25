@@ -34,7 +34,7 @@ public class LoginService extends HttpServlet {
 			session.setAttribute("login_info", info); //session ÀúÀå
 			
 			if(info.getId().equals("admin")) {
-				response.sendRedirect("index2.jsp#admin_Userinfo");
+				response.sendRedirect("admin_userinfo.jsp");
 			}else {
 			
 			response.sendRedirect("mypage.jsp");
