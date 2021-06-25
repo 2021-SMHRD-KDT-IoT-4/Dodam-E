@@ -74,12 +74,13 @@
 					<div id="main">
 					
 					<header class="major">
+									<span class="date">April 25, 2017</span>
 									<h1><a href="#">Login<br /></a></h1>
-								</header>
+							
 
 				<!-- Me -->
                     <article id="main" class="panel intro">
-                       <header>
+                       
                        <form action="LoginService" method="post">
                           <div>
                              <div class="row">
@@ -99,7 +100,7 @@
                           </div>
                        </form>
                        </header>
-
+ </article>
 					</div>
 
 				<!-- Footer -->
