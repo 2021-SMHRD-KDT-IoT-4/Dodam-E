@@ -83,24 +83,26 @@
                        
                        <form action="LoginService" method="post">
                           <div>
-                             <div class="row">
-                                <div class="col-12">
+                             <div class="row" style="display: block;">
+                                <div class="col-6 col-6-medium" style="margin: 0 auto;float: none;">
                                    <input type="text" name="id" placeholder="ID" />
                                 </div>
-                                <div class="col-12">
+                                <br>
+                                <div class="col-6 col-6-medium" style="margin: 0 auto;float: none;">
                                    <input type="text" name="pw" placeholder="PW" />
                                 </div>
-                                <div class="col-6 col-6-medium">
+                                <br>
+                                <div class="col-12">
                                    <input type="submit" value="  로그인  " />
+                                   <input type="button" value="회원가입" onClick="window.location='#join'" />
+                                   
                                 </div>
                         
-                                <div class="col-6 col-6-medium">
-                                   <input type="button" value="회원가입" onClick="window.location='join.jsp'" />
-                                </div>
+                                
                           </div>
                        </form>
-                       </header>
  </article>
+                       </header>
 					</div>
 
 				<!-- Footer -->

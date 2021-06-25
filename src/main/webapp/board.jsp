@@ -93,22 +93,16 @@
                      <form action="#" method="post">
 
 
-
-
-
-
-            <section class="article-list table-common con">
-               <table border="1">
-                  <thead>
-                     <tr align="center">
-                        <th>번호</th>
-                        <th>제목</th>
-                        <th>글쓴이</th>
-                        <th>내용</th>
-                        <th>날짜</th>
-                     </tr>
-                  </thead>
-                  <tbody>
+					 <table border="1">
+                                 <tr align="center">
+                                 
+                                    <td>번호</td>
+                                    <td>제목</td>
+                                    <td>글쓴이</td>
+                                    <td>내용</td>
+                                    <td>날짜</td>
+                                 </tr>
+                 
                      <%
                      for (int i = 0; i < Nlist.size(); i++) {
                      %>
@@ -125,9 +119,9 @@
                      <%
                      }
                      %>
-                  </tbody>
+                 
                </table>
-            </section>
+           
          </form>
       </article>
 

@@ -27,3 +27,35 @@ select * from child;
 delete from users where users_id = 'oracle';
 
 commit;
+
+
+create table route (
+
+ route_seq number,
+ route varchar2(50),
+ checktime date
+ );
+ 
+ drop table route;
+
+create table receive_info(
+	receive_seq number,
+	receive_num number(20),
+	receive_loca varchar2(50)
+);
+ 
+ select * from ROUTE
+ select * from receive_info
+ create sequence receive_seq increment by 1 start with 1;
+ create sequence route_seq increment by 1 start with 1;
+ drop sequence receive_seq
+delete from route;
+
+insert into route values(num_message.nextval,'route',sysdate)
+
+drop sequence num_board;
+
+select * from receive_info;
+select * from route;
+
+insert into app1 values(111,'Ω≈»£µÓ')

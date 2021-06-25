@@ -71,50 +71,25 @@
 	
 
 
+			<!-- Main -->
+					<div id="main">
 
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1><a href="#">FAQ<br /></a></h1>
+								</header>
+  
+   
    <!-- Wrapper-->
    <div id="wrapper">
-<%-- 필요없음
-            <!-- Nav -->
-            <!-- Admin!!!!!!!!!!!!!! -->
-               <nav id="nav">
-           <%
-         if (info == null) {
-         %>
-         <a href="#main" class="icon solid fa-home"><span>메인</span></a> <a
-            href="#join" class="icon solid fa-user-plus"><span>회원가입</span></a>
-         <%
-         } else {
-         %>
-         <%
-         if (info.getId().equals("admin")) {
-         %>
-
-         <a href="#admin_Userinfo" class="icon solid fa-users-cog"><span>회원정보</span></a>
-         <%
-         } else {
-         %>
-          <a href="#faq" class="icon Regular fa-question-circle"><span>FAQ</span></a>
-         <%
-         }
-         %>
-         <%
-         }
-         %>
-               
-               
-               </nav>
-    --%>
 
                
 
-      <div id="main">
+     
 
          <!--faq 한개만 보기   -->
          <article id="FAQ" class="panel">
-            <header>
-               <h2>FAQ 1개만 보기</h2>
-            </header>
 
             <body>
 
@@ -139,7 +114,7 @@
 					</tr>
 					<tr>
 						<td style="width: 130px">작성자:</td>
-						<td style= "align-content: center"><%=fdto.getFaq_writer()%></td>
+						<td><%=fdto.getFaq_writer()%></td>
 					</tr>
 					<tr>
 						<td colspan="2">내용</td>
@@ -150,15 +125,14 @@
 							
 						</td>
 					</tr>
-                            
-                            
-                              <tr>
-                                       <td colspan="2"><a href="faq.jsp"><button>뒤로가기</button></a></td>
-                                    </tr>
-
+                   </table>
+                   <div class="row" style="display: block;">
+                   <div class="col-3 col-6-medium"
+								style="margin: 0 auto; float: none;">
+                        <a href="faq.jsp"><button>뒤로가기</button></a>
                         
-                     </tbody>
-                  </table>
+               	   </div>   
+               	   </div>
                
 
             </body>

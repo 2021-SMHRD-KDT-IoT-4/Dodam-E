@@ -83,29 +83,6 @@
 
 
 
-	<!-- Wrapper-->
-	<div id="wrapper">
-
-		<!-- Nav -->
-		<!-- Admin!!!!!!!!!!!!!! -->
-		<nav id="nav">
-			<%
-			if (info == null) {
-			%>
-			<a href="#main" class="icon solid fa-home"><span>메인</span></a> <a
-				href="#join" class="icon solid fa-user-plus"><span>회원가입</span></a>
-			<%} else {%>
-			<%if (info.getId().equals("admin")) {%>
-
-			<a href="#admin_Userinfo" class="icon solid fa-users-cog"><span>회원정보</span></a>
-			<%} else {%>
-			<a href="#faq" class="icon Regular fa-list-alt"><span>게시판</span></a>
-			<%}%>
-			<%}%>
-
-
-		</nav>
-
 		<div id="main">
 
 			<!--faq 한개만 보기   -->
@@ -132,7 +109,7 @@
 					</tr>
 					<tr>
 						<td style="width: 130px">작성자:</td>
-						<td style= "align-content: center"><%=dto.getNotice_writer() %></td>
+						<td><%=dto.getNotice_writer() %></td>
 					</tr>
 					<tr>
 						<td colspan="2">내용</td>
@@ -147,12 +124,16 @@
 						<td><%=dto.getNotice_day()%></td>
 					</tr>
 					
-					<tr>
-                          <td colspan="2"><a href="board.jsp"><button>뒤로가기</button></a></td>
-                    </tr>
-								
-							
 				</table>
+				
+				 <div class="row" style="display: block;">
+                   <div class="col-3 col-6-medium"
+								style="margin: 0 auto; float: none;">
+                        <a href="board.jsp"><button>뒤로가기</button></a>
+                        
+               	   </div>   
+               	   </div>
+				
 
 				</body>
 
