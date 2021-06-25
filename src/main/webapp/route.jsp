@@ -29,6 +29,8 @@
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
+
+
 </head>
 <body class="is-preload">
 
@@ -69,12 +71,16 @@
 		%>
 
 		<!-- Main -->
-		<div id="main">
+		<div id="main" width="826px";heigh="400px">
+		<section class="post">
+								<header class="major">
+									<h1><a href="#">Route<br /></a></h1>
+								</header>
 		
 		<div id="map" style="width: 100%; height: 350px;"></div>
 
 		<script type="text/javascript"
-			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eead32d6ed0b289eaf8fb67836c885d3"></script>
+			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=baabcdaa6e2d28d90ba9f9ace42f8e6c"></script>
 		<script>
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 			mapOption = {
@@ -91,7 +97,8 @@
 			// 마커를 표시할 위치와 title 객체 배열입니다 
 			var positions = [ {
 				title : '학교',
-				latlng : new kakao.maps.LatLng(35.112171, 126.873735)
+				latlng : new kakao.maps.LatLng(35.112171, 126.873735),
+			    text : '학교' 
 
 			}, {
 				title : '학원',
@@ -132,7 +139,27 @@
 
 			}
 		</script>
+		<br>
+<table border="1" id="hhh">
+<tr align="center" >
+<td >순서</td>
+<td>장소이름</td>
+<td>위치확인시간</td>
+</tr>
 
+<tr align="center" >
+<td >1</td>
+<td>집</td>
+<td>date</td>
+</tr>
+
+<tr align="center" >
+<td >2</td>
+<td>신호등</td>
+<td>date</td>
+</tr>
+
+</table>
 
 		<!-- Copyright -->
 		<div id="copyright">
@@ -140,6 +167,7 @@
 				<li>&copy; Untitled</li>
 				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 			</ul>
+			</section>
 		</div>
 
 	</div>
