@@ -92,12 +92,13 @@ public class childDAO {
 		return c_list;
 	}
 	
+	int result=0;
 	
-	public int child_insert(childDTO dto) {
+	public int child_insert(childDTO dto, SendDTO sdto) {
 		
 		conn();
 		
-		String sql = "insert into child values(?, ?, ?, ?, ?, ?)";
+		String sql = "insert into child values(?, ?, ?, ?, ?,?)";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -108,9 +109,19 @@ public class childDAO {
 			psmt.setString(4, dto.getC_gender());
 			psmt.setString(5, dto.getC_school());
 			psmt.setString(6, dto.getC_send_machine());
-			
+
 			cnt = psmt.executeUpdate();
+			System.out.println(cnt);
 			
+			if(cnt>0) {
+				sql = "insert into send values (send_seq.nextval, ?, sysdate)";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, sdto.getSend_machine());
+				System.out.println("dhfb");
+			result=psmt.executeUpdate();
+				
+			}
+			System.out.println(result);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

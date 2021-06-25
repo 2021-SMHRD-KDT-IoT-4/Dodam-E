@@ -134,6 +134,7 @@
                                     <td>나이</td>
                                     <td>성별</td>
                                     <td>학교</td>
+                                    <td>기기번호</td>
                                  </tr>
                                 <%for(int i = 0; i < c_one_list.size(); i++) { %>
 										<tr align="center">
@@ -143,6 +144,7 @@
 											<td><%= c_one_list.get(i).getC_age()%></td>
 											<td><%= c_one_list.get(i).getC_gender()%></td>
 											<td><%= c_one_list.get(i).getC_school()%></td>
+											<td><%= c_one_list.get(i).getC_send_machine()%></td>
 										</tr>
 									<%} %>
 									<%} %> 

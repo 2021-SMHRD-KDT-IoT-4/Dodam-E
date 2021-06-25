@@ -126,10 +126,8 @@
 				latlng : new kakao.maps.LatLng(35.110974, 126.877459)
 			} ];
 
-<<<<<<< HEAD
 						<script type="text/javascript"
 							src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eead32d6ed0b289eaf8fb67836c885d3"></script>
-							<h1>스크립트</h1>
 						<script>
 							var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 							mapOption = {
@@ -138,14 +136,12 @@
 								level : 4
 							// 지도의 확대 레벨
 							};
-=======
 			// 마커 이미지의 이미지 주소입니다
 			var imageSrc = [ "./images/school.png", "./images/piano.png",
 					"./images/traffic.png", "./images/house.png" ];
 			//var imageSrc = "./img/piano.png"; 
 			//var imageSrc = "./img/traffic.png"; 
 			//var imageSrc = "./img/school.png"; 
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/Dodam-E.git
 
 			for (var i = 0; i < positions.length; i++) {
 
@@ -190,19 +186,15 @@
 
 </table>
 
-<<<<<<< HEAD
-							}
+							
 							</script>
-							<h1>스크립트</h1>
 				</article>
-=======
 		<!-- Copyright -->
 		<div id="copyright">
 			<ul>
 				<li>&copy; Untitled</li>
 				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 			</ul>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-IoT-4/Dodam-E.git
 			</section>
 		</div>
 

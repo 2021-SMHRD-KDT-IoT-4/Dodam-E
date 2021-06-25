@@ -28,9 +28,10 @@
 	</head>
 	<body class="is-preload">
 	
-	 <%
+	<%
       UserDTO info = (UserDTO)session.getAttribute("login_info");
       %>
+	
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -50,9 +51,11 @@
 							<%}else{ %>
 							<%if(info.getId().equals("admin")) { %>
 							<li><a href = "admin_userinfo.jsp">user info</a></li>
+							<li class="active"><a href = "sendview.jsp">send</a></li>
+							
 							<%}else{ %>
 							<li><a href="mypage.jsp">My Page</a></li>
-							<li  class="active"><a href="child.jsp">Child Sign Up</a></li>
+							<li><a href="child.jsp">Child Sign Up</a></li>
 							<li><a href="route.jsp">Route</a></li>
 							<%}%>
 							<li><a href="faq.jsp">FAQ</a></li>
@@ -66,64 +69,104 @@
 							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
+	
+
+
+
+   <!-- Wrapper-->
+   <div id="wrapper">
+
+            <!-- Nav -->
+            <!-- Admin!!!!!!!!!!!!!! -->
+               <nav id="nav">
+           <%
+         if (info == null) {
+         %>
+         <a href="#main" class="icon solid fa-home"><span>메인</span></a> <a
+            href="#join" class="icon solid fa-user-plus"><span>회원가입</span></a>
+         <%
+         } else {
+         %>
+         <%
+         if (info.getId().equals("admin")) {
+         %>
+
+         <a href="#admin_Userinfo" class="icon solid fa-users-cog"><span>회원정보</span></a>
+         <%
+         } else {
+         %>
+          <a href="#faq" class="icon Regular fa-question-circle"><span>FAQ</span></a>
+         <%
+         }
+         %>
+         <%
+         }
+         %>
+               
+               
+               </nav>
+   
+
+               
+
+      <div id="main">
+
+         <!--faq 한개만 보기   -->
+         <article id="FAQ" class="panel">
+            <header>
+               <h2>FAQ 1개만 보기</h2>
+            </header>
+
+            <body>
+
+
+               <%
+               int num = Integer.parseInt(request.getParameter("faq_seq"));
+               FaqWriteDAO fdao = new FaqWriteDAO();
+               FaqDTO fdto = fdao.showOne(num);
+               %>
+               <h1 class="con"></h1>
+				<table class="cell" border="1">
+				<colgroup>
+								<col width="100px">
+							</colgroup>
+					<tr>
+						<td>번호 : </td>
+						<td><%=fdto.getFaq_seq()%></td>
+					</tr>
+					<tr>
+						<td>제목 : </td>
+						<td><%=fdto.getFaq_title()%></td>
+					</tr>
+					<tr>
+						<td style="width: 130px">작성자:</td>
+						<td style= "align-content: center"><%=fdto.getFaq_writer()%></td>
+					</tr>
+					<tr>
+						<td colspan="2">내용</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<%=fdto.getFaq_content() %>	
+							
+						</td>
+					</tr>
+                            
+                            
+                              <tr>
+                                       <td colspan="2"><a href="faq.jsp"><button>뒤로가기</button></a></td>
+                                    </tr>
+
+                        
+                     </tbody>
+                  </table>
+               
+
+            </body>
+
+
+         </article>
 					
-					
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<h1><a href="#">Child Sign Up<br /></a></h1>
-								</header>
-
-						<!-- 아이등록 -->
-					<article id="child" class="panel">
-								
-						<form action="ChildService" method="post">
-								
-						<div>
-							<%if(info != null) {%>
-							<h2><%= info.getId() %></h2>
-								<div class="row">
-									<div class="col-8">
-										<input type="text" name="name" placeholder="아이이름" />
-									</div>
-									
-									<div class="col-4 col-12-small">
-										<input type="radio" id="demo-priority-low" name="gender" value="female">
-										<label for="demo-priority-low">여아</label>
-										
-										<input type="radio" id="demo-priority-normal" name="gender" value="male">
-										<label for="demo-priority-normal">남아</label>
-										
-									</div>
-									
-									
-									
-									<div class="col-8">
-										<input type="text" name="age" placeholder="나이" />
-									</div>
-									
-									<div class="col-8">
-										<input type="text" name="school" placeholder="학교" />
-									</div>
-									
-									<div class="col-8">
-										<input type="text" name="send_machine" placeholder="기기번호" />
-									</div>
-									
-									<div class="col-12">
-										<input type="submit" value="확인"  />
-									</div>
-								</div>
-								
-								<% session.setAttribute("u_id", info.getId()); %>
-							<%} %>
-						</div>
-						</form>
-					</article>
 
 				
 
