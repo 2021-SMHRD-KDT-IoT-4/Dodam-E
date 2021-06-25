@@ -73,6 +73,7 @@
 		<!-- Main -->
 		<div id="main" width="826px";heigh="400px">
 		<section class="post">
+		
 								<header class="major">
 									<h1><a href="#">Route<br /></a></h1>
 								</header>
