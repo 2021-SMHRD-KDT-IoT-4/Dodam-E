@@ -87,22 +87,18 @@
                <h2>FAQ 1개만 보기</h2>
             </header>
 
-            <body>
-
-
-               <%
-               int num = Integer.parseInt(request.getParameter("faq_seq"));
-               FaqWriteDAO fdao = new FaqWriteDAO();
-               FaqDTO fdto = fdao.showOne(num);
-               %>
-               <h1 class="con"></h1>
-				<table id="list" border="1">
-				<colgroup>
-								<col width="100px">
-							</colgroup>
+          
+				<%
+               	int num = Integer.parseInt(request.getParameter("faq_seq"));
+              	FaqWriteDAO fdao = new FaqWriteDAO();
+               	FaqDTO fdto = fdao.showOne(num);
+               	%>
+               <div>
+				<table border="1">
+			
 					<tr>
 						<td>번호 : </td>
-						<td style = "align:center"><%=fdto.getFaq_seq()%></td>
+						<td><%=fdto.getFaq_seq()%></td>
 					</tr>
 					<tr>
 						<td>제목 : </td>
@@ -118,24 +114,20 @@
 					<tr>
 						<td colspan="2">
 							<%=fdto.getFaq_content() %>	
-							
 						</td>
 					</tr>
-                            
-                            
-                              <tr>
-                                       <td colspan="2"><a href="faq.jsp"><button>뒤로가기</button></a></td>
-                                    </tr>
+                    <tr>
+                         <td colspan="2"><a href="faq.jsp"><button>뒤로가기</button></a></td>
+                    </tr>
 
                         
-                     </tbody>
                   </table>
-               
-
+               	</div>
+			   </article>	
             </body>
 
 
-         </article>
+      
 
          <!-- Footer -->
 
@@ -145,9 +137,6 @@
                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
             </ul>
          </div>
-
-      </div>
-   </div>
 
 
    <!-- Scripts -->
