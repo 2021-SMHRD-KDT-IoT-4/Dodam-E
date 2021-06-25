@@ -99,82 +99,77 @@
 						<a href="#">My Page<br /></a>
 					</h1>
 				</header>
+					
+				
 
-				<!-- mypage -->
-				<article id="mypage" class="panel">
-					<header>
-						<h2>My page</h2>
-					</header>
-
-					<section>
-
-						<%
-						if (info != null) {
-
-							childDAO c_dao = new childDAO();
-							ArrayList<childDTO> c_one_list = c_dao.Child_one_info(info);
-						%>
-
-
-						<div>
-							<table border="1">
-								<tr align="center">
-									<td>이름</td>
-									<td>아이디</td>
-									<td>비밀번호</td>
-									<td>휴대폰번호</td>
-								</tr>
-								<%
-								if (info != null) {
-								%>
-								<tr align="center">
-									<td><%=info.getName()%></td>
-									<td><%=info.getId()%></td>
-									<td><%=info.getPw()%></td>
-									<td><%=info.getTel()%></td>
-
-								</tr>
-								<%
-								}
-								%>
-							</table>
-						</div>
-
-						<header>
-							<h2>Kids page</h2>
-						</header>
-						<div class="row" style="display: block;">
-
-							<table border="1">
-								<tr align="center">
-
-									<td>ID</td>
-									<td>아이이름</td>
-									<td>나이</td>
-									<td>성별</td>
-									<td>학교</td>
-								</tr>
-								<%
-								for (int i = 0; i < c_one_list.size(); i++) {
-								%>
-								<tr align="center">
-
-									<td><%=c_one_list.get(i).getC_id()%></td>
-									<td><%=c_one_list.get(i).getC_name()%></td>
-									<td><%=c_one_list.get(i).getC_age()%></td>
-									<td><%=c_one_list.get(i).getC_gender()%></td>
-									<td><%=c_one_list.get(i).getC_school()%></td>
-								</tr>
-								<%
-								}
-								%>
-								<%
-								}
-								%>
-
-							</table>
-						
-					<div class="col-3 col-3 col-3 -medium" style="margin: 0 auto;float: none;">
+								<!-- mypage -->
+                     <article id="mypage" class="panel">
+                        <header>
+                           <h2>My page</h2>
+                        </header>
+                        
+                        <section>
+                        
+                        
+                        
+                        <%if(info!=null){ 
+                        
+                           childDAO c_dao = new childDAO();
+                           ArrayList<childDTO> c_one_list = c_dao.Child_one_info(info);
+                        
+                        %>
+                        
+                        
+                        <div>
+                              <table border="1">
+                                 <tr align="center">
+                                    <td>이름</td>
+                                    <td>아이디</td>
+                                    <td>비밀번호</td>
+                                    <td>휴대폰번호</td>
+                                 </tr>
+                                 <%if(info!=null){ %>
+                                 <tr align="center">
+                                    <td><%=info.getName()%></td>
+                                    <td><%=info.getId()%></td>
+                                    <td><%=info.getPw()%></td>
+                                    <td><%=info.getTel()%></td>
+                                    
+                                 </tr>
+                                 <%} %>   
+                              
+                              </table>
+                        </div>
+                        
+                        <header>
+                           <h2>Kids page</h2>
+                        </header>
+                        <div>
+                              <table border="1">
+                                 <tr align="center">
+                                    
+                                    <td>ID</td>
+                                    <td>아이이름</td>
+                                    <td>나이</td>
+                                    <td>성별</td>
+                                    <td>학교</td>
+                                    <td>기기번호</td>
+                                 </tr>
+                                <%for(int i = 0; i < c_one_list.size(); i++) { %>
+										<tr align="center">
+													
+											<td><%= c_one_list.get(i).getC_id()%></td>
+											<td><%= c_one_list.get(i).getC_name()%></td>
+											<td><%= c_one_list.get(i).getC_age()%></td>
+											<td><%= c_one_list.get(i).getC_gender()%></td>
+											<td><%= c_one_list.get(i).getC_school()%></td>
+											<td><%= c_one_list.get(i).getC_send_machine()%></td>
+										</tr>
+									<%} %>
+									<%} %> 
+                              
+                              </table>
+                                         <div class="col-3 col-3 col-3 -medium" style="margin: 0 auto;float: none;">
 								<form action="LogoutService">
 									<input type="submit" id="btn_logout" value="  로그아웃  " />
 								</form>
@@ -185,7 +180,10 @@
 									<input type="submit" id="btn_drop" value="  회원 탈퇴   " />
 								</form>
 						</div>
-				
+                        </div>
+                        
+                        </section>
+                     </article>
 
 				
 
