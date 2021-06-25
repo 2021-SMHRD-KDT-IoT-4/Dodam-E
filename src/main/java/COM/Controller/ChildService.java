@@ -1,6 +1,8 @@
 package COM.Controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import COM.Model.SendDTO;
 import COM.Model.childDAO;
 import COM.Model.childDTO;
 
@@ -26,20 +29,22 @@ public class ChildService extends HttpServlet {
 		String gender = request.getParameter("gender");
 		String age = request.getParameter("age");
 		String school = request.getParameter("school");
+		String send_machine = request.getParameter("send_machine");
 		
 		
-		childDTO dto = new childDTO(id, name, age, gender, school);
+		SendDTO sdto = new SendDTO(send_machine);
+		childDTO dto = new childDTO(id, name, age, gender, school, send_machine);
+		
 		childDAO dao = new childDAO();
 		
-		int cnt = dao.child_insert(dto);
+		int cnt = dao.child_insert(dto, sdto);
 		
-		//childDTO info = dao.child_check(dto);
 		
 		if(cnt > 0) {
 			System.out.println("아이등록 성공!");
 			
 			session.setAttribute("id", id);
-			//session.setAttribute("child_info", info);
+			session.setAttribute("send_machine", send_machine);
 			response.sendRedirect("mypage.jsp");
 			
 		}else {
@@ -47,8 +52,7 @@ public class ChildService extends HttpServlet {
 			response.sendRedirect("child.jsp");
 		}
 		
-		//System.out.println(info);
-		//System.out.println(id);
+		
 		
 	}
 

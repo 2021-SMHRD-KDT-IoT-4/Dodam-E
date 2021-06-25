@@ -185,13 +185,9 @@
 									<input type="submit" id="btn_drop" value="  È¸¿ø Å»Åð   " />
 								</form>
 						</div>
-					
-						
-						</div>
-					</section>
-				</article>
+				
 
-
+				
 
 				<!-- Copyright -->
 				<div id="copyright">

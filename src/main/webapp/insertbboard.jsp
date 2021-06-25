@@ -32,44 +32,48 @@
    UserDTO info = (UserDTO)session.getAttribute("login_info");
    %>
    
+	
+		<article>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="main.jsp" class="logo">Dodam E</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<%if(info == null) { %>
+							<li><a href="main.jsp">Dodam E</a></li>
+							<li><a href="join.jsp">Join</a></li>
+							<li><a href="login.jsp">Login</a></li>
+							<%}else{ %>
+							<%if(info.getId().equals("admin")) { %>
+							<li><a href = "admin_userinfo.jsp">user info</a></li>
+							<li><a href = "sendview.jsp">send</a></li>
+							<%}else{ %>
+							<li><a href="mypage.jsp">My Page</a></li>
+							<li><a href="child.jsp">Child Sign Up</a></li>
+							<li><a href="route.jsp">Route</a></li>
+							<%}%>
+							<li><a href="faq.jsp">FAQ</a></li>
+							<li class="active"><a href="board.jsp">Board</a></li>
+							<%}%>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+					
+					
 
 
-      <!-- Wrapper -->
-         <div id="wrapper">
-
-            <!-- Header -->
-               <header id="header">
-                  <a href="main.jsp" class="logo">Dodam E</a>
-               </header>
-
-            <!-- Nav -->
-               <nav id="nav">
-                  <ul class="links">
-                     <%if(info == null) { %>
-                     <li><a href="main.jsp">Dodam E</a></li>
-                     <li><a href="join.jsp">Join</a></li>
-                     <li><a href="login.jsp">Login</a></li>
-                     <%}else{ %>
-                     <%if(info.getId().equals("admin")) { %>
-                     <li><a href = "admin_userinfo.jsp">user info</a></li>
-                     <li><a href = "sendview.jsp">send</a></li>
-                     <%}else{ %>
-                     <li><a href="mypage.jsp">My Page</a></li>
-                     <li><a href="child.jsp">Child Sign Up</a></li>
-                     <li><a href="route.jsp">Route</a></li>
-                     <%}%>
-                     <li><a href="faq.jsp">FAQ</a></li>
-                     <li class="active"><a href="board.jsp">Board</a></li>
-                     <%}%>
-                  </ul>
-                  <ul class="icons">
-                     <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                     <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                     <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                     <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-                  </ul>
-               </nav>
-               
                
 			<div id="main">
 			

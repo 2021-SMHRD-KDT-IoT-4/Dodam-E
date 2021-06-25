@@ -40,7 +40,6 @@
 						<a href="main.jsp" class="logo">Dodam E</a>
 					</header>
 					
-					
 
 				<!-- Nav -->
 					<nav id="nav">
@@ -52,6 +51,7 @@
 							<%}else{ %>
 							<%if(info.getId().equals("admin")) { %>
 							<li><a href = "admin_userinfo.jsp">user info</a></li>
+							<li><a href = "sendview.jsp">send</a></li>
 							<%}else{ %>
 							<li><a href="mypage.jsp">My Page</a></li>
 							<li><a href="child.jsp">Child Sign Up</a></li>
@@ -98,7 +98,7 @@
                                    
                                 </div>
                         
-                                </div>
+                                
                           </div>
                        </form>
  </article>

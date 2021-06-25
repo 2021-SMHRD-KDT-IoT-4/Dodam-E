@@ -1,3 +1,5 @@
+<%@page import="COM.Model.SendDTO"%>
+<%@page import="COM.Model.SendDAO"%>
 <%@page import="COM.Model.childDAO"%>
 <%@page import="COM.Model.childDTO"%>
 <%@page import="COM.Model.UserDAO"%>
@@ -28,9 +30,11 @@
 	</head>
 	<body class="is-preload">
 	
-	 <%
-      UserDTO info = (UserDTO)session.getAttribute("login_info");
-      %>
+	<%
+		UserDTO info = (UserDTO)session.getAttribute("login_info");
+			
+		session.getAttribute("send_machine");
+	%>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -50,14 +54,14 @@
 							<%}else{ %>
 							<%if(info.getId().equals("admin")) { %>
 							<li><a href = "admin_userinfo.jsp">user info</a></li>
-							<li><a href = "sendview.jsp">send</a></li>
+							<li class="active"><a href = "sendview.jsp">send</a></li>
 							<%}else{ %>
 							<li><a href="mypage.jsp">My Page</a></li>
 							<li><a href="child.jsp">Child Sign Up</a></li>
 							<li><a href="route.jsp">Route</a></li>
 							<%}%>
 							<li><a href="faq.jsp">FAQ</a></li>
-							<li class="active"><a href="board.jsp">Board</a></li>
+							<li><a href="board.jsp">Board</a></li>
 							<%}%>
 						</ul>
 						<ul class="icons">
@@ -68,7 +72,7 @@
 						</ul>
 					</nav>
 					
-					
+			
 
 				<!-- Main -->
 					<div id="main">
@@ -76,54 +80,55 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1><a href="#">Board<br /></a></h1>
+									<h1><a href="#">Send<br /></a></h1>
 								</header>
 
-					<%
-                     NoticeWriteDAO Noticedao = new NoticeWriteDAO();
-                     ArrayList<NoticeDTO> Nlist = Noticedao.showBoard();
-                     //System.out.print(Nlist.size());
-                  %>
-
-                     <article id="board" class="panel">
-                     <header>
+								<!-- Send -->
+                     <article id="mypage" class="panel">
                         
-                           <a href="insertbboard.jsp">글 작성</a>
-                     </header>
-                     <form action="#" method="post">
-
-
-					 <table border="1">
+                        <section>
+                        
+                        <%
+                        	if(info!=null){ 
+                        
+                        	childDAO c_dao = new childDAO();
+                        	ArrayList<childDTO> c_one_list = c_dao.Child_one_info(info);
+                        	
+                        	SendDAO s_dao = new SendDAO();
+                        	ArrayList<SendDTO> s_list = s_dao.All_Send_info();
+                        
+                        %>
+                        
+                        <header>
+                           <h2>Send</h2>
+                        </header>
+                        <div>
+                        
+                        
+                              <table border="1">
                                  <tr align="center">
-                                 
-                                    <td>번호</td>
-                                    <td>제목</td>
-                                    <td>글쓴이</td>
-                                    <td>내용</td>
-                                    <td>날짜</td>
+                                    
+                                    <td></td>
+                                    <td>기기번호</td>
+                                    <td>등록날짜</td>
                                  </tr>
-                 
-                     <%
-                     for (int i = 0; i < Nlist.size(); i++) {
-                     %>
-                     <tr align="center">
-                        <td><%=Nlist.get(i).getNotice_seq()%></td>
-                        <td><a
-                           href="detailsBBoard.jsp?notice_seq=<%=Nlist.get(i).getNotice_seq()%>">
-                              <%=Nlist.get(i).getNotice_title()%></a></td>
-                        <td><%=Nlist.get(i).getNotice_writer()%></td>
-                        <td><%=Nlist.get(i).getNotice_content()%></td>
-                        <td><%=Nlist.get(i).getNotice_day()%></td>
-
-                     </tr>
-                     <%
-                     }
-                     %>
-                 
-               </table>
-           
-         </form>
-      </article>
+                                <%for(int i = 0; i < s_list.size(); i++) { %>
+										<tr align="center">
+											
+											<td><%= i+1%></td>
+											<td><%= s_list.get(i).getSend_machine()%></td>
+											<td><%= s_list.get(i).getSend_day()%></td>
+											
+										</tr>
+									<%} %>
+									<%} %> 
+                                 
+                              
+                              </table>
+                        </div>
+                        
+                        </section>
+                     </article>
 
 				
 

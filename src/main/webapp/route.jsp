@@ -17,6 +17,7 @@
 <%@page import="COM.Model.UserDTO"%>
 <%@page import="java.util.*"%>
 
+
 <!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
@@ -60,6 +61,7 @@
 							<%}else{ %>
 							<%if(info.getId().equals("admin")) { %>
 							<li><a href = "admin_userinfo.jsp">user info</a></li>
+							<li><a href = "sendview.jsp">send</a></li>
 							<%}else{ %>
 							<li><a href="mypage.jsp">My Page</a></li>
 							<li><a href="child.jsp">Child Sign Up</a></li>
@@ -125,6 +127,16 @@
 				latlng : new kakao.maps.LatLng(35.110974, 126.877459)
 			} ];
 
+						<script type="text/javascript"
+							src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eead32d6ed0b289eaf8fb67836c885d3"></script>
+						<script>
+							var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+							mapOption = {
+								center : new kakao.maps.LatLng(35.110974,
+										126.877459), // 지도의 중심좌표
+								level : 4
+							// 지도의 확대 레벨
+							};
 			// 마커 이미지의 이미지 주소입니다
 			var imageSrc = [ "./images/school.png", "./images/piano.png",
 					"./images/traffic.png", "./images/house.png" ];
@@ -175,6 +187,9 @@
 
 </table>
 
+							
+							</script>
+				</article>
 		<!-- Copyright -->
 		<div id="copyright">
 			<ul>
