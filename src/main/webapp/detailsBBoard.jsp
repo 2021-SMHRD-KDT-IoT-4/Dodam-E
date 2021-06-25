@@ -44,8 +44,8 @@
 							<li><a href="login.jsp">Login</a></li>
 							<li><a href="mypage.jsp">My Page</a></li>
 							<li><a href="child.jsp">Child Sign Up</a></li>
-							<li class="active"><a href="faq.jsp">FAQ</a></li>
-							<li><a href="board.jsp">Board</a></li>
+							<li><a href="faq.jsp">FAQ</a></li>
+							<li class="active"><a href="board.jsp">Board</a></li>
 							<li><a href="route.jsp">Route</a></li>
 						</ul>
 						<ul class="icons">
@@ -67,47 +67,99 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1><a href="#">FAQ<br /></a></h1>
+									<h1><a href="#">Board<br /></a></h1>
 								</header>
 
-								<!-- FAQ -->
-                     <article id="faq" class="panel">
-                        <form action="#" method="post">
-                           <%
-                           FaqWriteDAO dao = new FaqWriteDAO();
-                           ArrayList<FaqDTO> list = dao.showFaq();
-                           %>
-                           <div>
-                              <table border="1">
-                                 <tr align="center">
-                                 
-                                    <td>번호</td>
-                                    <td>제목</td>
-                                    <td>글쓴이</td>
-                                    <td>내용</td>
-                                    <td>날짜</td>
-                                 </tr>
-                                 <%
-                                 for (int i = 0; i <list.size(); i++){
-                                 %>
-                                 <tr align="center">
-                                    <td><%=list.get(i).getFaq_seq()%></td>
-                                    
-                                    <td><a href="viewfaqq.jsp?faq_seq=<%=list.get(i).getFaq_seq()%>">
-                                    <%=list.get(i).getFaq_title()%></a>
-                                    </td>
-                                    <td><%=list.get(i).getFaq_writer()%></td>
-                                    <td><%=list.get(i).getFaq_content()%></td>
-                                    <td><%=list.get(i).getFaq_answer()%></td>
-                                 </tr>
-                                 <%
-                                 }
-                                 %>                              
-                              
-                              </table>
-                           </div>
-                        </form>
-                     </article> 
+				
+
+
+
+	<!-- Wrapper-->
+	<div id="wrapper">
+
+		<!-- Nav -->
+		<!-- Admin!!!!!!!!!!!!!! -->
+		<nav id="nav">
+			<%
+			if (info == null) {
+			%>
+			<a href="#main" class="icon solid fa-home"><span>메인</span></a> <a
+				href="#join" class="icon solid fa-user-plus"><span>회원가입</span></a>
+			<%
+			} else {
+			%>
+			<%
+			if (info.getId().equals("admin")) {
+			%>
+
+			<a href="#admin_Userinfo" class="icon solid fa-users-cog"><span>회원정보</span></a>
+			<%
+			} else {
+			%>
+			<a href="#faq" class="icon Regular fa-list-alt"><span>게시판</span></a>
+			<%
+			}
+			%>
+			<%
+			}
+			%>
+
+
+		</nav>
+
+		<div id="main">
+
+			<!--faq 한개만 보기   -->
+			<article id="FAQ" class="panel">
+				<header>
+				</header>
+
+				<body>
+
+
+					<%
+					int num = Integer.parseInt(request.getParameter("notice_seq"));
+					NoticeWriteDAO Noticedao = new NoticeWriteDAO();
+					NoticeDTO dto = Noticedao.showOne(num);
+					%>
+					<h1 class="con"></h1>
+						<table class="cell" border="1">
+							<colgroup>
+								<col width="100px">
+							</colgroup>
+								<tr>
+						<td>제목 : </td>
+						<td><%=dto.getNotice_title()%></td>
+					</tr>
+					<tr>
+						<td style="width: 130px">작성자:</td>
+						<td style= "align-content: center"><%=dto.getNotice_writer() %></td>
+					</tr>
+					<tr>
+						<td colspan="2">내용</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<%=dto.getNotice_content() %>	
+						</td>
+					</tr>
+					<tr>
+						<td>날짜</td>
+						<td><%=dto.getNotice_day()%></td>
+					</tr>
+					
+					<tr>
+                          <td colspan="2"><a href="board.jsp"><button>뒤로가기</button></a></td>
+                    </tr>
+								
+							
+				</table>
+
+				</body>
+
+
+			</article>
+					
 
 				
 

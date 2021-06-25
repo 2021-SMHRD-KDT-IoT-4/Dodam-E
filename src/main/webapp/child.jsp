@@ -33,7 +33,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="join.jsp" class="logo">Dodam E</a>
+						<a href="main.jsp" class="logo">Dodam E</a>
 					</header>
 
 				<!-- Nav -->
