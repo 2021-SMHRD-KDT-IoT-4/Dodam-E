@@ -71,53 +71,6 @@
 						</ul>
 					</nav>
 					
-		<%--			
-
-		<!-- Nav -->
-	
-		<nav id="nav">
-			<ul class="links">
-				<%
-				if (info == null) {
-				%>
-				<li><a href="main.jsp">Dodam E</a></li>
-				<li><a href="join.jsp">Join</a></li>
-				<li><a href="login.jsp">Login</a></li>
-				<%
-				} else {
-				%>
-				<%
-				if (info.getId().equals("admin")) {
-				%>
-				<li><a href="admin_userinfo.jsp">user info</a></li>
-				<%
-				} else {
-				%>
-				<li><a href="mypage.jsp">My Page</a></li>
-				<li class="active"><a href="child.jsp">Child Sign Up</a></li>
-				<li><a href="route.jsp">Route</a></li>
-				<%
-				}
-				%>
-				<li><a href="faq.jsp">FAQ</a></li>
-				<li><a href="board.jsp">Board</a></li>
-				<%
-				}
-				%>
-			</ul>
-			<ul class="icons">
-				<li><a href="#" class="icon brands fa-twitter"><span
-						class="label">Twitter</span></a></li>
-				<li><a href="#" class="icon brands fa-facebook-f"><span
-						class="label">Facebook</span></a></li>
-				<li><a href="#" class="icon brands fa-instagram"><span
-						class="label">Instagram</span></a></li>
-				<li><a href="#" class="icon brands fa-github"><span
-						class="label">GitHub</span></a></li>
-			</ul>
-		</nav>
-
- --%>
 
 		<!-- Main -->
 		<div id="main">
@@ -134,10 +87,13 @@
 				<article id="child" class="panel">
 
 					<form action="ChildService" method="post">
-
 						
-							<div>
 								<div class="row" style="display: block;">
+								 <%if(info != null) {%>
+								 <div class="col-1 col-6-medium"
+										style="margin: 0 auto; float: none;">
+                     				<h2><%=info.getId() %></h2>
+								</div>
 									<div class="col-6 col-6-medium"
 										style="margin: 0 auto; float: none;">
 										<input type="text" name="name" placeholder="아이이름" />
@@ -156,7 +112,7 @@
 									<br>
 									<div class="col-6 col-6-medium"
 										style="margin: 0 auto; float: none;">
-										<input type="text" name="receive" placeholder="기기번호" />
+										<input type="text" name="send_machine" placeholder="기기번호" />
 									</div>
 									<br>
 									<div class="col-3 col-6-medium"
@@ -171,14 +127,15 @@
 									<div class="col-2 col-6-medium"
 										style="margin: 0 auto; float: none;">
 										<input type="submit" value="확인" />
-									
-								</div>
+							</div>
+							  <% session.setAttribute("u_id", info.getId()); %>
+                     			<%} %>
 							</div>
 							
 						
 					</form>
 				</article>
-
+				</section>
 
 
 				<!-- Copyright -->
