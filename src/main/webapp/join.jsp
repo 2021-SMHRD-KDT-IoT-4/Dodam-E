@@ -1,3 +1,4 @@
+
 <%@page import="COM.Model.childDAO"%>
 <%@page import="COM.Model.childDTO"%>
 <%@page import="COM.Model.UserDAO"%>
@@ -56,8 +57,8 @@
 							<li><a href="child.jsp">Child Sign Up</a></li>
 							<li><a href="faq.jsp">FAQ</a></li>
 							<li><a href="board.jsp">Board</a></li>
-							<li><a href="route.jsp">Route</a></li>
-							
+							<li>Route<%@include file="/route.jsp"%></li>
+						<!-- 	<a href="route.jsp">Route</a> -->
 						</ul>
 						
 					</nav>
