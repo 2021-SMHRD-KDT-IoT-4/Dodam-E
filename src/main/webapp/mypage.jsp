@@ -110,8 +110,6 @@
                         
                         <section>
                         
-                        
-                        
                         <%if(info!=null){ 
                         
                            childDAO c_dao = new childDAO();
@@ -169,17 +167,25 @@
 									<%} %> 
                               
                               </table>
-                                         <div class="col-3 col-3 col-3 -medium" style="margin: 0 auto;float: none;">
-								<form action="LogoutService">
-									<input type="submit" id="btn_logout" value="  ·Î±×¾Æ¿ô  " />
-								</form>
-								<form action="ChilddeleteService">
-									<input type="submit" id="btn_delete" value="  ¾ÆÀÌ Á¤º¸ »èÁ¦   " />
-								</form>
-								<form action="UserdeleteService">
-									<input type="submit" id="btn_drop" value="  È¸¿ø Å»Åð   " />
-								</form>
-						</div>
+                             	
+								<div class="col-12" style="margin: 0 auto;float: none;">
+									
+									<form action="LogoutService">
+										<input type="submit" id="btn_logout" value="  ·Î±×¾Æ¿ô  " />
+									</form>
+									<form action="LogoutService">
+										<input type="submit" id="btn_logout" value="  ·Î±×¾Æ¿ô  " />
+									</form>
+									
+									<a href="LogoutService"><input type="submit" id="btn_logout" value="  ·Î±×¾Æ¿ô  " /></a>
+									
+									<%--
+									<a href="LogoutService"><input type="submit" id="btn_logout" value="  ·Î±×¾Æ¿ô  " /></a>
+									<a href="ChilddeleteService"><input type="submit" id="btn_delete" value="  ¾ÆÀÌ Á¤º¸ »èÁ¦   " /></a>
+									<a href="UserdeleteService"><input type="submit" id="btn_drop" value="  È¸¿ø Å»Åð   " /></a>
+									--%>
+								</div>
+									
                         </div>
                         
                         </section>

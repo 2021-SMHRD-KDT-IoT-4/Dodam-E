@@ -81,7 +81,7 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1><a href="#">회원 목록<br /></a></h1>
+									<h1><a href="#">User Info<br /></a></h1>
 								</header>
 
 								<!-- FAQ -->
