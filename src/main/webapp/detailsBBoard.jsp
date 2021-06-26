@@ -109,7 +109,7 @@
 					</tr>
 					<tr>
 						<td style="width: 130px">작성자:</td>
-						<td><%=dto.getNotice_writer() %></td>
+						<td><%=dto.getNotice_id() %></td>
 					</tr>
 					<tr>
 						<td colspan="2">내용</td>

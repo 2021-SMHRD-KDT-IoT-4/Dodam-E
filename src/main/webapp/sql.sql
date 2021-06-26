@@ -6,6 +6,7 @@ select * from CHILD;
 select * from SEND;
 select * from ROUTE;
 
+insert into notice values( notice_seq.nextval, 'AA', 'ss', 'BB', sysdate);
 desc send;
 
 insert into CHILD values('효진이','10','여','무지개초등학교');
@@ -21,7 +22,7 @@ alter table child add(child_machine varchar2(30));
 
 commit;
 
-insert into notice VALUES(notice_seq.nextval,'준환바보','효지니','바보가 맞다2',sysdate);
+insert into notice VALUES(notice_seq.nextval,'준환바보','my','바보가 맞다2',sysdate);
 
 select * from child;
 

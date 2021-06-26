@@ -111,7 +111,7 @@
                         <td><a
                            href="detailsBBoard.jsp?notice_seq=<%=Nlist.get(i).getNotice_seq()%>">
                               <%=Nlist.get(i).getNotice_title()%></a></td>
-                        <td><%=Nlist.get(i).getNotice_writer()%></td>
+                        <td><%=Nlist.get(i).getNotice_id()%></td>
                         <td><%=Nlist.get(i).getNotice_content()%></td>
                         <td><%=Nlist.get(i).getNotice_day()%></td>
 

@@ -102,7 +102,7 @@
                            <tr class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
                               <th>작성자 :</th>
-                              <td colspan="3" width="200"><input type="text" name="writer"></td>
+                              <td colspan="3" width="200"> <%=info.getId() %></td>
                            </tr>
                            
                            <tr class="col-6 col-6-medium"
@@ -123,7 +123,8 @@
                         
                         <input type = "submit" value = "작성하기">
                         <input type="button" value="뒤로가기" onClick="window.location='board.jsp'" />
-                        </div>   
+                        </div> 
+                        <% session.setAttribute("u_id", info.getId()); %>
                	       </div>
                           
                   </form>
