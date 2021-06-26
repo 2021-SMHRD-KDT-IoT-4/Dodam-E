@@ -129,7 +129,8 @@
 				 <div class="row" style="display: block;">
                    <div class="col-3 col-6-medium"
 								style="margin: 0 auto; float: none;">
-                        <a href="board.jsp"><button>뒤로가기</button></a>
+                        <%-- <a href="board.jsp"><button>뒤로가기</button></a> --%>
+                        <input type="button" value="뒤로가기" onClick="window.location='board.jsp'" />
                         
                	   </div>   
                	   </div>

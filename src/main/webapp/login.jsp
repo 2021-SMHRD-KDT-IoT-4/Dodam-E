@@ -94,7 +94,6 @@
                                 <br>
                                 <div class="col-12">
                                    <input type="submit" value="  로그인  " />
-                                   <input type="button" value="회원가입" onClick="window.location='#join'" />
                                    
                                 </div>
                         

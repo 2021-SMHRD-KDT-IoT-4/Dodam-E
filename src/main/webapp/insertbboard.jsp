@@ -118,13 +118,13 @@
                         </tbody>
                      </table>
                      
-                       <div class="row" style="display: block;">
-                  		<div class="col-3 col-6-medium" style="margin: 0 auto; float: none;">
-                          <button><a href="board.jsp">뒤로가기</a></button>
+                       <div class="row" style="display: block;  text-align: center;">
+                  		<div class="col-6-medium" style="margin: 0 auto; float: none;">
+                        
                         <input type = "submit" value = "작성하기">
+                        <input type="button" value="뒤로가기" onClick="window.location='board.jsp'" />
                         </div>   
-               	        </div>
-
+               	       </div>
                           
                   </form>
 
