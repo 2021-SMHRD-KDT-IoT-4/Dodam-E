@@ -1,5 +1,6 @@
 
 
+<%@page import="COM.Model.ReceiveDTO"%>
 <%@page import="COM.Model.RouteDAO"%>
 <%@page import="COM.Model.RouteDTO"%>
 <%@page import="COM.Model.UserDTO"%>
@@ -44,17 +45,17 @@
 
 	<%
 	UserDTO info = (UserDTO) session.getAttribute("login_info");
-	childDTO cname=(childDTO)session.getAttribute("c_name");
+    String name =info.getId();
 	ArrayList<RouteDTO> list=null;
-	if (info != null) {
 
-		
-		RouteDAO dao = new RouteDAO();
-		 list = dao.showOne(cname);
-		 
-		System.out.println(list);
-	}
-	%>
+
+		if(info!=null){
+			 list=(ArrayList<RouteDTO>)session.getAttribute("mcr");
+			
+		}
+%>
+	
+
 
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -196,10 +197,11 @@
 						<td>장소이름</td>
 						<td>위치확인시간</td>
 					</tr>
+					
 					<%for(int i=0;i<list.size();i++){%>
 					<tr align="center">
 						<td><%=i+1 %></td>
-						<td><%=list.get(i).getRoute() %></td>
+						<td><%=list.get(i).getRoute()%></td>
 						<td><%=list.get(i).getCheckTime() %></td>
 					</tr>
 <%} %>

@@ -3,6 +3,7 @@ package COM.Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpSession;
 
 import COM.Model.ReceiveDTO;
 import COM.Model.RouteDAO;
+import COM.Model.RouteDTO;
+import COM.Model.SendDTO;
 import COM.Model.UserDTO;
 import COM.Model.childDTO;
 
@@ -23,8 +26,9 @@ public class Wifi extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("EUC-KR");
-
+//		Integer.parseInt(request.getParameter("sb"));
 		int js = Integer.parseInt(request.getParameter("sb"));
+		;
 
 		System.out.println(js);
 
@@ -32,83 +36,29 @@ public class Wifi extends HttpServlet {
 		ArrayList<ReceiveDTO> list = dao.loca();
 		int num = 0;
 		String loca = "";
-		int cnt = 0;
 		HttpSession session = request.getSession();
 		UserDTO info = (UserDTO) session.getAttribute("login_info");
+		RouteDTO mcr = (RouteDTO) session.getAttribute("mcr");
+		System.out.println(info.getId());
+//		String cc = (String) session.getAttribute("c_name");
+//		System.out.println(cc);
+
 		if (info != null) {
-			String send = (String) session.getAttribute("send_machine");
-			childDTO cname = (childDTO) session.getAttribute("c_name");
-
+			String id = info.getId();
+			String name = mcr.getRoute_child();
 			if (js > 0) {
-				if (send == "11") {
+				if (id.equals("ss")) {
+
 					for (int i = 0; i < list.size(); i++) {
-
 						num = list.get(i).getReceive_num();
+
 						if (num == js) {
-
+							// 아이이름,유저아이디,센드번호,
 							loca = list.get(i).getReceive_loca();
-							System.out.println("등록성공");
-
-							cnt = dao.upload(info, cname, loca);
-
-							break;
-						} else if (num == js) {
-
-							loca = list.get(i).getReceive_loca();
-							System.out.println("등록성공");
-
-							cnt = dao.upload(info, cname, loca);
-							break;
-						} else if (num == js) {
-
-							loca = list.get(i).getReceive_loca();
-							System.out.println("등록성공");
-
-							cnt = dao.upload(info, cname, loca);
-							break;
+							 dao.upload(info, name, loca);
+							
 						}
 					}
-				} else if (send == "111") {
-					for (int i = 0; i < list.size(); i++) {
-
-						num = list.get(i).getReceive_num();
-						if (num == js) {
-
-							loca = list.get(i).getReceive_loca();
-							System.out.println("등록성공");
-
-							cnt = dao.upload(info, cname, loca);
-
-							break;
-						} else if (num == js) {
-
-							loca = list.get(i).getReceive_loca();
-							System.out.println("등록성공");
-
-							cnt = dao.upload(info, cname, loca);
-
-							break;
-						} else if (num == js) {
-
-							loca = list.get(i).getReceive_loca();
-							System.out.println("등록성공");
-
-							cnt = dao.upload(info, cname, loca);
-							break;
-						}
-
-						if (cnt > 0) {
-
-							session.setAttribute("loca", loca);
-							response.sendRedirect("route.jsp");
-
-						} else {
-							response.sendRedirect("child.jsp");
-
-						}
-
-					}
-
 				}
 
 			}

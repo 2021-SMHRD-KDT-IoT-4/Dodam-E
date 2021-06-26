@@ -67,7 +67,7 @@ insert into receive_info values(receive_seq.nextval,0001,'학교');
 insert into receive_info values(receive_seq.nextval,0002,'신호등');
 insert into receive_info values(receive_seq.nextval,0003,'피아노학원');
 insert into receive_info values(receive_seq.nextval,0004,'집');
-insert into ROUTE values(route_seq.nextval,'집',sysdate);
+insert into route values(route_seq.nextval,'ss','sss','집',sysdate);
 
 
 select * from users;

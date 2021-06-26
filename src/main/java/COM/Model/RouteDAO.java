@@ -17,7 +17,7 @@ public class RouteDAO {
 	int cnt = 0;
 	RouteDTO dto = null;
 	ArrayList<RouteDTO> list = null;
-
+	ReceiveDTO dto1=null; 
 	public void conn() {
 
 		try {
@@ -58,7 +58,7 @@ public class RouteDAO {
 
 	}
 
-	public int upload(UserDTO user, childDTO child, String route) {
+	public int upload(UserDTO user, String child, String route) {
 		conn();
 
 		String sql = "insert into route values(route_seq.nextval,?,?,?,sysdate)";
@@ -67,7 +67,7 @@ public class RouteDAO {
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, user.getId());
-			psmt.setString(2, child.getC_name());
+			psmt.setString(2,child);
 			psmt.setString(3, route);
 
 			cnt = psmt.executeUpdate();
@@ -115,23 +115,23 @@ public class RouteDAO {
 		return list;
 	}
 
-	public ArrayList<RouteDTO> showOne(childDTO name) {
+	public ArrayList<RouteDTO> showOne(String name) {
 		list = new ArrayList<RouteDTO>();
 		conn();
-		String sql = " select * from route where route_child =?";
+		String sql = " select * from route where route_user =?";
 
 		try {
 			psmt = conn.prepareStatement(sql);
 
-			psmt.setString(1, name.getC_name());
+			psmt.setString(1, name);
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
 
 				int route_seq = rs.getInt(1);
-				String route = rs.getString(2);
-				String route_user = rs.getString(3);
-				String route_child = rs.getString(4);
+				String route_user = rs.getString(2);
+				String route_child = rs.getString(3);
+				String route = rs.getString(4);
 				String checktime = rs.getString(5);
 
 				dto = new RouteDTO(route_seq, route_user, route_child, route, checktime);
@@ -149,7 +149,7 @@ public class RouteDAO {
 		ArrayList<ReceiveDTO> list = new ArrayList<ReceiveDTO>();
 		conn();
 
-		String sql = "select * from Receive_info  ";
+		String sql = "select * from Receive_info";
 
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -162,8 +162,8 @@ public class RouteDAO {
 				int receive_num = rs.getInt(2);
 				String receive_loca = rs.getString(3);
 
-				ReceiveDTO dto = new ReceiveDTO(receive_seq, receive_num, receive_loca);
-				list.add(dto);
+				dto1= new ReceiveDTO(receive_seq, receive_num, receive_loca);
+				list.add(dto1);
 
 			}
 
