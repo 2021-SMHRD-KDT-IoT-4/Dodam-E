@@ -44,6 +44,7 @@ public class ChildService extends HttpServlet {
 			System.out.println("아이등록 성공!");
 			
 			session.setAttribute("id", id);
+			session.setAttribute("c_name", name);
 			session.setAttribute("send_machine", send_machine);
 			response.sendRedirect("mypage.jsp");
 			

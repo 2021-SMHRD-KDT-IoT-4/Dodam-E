@@ -5,7 +5,7 @@ select * from NOTICE;
 select * from CHILD;
 select * from SEND;
 
-
+desc send;
 
 insert into CHILD values('효진이','10','여','무지개초등학교');
 
@@ -32,6 +32,8 @@ commit;
 create table route (
 
  route_seq number,
+ route_user varchar2(50),
+ route_child varchar2(50),
  route varchar2(50),
  checktime date
  );
@@ -44,14 +46,15 @@ create table receive_info(
 	receive_loca varchar2(50)
 );
  
- select * from ROUTE
+ select * from ROUTE;
  select * from receive_info
  create sequence receive_seq increment by 1 start with 1;
  create sequence route_seq increment by 1 start with 1;
  drop sequence receive_seq
 delete from route;
 
-insert into route values(num_message.nextval,'route',sysdate)
+
+insert into route values(route_seq.nextval,'route',sysdate)
 
 drop sequence num_board;
 
@@ -59,9 +62,15 @@ select * from receive_info;
 select * from route;
 
 insert into app1 values(111,'신호등')
+insert into receive_info values(receive_seq.nextval,0001,'학교');
+insert into receive_info values(receive_seq.nextval,0002,'신호등');
+insert into receive_info values(receive_seq.nextval,0003,'피아노학원');
+insert into receive_info values(receive_seq.nextval,0004,'집');
+insert into ROUTE values(route_seq.nextval,'집',sysdate);
 
 
 select * from users;
+select * from app1;
 
 
 

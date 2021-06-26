@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 public class RouteDAO {
 
 	Connection conn = null;
@@ -14,15 +16,15 @@ public class RouteDAO {
 	ResultSet rs = null;
 	int cnt = 0;
 	RouteDTO dto = null;
-
+	ArrayList<RouteDTO> list=null;
 	public void conn() {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
-			String db_id = "hr";
-			String db_pw = "hr";
+			String db_url = "jdbc:oracle:thin:@192.168.0.77:1521:xe";
+			String db_id = "secondProject";
+			String db_pw = "1234";
 
 			conn = DriverManager.getConnection(db_url, db_id, db_pw);
 
@@ -55,17 +57,20 @@ public class RouteDAO {
 
 	}
 
-	public int upload(String route) {
+	public int upload(UserDTO user,childDTO child,String route) {
 		conn();
 
-		String sql = "insert into route values(route_seq.nextval,?,sysdate)";
+		String sql = "insert into route values(route_seq.nextval,?,?,?,sysdate)";
 
 		try {
 			psmt = conn.prepareStatement(sql);
 
-			psmt.setString(1,route);
+			psmt.setString(1,user.getId());
+			psmt.setString(2,child.getC_name());
+			psmt.setString(3,route);
 			
 			cnt = psmt.executeUpdate();
+			
 			
 		} catch (SQLException e) {
 
@@ -81,7 +86,7 @@ public class RouteDAO {
 
 	public ArrayList<RouteDTO> showboard() {
 		
-		ArrayList<RouteDTO> list = new ArrayList<RouteDTO>();
+		 list= new ArrayList<RouteDTO>();
 		conn();
 
 		String sql = "select * from route order by day desc";
@@ -111,32 +116,36 @@ public class RouteDAO {
 		return list;
 	}
 
-	public RouteDTO showOne( int route_num) {
+	public ArrayList< RouteDTO> showOne(childDTO name) {
+		 list= new ArrayList<RouteDTO>();
 		conn();
-		String sql= " select * from route where route_seq =?";
+		String sql= " select * from route where route_child =?";
 		
 		try {
 			psmt=conn.prepareStatement(sql);
 			
-			psmt.setInt(1,route_num);
+			psmt.setString(1,name.getC_name());
 			rs = psmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				
 				int route_seq = rs.getInt(1);
 				String route = rs.getString(2);
+				String route1 = rs.getString(3);
+				String route2 = rs.getString(4);
 				String checktime = rs.getString(3);
 		
 				
 					
-				dto= new RouteDTO(route_seq, route, checktime);
+				dto= new RouteDTO(route_seq, route,route1,route2, checktime);
+				list.add(dto);
 			}	
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close();
 		}
-		return dto;
+		return list;
 	}
 		
 	
