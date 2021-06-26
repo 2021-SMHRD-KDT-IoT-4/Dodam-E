@@ -9,6 +9,18 @@ public class NoticeDTO {
 	private String notice_day;
 	
 	
+	public NoticeDTO(String notice_id) {
+		super();
+		this.notice_id = notice_id;
+	}
+	
+	public NoticeDTO(int notice_seq, String notice_id) {
+		super();
+		this.notice_seq = notice_seq;
+		this.notice_id = notice_id;
+	}
+
+	
 	public NoticeDTO(String notice_title, String notice_id, String notice_content) {
 		this.notice_title = notice_title;
 		this.notice_id = notice_id;

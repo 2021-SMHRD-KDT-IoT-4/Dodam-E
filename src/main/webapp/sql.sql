@@ -74,6 +74,8 @@ insert into ROUTE values(route_seq.nextval,'Áý',sysdate);
 select * from users;
 select * from app1;
 
+delete from NOTICE where notice_seq = 167;
+
 
 
 

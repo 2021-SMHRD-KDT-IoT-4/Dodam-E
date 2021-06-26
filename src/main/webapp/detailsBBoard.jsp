@@ -30,6 +30,8 @@
 	
 	 <%
       UserDTO info = (UserDTO)session.getAttribute("login_info");
+	  NoticeDTO result1 = (NoticeDTO)session.getAttribute("seq");
+
       %>
 
 		<!-- Wrapper -->
@@ -95,9 +97,12 @@
 
 					<%
 					int num = Integer.parseInt(request.getParameter("notice_seq"));
+					System.out.println("출력출력" + num);
 					NoticeWriteDAO Noticedao = new NoticeWriteDAO();
 					NoticeDTO dto = Noticedao.showOne(num);
+					session.setAttribute("r_seq", num); 
 					%>
+					
 					<h1 class="con"></h1>
 						<table class="cell" border="1">
 							<colgroup>
@@ -131,6 +136,11 @@
 								style="margin: 0 auto; float: none;">
                         <%-- <a href="board.jsp"><button>뒤로가기</button></a> --%>
                         <input type="button" value="뒤로가기" onClick="window.location='board.jsp'" />
+                        
+                        <form action="DeleteBoardService">
+                        <input type="submit" value="삭제하기">
+                        </form>
+                        
                         
                	   </div>   
                	   </div>
