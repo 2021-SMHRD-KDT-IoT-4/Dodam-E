@@ -16,7 +16,8 @@ public class RouteDAO {
 	ResultSet rs = null;
 	int cnt = 0;
 	RouteDTO dto = null;
-	ArrayList<RouteDTO> list=null;
+	ArrayList<RouteDTO> list = null;
+
 	public void conn() {
 
 		try {
@@ -57,7 +58,7 @@ public class RouteDAO {
 
 	}
 
-	public int upload(UserDTO user,childDTO child,String route) {
+	public int upload(UserDTO user, childDTO child, String route) {
 		conn();
 
 		String sql = "insert into route values(route_seq.nextval,?,?,?,sysdate)";
@@ -65,13 +66,12 @@ public class RouteDAO {
 		try {
 			psmt = conn.prepareStatement(sql);
 
-			psmt.setString(1,user.getId());
-			psmt.setString(2,child.getC_name());
-			psmt.setString(3,route);
-			
+			psmt.setString(1, user.getId());
+			psmt.setString(2, child.getC_name());
+			psmt.setString(3, route);
+
 			cnt = psmt.executeUpdate();
-			
-			
+
 		} catch (SQLException e) {
 
 			e.printStackTrace();
@@ -85,8 +85,8 @@ public class RouteDAO {
 	}
 
 	public ArrayList<RouteDTO> showboard() {
-		
-		 list= new ArrayList<RouteDTO>();
+
+		list = new ArrayList<RouteDTO>();
 		conn();
 
 		String sql = "select * from route order by day desc";
@@ -101,7 +101,6 @@ public class RouteDAO {
 				int route_seq = rs.getInt(1);
 				String route = rs.getString(2);
 				String checktime = rs.getString(3);
-				
 
 				dto = new RouteDTO(route_seq, route, checktime);
 				list.add(dto);
@@ -116,46 +115,40 @@ public class RouteDAO {
 		return list;
 	}
 
-	public ArrayList< RouteDTO> showOne(childDTO name) {
-		 list= new ArrayList<RouteDTO>();
+	public ArrayList<RouteDTO> showOne(childDTO name) {
+		list = new ArrayList<RouteDTO>();
 		conn();
-		String sql= " select * from route where route_child =?";
-		
+		String sql = " select * from route where route_child =?";
+
 		try {
-			psmt=conn.prepareStatement(sql);
-			
-			psmt.setString(1,name.getC_name());
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, name.getC_name());
 			rs = psmt.executeQuery();
-			
-			while(rs.next()) {
-				
+
+			while (rs.next()) {
+
 				int route_seq = rs.getInt(1);
 				String route = rs.getString(2);
-				String route1 = rs.getString(3);
-				String route2 = rs.getString(4);
-				String checktime = rs.getString(3);
-		
-				
-					
-				dto= new RouteDTO(route_seq, route,route1,route2, checktime);
+				String route_user = rs.getString(3);
+				String route_child = rs.getString(4);
+				String checktime = rs.getString(5);
+
+				dto = new RouteDTO(route_seq, route_user, route_child, route, checktime);
 				list.add(dto);
-			}	
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 		return list;
 	}
-		
-	
-	
-	
+
 	public ArrayList<ReceiveDTO> loca() {
 		ArrayList<ReceiveDTO> list = new ArrayList<ReceiveDTO>();
 		conn();
-		
-		
+
 		String sql = "select * from Receive_info  ";
 
 		try {
@@ -168,7 +161,6 @@ public class RouteDAO {
 				int receive_seq = rs.getInt(1);
 				int receive_num = rs.getInt(2);
 				String receive_loca = rs.getString(3);
-							
 
 				ReceiveDTO dto = new ReceiveDTO(receive_seq, receive_num, receive_loca);
 				list.add(dto);
@@ -181,9 +173,7 @@ public class RouteDAO {
 			close();
 		}
 		return list;
-		
+
 	}
-	
+
 }
-
-
