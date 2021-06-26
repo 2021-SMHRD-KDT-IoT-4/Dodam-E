@@ -288,4 +288,37 @@ public class UserDAO {
 		return cnt;
 	}
 
+	public boolean idcheck(String id) {
+		conn();
+
+		boolean check= true;
+		
+		String sql = "select * from users where users_id=?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, id);
+			
+	        rs	=	psmt.executeQuery();
+	        
+	        if(rs.next()) {
+	        	check=false;
+	        	
+	        }
+			
+			
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+			
+		}finally {
+			close();
+		}
+			return check;
+	}
+
 }
+	
+	
+
