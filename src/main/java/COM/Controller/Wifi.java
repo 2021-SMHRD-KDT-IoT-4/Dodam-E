@@ -42,6 +42,7 @@ public class Wifi extends HttpServlet {
 //		String cc = (String) session.getAttribute("c_name");
 //		System.out.println(cc);
 
+
 		if (info != null) {
 			String id = info.getId();
 			
