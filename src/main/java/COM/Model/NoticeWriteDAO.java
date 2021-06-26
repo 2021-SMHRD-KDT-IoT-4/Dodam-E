@@ -55,15 +55,17 @@ public class NoticeWriteDAO {
 
 	}
 
-	public int upload(NoticeDTO dto) {
+	public int upload(NoticeDTO dto, String id) {
 		conn();
 
 		String sql = "insert into notice values (notice_seq.nextval, ?, ?, ?, sysdate)";
+		
 
 		try {
 			psmt = conn.prepareStatement(sql);
+			
 			psmt.setString(1, dto.getNotice_title());
-			psmt.setString(2, dto.getNotice_writer());
+			psmt.setString(2, id);
 			psmt.setString(3, dto.getNotice_content());
 
 			
@@ -96,10 +98,10 @@ public class NoticeWriteDAO {
 			while (rs.next()) {
 				int num = rs.getInt(1);
 				String title = rs.getString(2);
-				String writer = rs.getString(3);
+				String id = rs.getString(3);
 				String content = rs.getString(4);
 				String day = rs.getString(5);
-				dto = new NoticeDTO(num, title, writer, content, day);
+				dto = new NoticeDTO(num, title, id, content, day);
 				list.add(dto);
 			}
 		
@@ -138,4 +140,35 @@ public class NoticeWriteDAO {
 		return dto;
 
 	}
+	
+	public int deleteOne(NoticeDTO dto) {
+		conn();
+		
+		String sql = "delete from notice where users_id = ?and notice_seq=?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, dto.getNotice_id());
+			psmt.setInt(2, dto.getNotice_seq());
+			
+			cnt = psmt.executeUpdate();
+			
+			if(cnt !=0) {
+				System.out.println("시앤티작동중");
+			}else {
+				System.out.println("시앤티 인식을 못함");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+
+	
+
+	}
+	
 }

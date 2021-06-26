@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import COM.Model.NoticeDTO;
 import COM.Model.NoticeWriteDAO;
@@ -16,27 +17,31 @@ public class InsertBoard extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("EUC-KR");
+		
+		HttpSession session = request.getSession();
+		
 		String title = request.getParameter("title");
-		String writer = request.getParameter("writer");
+		String id = (String)session.getAttribute("u_id");
 		String content = request.getParameter("content");
-		System.out.println(title);
-		System.out.println(writer);
-		System.out.println(content);
+		
+		
+		
 
 		// 3개를 DB에 넣는 코드
-		NoticeDTO dto = new NoticeDTO(title, writer, content);
+		NoticeDTO dto = new NoticeDTO(title, id, content);
 		NoticeWriteDAO dao = new NoticeWriteDAO();
-		int cnt = dao.upload(dto);
+		int cnt = dao.upload(dto, id);
+		
+		System.out.println(id);
+		System.out.println(title);
+		System.out.println(content);
+		
 		if (cnt > 0) {
 			response.sendRedirect("board.jsp");
 		} else {
 			response.sendRedirect("insertbboard.jsp");
 		}
 
-		// int cnt 넣은 후에 cnt가 > 0
-		// 목록있는 서블릿으로 이동
-
-		// cnt 0, -1 -> 다시 글 작성하게 이동
 
 	}
 
