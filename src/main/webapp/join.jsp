@@ -98,7 +98,8 @@
 						<div class="row" style="display: block;">
 							<div class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
-								<input type="text" name="id" placeholder="ID" />
+								<input type="text" name="id" placeholder="ID" id="input_id" >
+							    <input type="button" value="중복체크" onclick="idCheck()"><span id="sp"></span>
 							</div>
 							<br>
 							<div class="col-6 col-6-medium"
@@ -216,8 +217,7 @@
 		</div>
 
 	</div>
-
-	<!-- Scripts -->
+			<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -225,6 +225,54 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	
+    <script type="text/javascript" >
+			
+			function idCheck(){
+			
+				var input = document.getElementById("input_id");
+			
+				
+				
+				$.ajax({
+					type : "post",
+					data : {id : input.value },
+					url : "idCheckService",
+					
+					success : function(check){
+					
+						
+						if(check!="true"){
+						
+							document.getElementById("sp");
+							
+							sp.innerHTML="이미 사용중인 아이디입니다.";
+							
+							sp.style.color = "red";
+							sp.style.fontSize="6px"
+							
+						}else{
+							
+							sp.innerHTML="멋진 아이디네요";
+							sp.style.color = "green";
+							
+						}
+					
+						
+					}
+					
+					
+				});
+				
+			}
+			
+			
+			</script>
+	
+	
+			
+			
+	
 
 </body>
 </html>

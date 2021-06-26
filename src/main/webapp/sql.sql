@@ -59,3 +59,11 @@ select * from receive_info;
 select * from route;
 
 insert into app1 values(111,'Ω≈»£µÓ')
+
+
+select * from users;
+
+
+
+
+
