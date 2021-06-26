@@ -81,7 +81,7 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1><a href="#">회원 목록<br /></a></h1>
+									<h1><a href="#">User Info<br /></a></h1>
 								</header>
 
 								<!-- FAQ -->
@@ -109,10 +109,19 @@
                         </tr>
                      <%} %>
                               </table>
+                              
+                              	
                            </div>
                         </form>
+                        <div class="row" style="display: block; text-align: center;" >
+                        <div class="col-12" style="margin: 0 auto;float: none;">
+									<form action="LogoutService">
+										<input type="submit" id="btn_logout" value=" 로그아웃 " />
+									</form>
+								
+								</div>
                      </article> 
-
+					</section>
 				
 
 				<!-- Copyright -->
