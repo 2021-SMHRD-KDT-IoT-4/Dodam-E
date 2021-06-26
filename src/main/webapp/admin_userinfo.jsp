@@ -109,10 +109,18 @@
                         </tr>
                      <%} %>
                               </table>
+                              
+                              	
                            </div>
                         </form>
+                        <div class="col-12" style="margin: 0 auto;float: none;">
+									<form action="LogoutService">
+										<input type="submit" id="btn_logout" value=" ·Î±×¾Æ¿ô " />
+									</form>
+								
+								</div>
                      </article> 
-
+					</section>
 				
 
 				<!-- Copyright -->
