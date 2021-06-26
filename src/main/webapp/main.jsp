@@ -75,17 +75,15 @@
 							<%}%>
 							
 						</ul>
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span
-								class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span
-								class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span
-								class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span
-								class="label">GitHub</span></a></li>
-						</ul>
 
+						<%-- 아이콘 (공간 부족하면 지우기) --%>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+						
 					</nav>
 
 				<!-- Main -->
@@ -129,6 +127,7 @@
 								</ul>
 							</form>
 						</section>
+						
 						<section class="split contact">
 							<section class="alt">
 								<h3>Address</h3>
@@ -143,6 +142,7 @@
 								<h3>Email</h3>
 								<p><a href="#">info@untitled.tld</a></p>
 							</section>
+							
 							<section>
 								<h3>Social</h3>
 								<ul class="icons alt">
