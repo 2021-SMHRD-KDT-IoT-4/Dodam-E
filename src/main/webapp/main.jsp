@@ -20,6 +20,7 @@
 -->
 <html>
 	<head>
+	
 		<title>Massively by HTML5 UP</title>
 		<meta charset="EUC-KR" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -39,7 +40,7 @@
 				<!-- Intro -->
 					<div id="intro">
 						<h1>Dodam Dodam<br />
-						Alien</h1>
+						Alien </h1>
 						<p>Dodam Dodam is a location safety school service for children.
 						<br>Let's watch the child's safety with us.</p>
 						<ul class="actions">
