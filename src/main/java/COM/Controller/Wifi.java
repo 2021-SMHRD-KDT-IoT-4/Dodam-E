@@ -27,8 +27,7 @@ public class Wifi extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("EUC-KR");
 //		Integer.parseInt(request.getParameter("sb"));
-		int js = Integer.parseInt(request.getParameter("sb"));
-		;
+		int js =1;
 
 		System.out.println(js);
 
@@ -38,14 +37,14 @@ public class Wifi extends HttpServlet {
 		String loca = "";
 		HttpSession session = request.getSession();
 		UserDTO info = (UserDTO) session.getAttribute("login_info");
-		RouteDTO mcr = (RouteDTO) session.getAttribute("mcr");
+//		String mcr = (String) session.getAttribute("mcr");
 		System.out.println(info.getId());
 //		String cc = (String) session.getAttribute("c_name");
 //		System.out.println(cc);
 
 		if (info != null) {
 			String id = info.getId();
-			String name = mcr.getRoute_child();
+			
 			if (js > 0) {
 				if (id.equals("ss")) {
 
@@ -55,7 +54,7 @@ public class Wifi extends HttpServlet {
 						if (num == js) {
 							// 아이이름,유저아이디,센드번호,
 							loca = list.get(i).getReceive_loca();
-							 dao.upload(info, name, loca);
+							 dao.upload(info, "황수보", loca);
 							
 						}
 					}
