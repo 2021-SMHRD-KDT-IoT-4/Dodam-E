@@ -167,23 +167,14 @@
 									<%} %> 
                               
                               </table>
-                             	
-								<div class="col-12" style="margin: 0 auto;float: none;">
-									
-									<form action="LogoutService">
-										<input type="submit" id="btn_logout" value="  ·Î±×¾Æ¿ô  " />
-									</form>
-									<form action="LogoutService">
-										<input type="submit" id="btn_logout" value="  ·Î±×¾Æ¿ô  " />
-									</form>
-									
-									<a href="LogoutService"><input type="submit" id="btn_logout" value="  ·Î±×¾Æ¿ô  " /></a>
-									
-									<%--
-									<a href="LogoutService"><input type="submit" id="btn_logout" value="  ·Î±×¾Æ¿ô  " /></a>
-									<a href="ChilddeleteService"><input type="submit" id="btn_delete" value="  ¾ÆÀÌ Á¤º¸ »èÁ¦   " /></a>
-									<a href="UserdeleteService"><input type="submit" id="btn_drop" value="  È¸¿ø Å»Åð   " /></a>
-									--%>
+                             	 <div class="row" style="display: block; text-align: center;" >
+                             	 <div class="col-6-medium" style="margin: 0 auto; float: none;display: block;">
+                             	 
+									<input type="button" value="  ·Î±×¾Æ¿ô  " onClick="window.location='LogoutService'" />
+									<input type="button" value="  ¾ÆÀÌ Á¤º¸ »èÁ¦   " onClick="window.location='ChilddeleteService'" />
+									<input type="button" value="  È¸¿ø Å»Åð   " onClick="window.location='UserdeleteService'" />
+									</div>
+									</div>
 								</div>
 									
                         </div>

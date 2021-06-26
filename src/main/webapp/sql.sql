@@ -4,6 +4,7 @@ select * from FAQ;
 select * from NOTICE;
 select * from CHILD;
 select * from SEND;
+select * from ROUTE;
 
 
 
