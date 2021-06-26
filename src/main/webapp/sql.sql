@@ -31,6 +31,20 @@ delete from users where users_id = 'oracle';
 commit;
 
 
+create table reply(
+	reply_seq number,
+	users_id varchar2(50),
+	notice_seq number,
+	reply_content varchar2(80),
+	reply_day date
+);
+
+create sequence reply_seq increment by 1 start with 1;
+
+
+
+
+
 create table route (
 
  route_seq number,

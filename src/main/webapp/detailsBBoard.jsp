@@ -85,7 +85,7 @@
 
 		<div id="main">
 
-			<!--faq 한개만 보기   -->
+			<!-- 글 1개 보기 -->
 			<article id="FAQ" class="panel">
 				<header>
 				</header>
@@ -124,16 +124,39 @@
 						<td><%=dto.getNotice_day()%></td>
 					</tr>
 					
-				</table>
-				
-				 <div class="row" style="display: block;">
-                   <div class="col-3 col-6-medium"
-								style="margin: 0 auto; float: none;">
-                        <%-- <a href="board.jsp"><button>뒤로가기</button></a> --%>
-                        <input type="button" value="뒤로가기" onClick="window.location='board.jsp'" />
+					
+					
+			<!-- 댓글 쓰기 -->
+					<h1 class="con"></h1>
+						<form action="ReplyService">
+							<table class="cell" border="1">
+								<colgroup>
+									<col width="100px">
+								</colgroup>
+								<tr class="col-6 col-6-medium" style="margin: 0 auto; float: none;">
+                    				<th>내용 :</th>
+                        			<td colspan="3"><textarea name="r_content"></textarea></td>
+                    			</tr>
+							</table>
+							
+							<div class="row" style="display: block;  text-align: center;">
+                  			<div class="col-6-medium" style="margin: 0 auto; float: none;">
                         
-               	   </div>   
-               	   </div>
+                        	<input type = "submit" value = "댓글쓰기">
+                        	<input type = "reset" value = "댓글 초기화">
+                        	</div> 
+                        <% session.setAttribute("u_id", info.getId()); %>
+               	       </div>
+						</form>
+						
+				 	<div class="row" style="display: block;">
+				 	
+                   		<div class="col-3 col-6-medium" style="margin: 0 auto; float: none;">
+                        	<%-- <a href="board.jsp"><button>뒤로가기</button></a> --%>
+                        	<input type="button" value="뒤로가기" onClick="window.location='board.jsp'" />
+                        
+               	   		</div>   
+               	   	</div>
 				
 
 				</body>
