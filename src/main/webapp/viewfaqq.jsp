@@ -99,6 +99,8 @@
                FaqWriteDAO fdao = new FaqWriteDAO();
                FaqDTO fdto = fdao.showOne(num);
                %>
+               
+                <section class="article-detail table-common con row" style = "width:70%; margin-left : 15%;  display: block;">
                <h1 class="con"></h1>
 				<table class="cell" border="1">
 				<colgroup>
@@ -126,6 +128,7 @@
 						</td>
 					</tr>
                    </table>
+                   </section>
                    <div class="row" style="display: block;">
                    <div class="col-3 col-6-medium"
 								style="margin: 0 auto; float: none;">

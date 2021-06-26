@@ -124,6 +124,8 @@
                         <input type = "submit" value = "작성하기">
                         </div>   
                	        </div>
+               	        
+               	      
 
                           
                   </form>

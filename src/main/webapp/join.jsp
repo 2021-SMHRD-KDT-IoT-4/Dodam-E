@@ -77,6 +77,14 @@
 
 				<!-- 	<a href="route.jsp">Route</a> -->
 			</ul>
+			
+			<%-- 아이콘 (공간 부족하면 지우기) --%>
+			<ul class="icons">
+				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+			</ul>
 
 		</nav>
 
@@ -99,6 +107,7 @@
 							<div class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
 								<input type="text" name="id" placeholder="ID" id="input_id" >
+								<br>
 							    <input type="button" value="중복체크" onclick="idCheck()"><span id="sp"></span>
 							</div>
 							<br>
