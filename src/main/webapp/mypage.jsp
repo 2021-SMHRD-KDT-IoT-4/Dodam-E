@@ -34,6 +34,7 @@
 
 	<%
 	UserDTO info = (UserDTO) session.getAttribute("login_info");
+	
 	%>
 
 	<!-- Wrapper -->

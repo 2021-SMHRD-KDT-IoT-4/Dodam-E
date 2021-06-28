@@ -26,8 +26,12 @@ public class RouteDTO {
 		Route_child = route_child;
 	}
 	
-	
-	
+	public int getRoute_seq() {
+		return Route_seq;
+	}
+	public void setRoute_seq(int route_seq) {
+		Route_seq = route_seq;
+	}
 	public String getRoute_user() {
 		return Route_user;
 	}
@@ -39,12 +43,6 @@ public class RouteDTO {
 	}
 	public void setRoute_child(String route_child) {
 		Route_child = route_child;
-	}
-	public int getRoute_seq() {
-		return Route_seq;
-	}
-	public void setRoute_seq(int route_seq) {
-		Route_seq = route_seq;
 	}
 	public String getRoute() {
 		return Route;
@@ -58,5 +56,9 @@ public class RouteDTO {
 	public void setCheckTime(String checkTime) {
 		CheckTime = checkTime;
 	}
+	
+	
+	
+	
 	
 }

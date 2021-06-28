@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 
 import COM.Model.NoticeDTO;
 import COM.Model.NoticeWriteDAO;
+import COM.Model.ReplyDAO;
+import COM.Model.ReplyDTO;
 
 @WebServlet("/ReplyService")
 public class ReplyService extends HttpServlet {
@@ -19,30 +21,28 @@ public class ReplyService extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		String id = (String)session.getAttribute("u_id");
-		
+		String u_id = (String)session.getAttribute("u_id");
+		int n_seq = (int)session.getAttribute("r_seq");
 		String r_content = request.getParameter("r_content");
 		
+		System.out.println(u_id);
+		System.out.println(n_seq);
+		System.out.println(r_content);
+		
+		ReplyDTO dto = new ReplyDTO(u_id, n_seq, r_content);
+		
+		ReplyDAO dao = new ReplyDAO();
+		int cnt = dao.reply_upload(dto, u_id, n_seq);
 		
 		
-		/*
-		// 3개를 DB에 넣는 코드
-		NoticeDTO dto = new NoticeDTO(title, id, content);
-		NoticeWriteDAO dao = new NoticeWriteDAO();
-		int cnt = dao.upload(dto, id);
-		
-		System.out.println(id);
-		System.out.println(title);
-		System.out.println(content);
 		
 		if (cnt > 0) {
-			response.sendRedirect("board.jsp");
+			System.out.println("댓글쓰기 성공");
+			session.setAttribute("notice_seq", n_seq);
 		} else {
-			response.sendRedirect("insertbboard.jsp");
+			System.out.println("댓글쓰기 실패");
 		}
-		*/
-		
-		
+		response.sendRedirect("board.jsp");
 		
 	
 	}

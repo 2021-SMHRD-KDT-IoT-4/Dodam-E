@@ -1,3 +1,5 @@
+<%@page import="COM.Model.ReplyDTO"%>
+<%@page import="COM.Model.ReplyDAO"%>
 <%@page import="COM.Model.childDAO"%>
 <%@page import="COM.Model.childDTO"%>
 <%@page import="COM.Model.UserDAO"%>
@@ -30,6 +32,8 @@
 	
 	 <%
       UserDTO info = (UserDTO)session.getAttribute("login_info");
+	  NoticeDTO result1 = (NoticeDTO)session.getAttribute("seq");
+
       %>
 
 		<!-- Wrapper -->
@@ -95,9 +99,19 @@
 
 					<%
 					int num = Integer.parseInt(request.getParameter("notice_seq"));
+					//System.out.println("출력출력" + num);
+					
 					NoticeWriteDAO Noticedao = new NoticeWriteDAO();
 					NoticeDTO dto = Noticedao.showOne(num);
+					
+					session.setAttribute("r_seq", num); 
+					session.getAttribute("notice_seq");
+					
+					ReplyDAO R_dao = new ReplyDAO();
+					ArrayList<ReplyDTO> Rlist = R_dao.showReply(num);
+					
 					%>
+					
 					<h1 class="con"></h1>
 						<table class="cell" border="1">
 							<colgroup>
@@ -123,6 +137,38 @@
 						<td>날짜</td>
 						<td><%=dto.getNotice_day()%></td>
 					</tr>
+				</table>
+					
+			<!-- 댓글 보기 -->		
+				
+				<h1 class="con"></h1>
+						<table class="cell" border="1">
+							<colgroup>
+								<col width="100px">
+							</colgroup>
+					
+					<%
+                     for (int i = 0; i < Rlist.size(); i++) {
+                     %>		
+					<tr>
+						<td style="width: 130px">작성자:</td>
+						<td><%=Rlist.get(i).getUsers_id() %></td>
+					</tr>
+					<tr>
+						<td style="width: 130px">내용:</td>
+						<td><%=Rlist.get(i).getReply_content() %></td>
+						<td><a href = "ReplydeleteService?num=<%= Rlist.get(i).getReply_seq() %>">삭제</a></td>
+						
+					</tr>
+					
+					<tr>
+						<td>날짜</td>
+						<td><%=Rlist.get(i).getReply_day()%></td>
+					</tr>
+					<%}%>
+				</table>	
+					
+					
 					
 					
 					
@@ -146,6 +192,7 @@
                         	<input type = "reset" value = "댓글 초기화">
                         	</div> 
                         <% session.setAttribute("u_id", info.getId()); %>
+                        <%--<% session.setAttribute("n_seq", num);%> --%>
                	       </div>
 						</form>
 						
@@ -157,6 +204,14 @@
                         
                	   		</div>   
                	   	</div>
+               	   		
+                        <form action="DeleteBoardService">
+                        <input type="submit" value="삭제하기">
+                        </form>
+                        
+                        
+               	   </div>   
+               	   </div>
 				
 
 				</body>

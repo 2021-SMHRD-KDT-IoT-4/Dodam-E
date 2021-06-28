@@ -11,8 +11,10 @@ public class NoticeWriteDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	int cnt = 0;
+	int result=0;
 	ResultSet rs = null;
 	NoticeDTO dto = null;
+	
 
 	public void conn() {
 
@@ -113,6 +115,7 @@ public class NoticeWriteDAO {
 		}
 		return list;
 	}
+	
 
 	public NoticeDTO showOne(int notice_seq) {
 		conn();
@@ -140,4 +143,96 @@ public class NoticeWriteDAO {
 		return dto;
 
 	}
+/*	
+	public int deleteOne(NoticeDTO dto) {
+		conn();
+		
+		String sql = "delete from notice where users_id = ?and notice_seq=?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, dto.getNotice_id());
+			psmt.setInt(2, dto.getNotice_seq());
+			
+			cnt = psmt.executeUpdate();
+			
+			
+			if(cnt > 0) {
+				sql = "delete from reply where notice_seq = ?";
+				
+				psmt = conn.prepareStatement(sql);
+				
+				psmt.setInt(1, dto.getNotice_seq());
+				
+				result = psmt.executeUpdate();
+			}
+			
+			System.out.println(result);
+			
+			if(cnt !=0) {
+				System.out.println("시앤티작동중");
+			}else {
+				System.out.println("시앤티 인식을 못함");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+
+	
+
+	}
+	
+*/	
+	
+	
+	public int deleteOne(NoticeDTO dto) {
+		conn();
+		
+		String sql = "delete from reply where notice_seq = ?";
+		
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, dto.getNotice_seq());
+			
+			result = psmt.executeUpdate();
+			
+			
+			if(result > 0 || result == 0) {
+				sql = "delete from notice where users_id = ?and notice_seq=?";
+				
+				psmt = conn.prepareStatement(sql);
+				
+				psmt.setString(1, dto.getNotice_id());
+				psmt.setInt(2, dto.getNotice_seq());
+				
+				cnt = psmt.executeUpdate();
+				
+			}
+			
+			System.out.println(result);
+			
+			if(cnt !=0) {
+				System.out.println("시앤티작동중");
+			}else {
+				System.out.println("시앤티 인식을 못함");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+
+	
+
+	}
+	
+	
 }
