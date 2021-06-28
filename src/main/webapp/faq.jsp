@@ -25,6 +25,29 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+		@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.faqFont{
+font-family: 'Cafe24Ssurround';
+
+}
+
+.faqSFont{
+ font-family: 'Cafe24SsurroundAir';
+}
+
+		</style>
 	</head>
 	<body class="is-preload">
 	
@@ -87,8 +110,8 @@
                            ArrayList<FaqDTO> list = dao.showFaq();
                            %>
                            <div>
-                              <table border="1">
-                                 <tr align="center">
+                              <table border="1" >
+                                 <tr align="center" class="faqFont">
                                  
                                     <td>번호</td>
                                     <td>제목</td>
@@ -99,7 +122,7 @@
                                  <%
                                  for (int i = 0; i <list.size(); i++){
                                  %>
-                                 <tr align="center">
+                                 <tr align="center" class="faqSFont">
                                     <td><%=list.get(i).getFaq_seq()%></td>
                                     
                                     <td><a href="viewfaqq.jsp?faq_seq=<%=list.get(i).getFaq_seq()%>">

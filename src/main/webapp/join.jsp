@@ -31,6 +31,33 @@
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
 
+<style>
+@font-face {
+	font-family: 'Cafe24Ssurround';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.date,.id,.pw,.name,.tel{
+	font-family: 'Cafe24Ssurround';
+}
+
+
+
+</style>
+
 </head>
 <body class="is-preload">
 
@@ -102,32 +129,42 @@
 				<form action="JoinService" method="post">
 					<div>
 						<div class="row" style="display: block;">
+						
+							
+							<div class="col-6 col-6-medium" style="margin: 0 auto; float: none; width:70%">
+							
+								<input class = "id" type="text" name="id" placeholder="ID" id="input_id" style = "display:inline; width:50%">
+							
+						
+							    <input type="button" value="중복체크" onclick="idCheck()" style = "display:inline; width:auto; 
+                            font-family: 'Cafe24Ssurround';">
+							
+							</div>
+							<span id="sp"  ></span>
+							<br>
 							<div class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
-								<input type="text" name="id" placeholder="ID" id="input_id" >
-								<br>
-							    <input type="button" value="중복체크" onclick="idCheck()"><span id="sp"></span>
+								<input class = "pw" type="text" name="pw" placeholder="PW" />
 							</div>
 							<br>
 							<div class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
-								<input type="text" name="pw" placeholder="PW" />
+								<input class = "name" type="text" name="name" placeholder="이름" />
 							</div>
 							<br>
+							
 							<div class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
-								<input type="text" name="name" placeholder="이름" />
+								<input class = "tel" type="text" name="tel" placeholder="전화번호" />
 							</div>
 							<br>
-							<div class="col-6 col-6-medium"
-								style="margin: 0 auto; float: none;">
-								<input type="text" name="tel" placeholder="전화번호" />
-							</div>
-							<br>
+						
+							
 							<div class="col-12">
 								<input type="submit" value="회원가입"
-									onClick="window.location='#main'" />
+									onClick="window.location='#main'" style = "font-family: 'Cafe24Ssurround';" />
 							</div>
+						
 						</div>
 					</div>
 				</form>

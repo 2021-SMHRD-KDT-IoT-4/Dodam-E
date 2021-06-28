@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 
 import COM.Model.UserDAO;
 import COM.Model.UserDTO;
+import COM.Model.childDAO;
+import COM.Model.childDTO;
 
 @WebServlet("/ChilddeleteService")
 public class ChilddeleteService extends HttpServlet {
@@ -17,16 +19,21 @@ public class ChilddeleteService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("EUC-KR");
-//		String id = request.getParameter("id");
 		
 		HttpSession session = request.getSession(); 
 		
 		UserDTO result = (UserDTO) session.getAttribute("login_info");
 		String id = result.getId();
+		String num = request.getParameter("num");
 		
-		UserDTO dto = new UserDTO(id);
-		UserDAO dao = new UserDAO();
-		int cnt = dao.childdelete(dto);
+		/*
+		 * childDTO dto = new childDTO(id, num); UserDAO udao = new UserDAO(); UserDTO
+		 * udto = new UserDTO(id);
+		 */
+		
+		childDAO dao = new childDAO();
+		int cnt = dao.childdelete(id, num);
+		
 		
 		
 	

@@ -9,6 +9,12 @@ public class childDTO {
 	private String c_school;
 	private String c_send_machine;
 	
+	public childDTO(String c_id, String c_send_machine) {
+		super();
+		this.c_id = c_id;
+		this.c_send_machine = c_send_machine;
+	}
+	
 	public childDTO(String c_id, String c_name, String c_age, String c_gender, String c_school, String c_send_machine) {
 		super();
 		this.c_id = c_id;

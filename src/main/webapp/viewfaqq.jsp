@@ -25,7 +25,35 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
+
+<style>
+@font-face {
+	font-family: 'Cafe24Ssurround';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.num, .title, .writer, .content {
+	font-family: 'Cafe24Ssurround';
+}
+
+.snum, .stitle, .swriter, .scontent {
+	font-family: 'Cafe24SsurroundAir';
+}
+</style>
+</head>
 	<body class="is-preload">
 	
 	<%
@@ -107,22 +135,22 @@
 								<col width="100px">
 							</colgroup>
 					<tr>
-						<td>번호 : </td>
-						<td><%=fdto.getFaq_seq()%></td>
+						<td class="num">번호 : </td>
+						<td class="snum"><%=fdto.getFaq_seq()%></td>
 					</tr>
 					<tr>
-						<td>제목 : </td>
-						<td><%=fdto.getFaq_title()%></td>
+						<td class="title">제목 : </td>
+						<td class="stitle"><%=fdto.getFaq_title()%></td>
 					</tr>
 					<tr>
-						<td style="width: 130px">작성자:</td>
-						<td><%=fdto.getFaq_writer()%></td>
+						<td class = "writer" style="width: 130px">작성자:</td>
+						<td class = "swriter"><%=fdto.getFaq_writer()%></td>
 					</tr>
 					<tr>
-						<td colspan="2">내용</td>
+						<td class = "content" colspan="2">내용</td>
 					</tr>
 					<tr>
-						<td colspan="2">
+						<td class = "scontent" colspan="2">
 							<%=fdto.getFaq_content() %>	
 							
 						</td>
@@ -132,8 +160,10 @@
                    <div class="row" style="display: block;">
                    <div class="col-3 col-6-medium"
 								style="margin: 0 auto; float: none;">
-                        <%-- <a href="faq.jsp"><button>뒤로가기</button></a> --%>
-                        <input type="button" value="뒤로가기" onClick="window.location='faq.jsp'" />
+                       
+                        <input type="button" value="뒤로가기" onClick="window.location='faq.jsp'" style="
+                            font-family: 'Cafe24Ssurround';
+                        " />
                         
                	   </div>   
                	   </div>

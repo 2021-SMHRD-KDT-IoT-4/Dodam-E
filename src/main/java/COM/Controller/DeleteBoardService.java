@@ -17,7 +17,7 @@ import COM.Model.UserDTO;
 public class DeleteBoardService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("¤¾¤·");
+		
 		request.setCharacterEncoding("EUC-KR");
 //		String id = request.getParameter("id");
 		

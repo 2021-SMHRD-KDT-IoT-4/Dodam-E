@@ -39,6 +39,36 @@
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
 
+<style>
+@font-face {
+	font-family: 'Cafe24Ssurround';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.routeFont{
+	font-family: 'Cafe24Ssurround';
+}
+.routeSFont{
+	font-family: 'Cafe24SsurroundAir';
+}
+
+
+
+</style>
+
 
 </head>
 <body class="is-preload">
@@ -190,17 +220,15 @@
 				</script>
 				<br>
 				<table border="1" id="hhh">
-					<tr align="center">
+					<tr align="center" class="routeFont">
 						<td>순서</td>
 						<td>아이이름</td>
-						<td>장소이름</td>
-						<td></td>
-					
+						<td colspan="2";>장소이름</td>
 						<td>위치확인시간</td>
 					</tr>
 					
 					<%for(int i=0;i<list.size();i++){%>
-					<tr align="center">
+					<tr align="center" class="routeSFont">
 						<td><%=i+1 %></td>
 						<td><%=list.get(i).getRoute_child()%></td>
 						<td><%=list.get(i).getRoute()%></td>
