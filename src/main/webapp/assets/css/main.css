@@ -148,7 +148,7 @@ input, select, textarea {
 	}
 
 	body, input, select, textarea {
-		font-family: "Merriweather", Georgia, serif;
+		font-family: 'Cafe24Ssurround';
 		font-weight: 300;
 		font-size: 1rem;
 		line-height: 2.375;
@@ -330,6 +330,7 @@ input, select, textarea {
 		box-sizing: border-box;
 		align-items: stretch;
 		display: block;
+		font-family: 'Cafe24Ssurround';
 		
 	}
 
@@ -2080,7 +2081,7 @@ input, select, textarea {
 		border-radius: 0;
 		cursor: pointer;
 		display: inline-block;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: 'Cafe24Ssurround';
 		font-size: 0.8rem;
 		font-weight: 900;
 		letter-spacing: 0.075em;

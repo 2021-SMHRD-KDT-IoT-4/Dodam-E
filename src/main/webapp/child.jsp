@@ -29,6 +29,33 @@
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
+
+<style>
+@font-face {
+	font-family: 'Cafe24Ssurround';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.name,.age,.school,.sendNum,.female,.male{
+	font-family: 'Cafe24Ssurround';
+}
+
+
+
+</style>
 </head>
 <body class="is-preload">
 
@@ -96,37 +123,38 @@
 								</div>
 									<div class="col-6 col-6-medium"
 										style="margin: 0 auto; float: none;">
-										<input type="text" name="name" placeholder="아이이름" />
+										<input class = "name" type="text" name="name" placeholder="아이이름" />
 									</div>
 									<br>
 									<div class="col-6 col-6-medium"
 										style="margin: 0 auto; float: none;">
-										<input type="text" name="age" placeholder="나이" />
+										<input class = "age" type="text" name="age" placeholder="나이" />
+									
 									</div>
 									<br>
 									<div class="col-6 col-6-medium"
 										style="margin: 0 auto; float: none;">
-										<input type="text" name="school" placeholder="학교" />
+										<input class = "school" type="text" name="school" placeholder="학교" />
 									</div>
 
 									<br>
 									<div class="col-6 col-6-medium"
 										style="margin: 0 auto; float: none;">
-										<input type="text" name="send_machine" placeholder="기기번호" />
+										<input class = "sendNum" type="text" name="send_machine" placeholder="기기번호" />
 									</div>
 									<br>
 									<div class="col-3 col-6-medium"
 										style="margin: 0 auto; float: none;">
-										<input type="radio" id="demo-priority-low" name="gender"
+										<input class = "female"  type="radio" id="demo-priority-low" name="gender"
 											value="female"> <label for="demo-priority-low">여아</label>
 
-										<input type="radio" id="demo-priority-normal" name="gender"
+										<input class="male"  type="radio" id="demo-priority-normal" name="gender"
 											value="male"> <label for="demo-priority-normal">남아</label>
 									</div>
 									<br>
 									<div class="col-2 col-6-medium"
 										style="margin: 0 auto; float: none;">
-										<input type="submit" value="확인" />
+										<input type="submit" value="확인" style = "font-family: 'Cafe24Ssurround';"/>
 							</div>
 							  <% session.setAttribute("u_id", info.getId()); %>
                      			<%} %>

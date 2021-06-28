@@ -1,3 +1,4 @@
+
 <%@page import="COM.Model.childDAO"%>
 <%@page import="COM.Model.childDTO"%>
 <%@page import="COM.Model.UserDAO"%>
@@ -29,6 +30,36 @@
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
+
+<style >
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.mypageFont{
+font-family: 'Cafe24Ssurround';
+
+}
+.kidsFont{
+font-family: 'Cafe24Ssurround';
+}
+.mypageSFont{
+ font-family: 'Cafe24SsurroundAir';
+}
+.kidsSFont{
+  font-family: 'Cafe24SsurroundAir';
+	
+}
+
+</style>
 </head>
 <body class="is-preload">
 
@@ -113,26 +144,35 @@
                         
                         <%if(info!=null){ 
                         
+                        	/* int num = Integer.parseInt(request.getParameter("child_machine"));
+                        	System.out.println(num); */
                            childDAO c_dao = new childDAO();
+                           UserDAO u_dao = new UserDAO();
+                           /* UserDTO dto = u_dao.childdelete(id, num); */
+                           
+                          
                            ArrayList<childDTO> c_one_list = c_dao.Child_one_info(info);
+                           
                         
                         %>
                         
                         
                         <div>
                               <table border="1">
-                                 <tr align="center">
+                                 <tr align="center" class="mypageFont">
                                     <td>이름</td>
                                     <td>아이디</td>
                                     <td>비밀번호</td>
                                     <td>휴대폰번호</td>
+                                  
                                  </tr>
                                  <%if(info!=null){ %>
-                                 <tr align="center">
+                                 <tr align="center" class="mypageSFont">
                                     <td><%=info.getName()%></td>
                                     <td><%=info.getId()%></td>
                                     <td><%=info.getPw()%></td>
                                     <td><%=info.getTel()%></td>
+                                  
                                     
                                  </tr>
                                  <%} %>   
@@ -145,7 +185,7 @@
                         </header>
                         <div>
                               <table border="1">
-                                 <tr align="center">
+                                 <tr align="center" class="kidsFont">
                                     
                                     <td>ID</td>
                                     <td>아이이름</td>
@@ -153,9 +193,10 @@
                                     <td>성별</td>
                                     <td>학교</td>
                                     <td>기기번호</td>
+                                    <td>삭제</td>
                                  </tr>
                                 <%for(int i = 0; i < c_one_list.size(); i++) { %>
-										<tr align="center">
+										<tr align="center" class="kidsSFont">
 													
 											<td><%= c_one_list.get(i).getC_id()%></td>
 											<td><%= c_one_list.get(i).getC_name()%></td>
@@ -163,17 +204,22 @@
 											<td><%= c_one_list.get(i).getC_gender()%></td>
 											<td><%= c_one_list.get(i).getC_school()%></td>
 											<td><%= c_one_list.get(i).getC_send_machine()%></td>
+											<td class="delete"><a href = "ChilddeleteService?num=<%= c_one_list.get(i).getC_send_machine() %>">삭제</a></td>
 										</tr>
 									<%} %>
 									<%} %> 
                               
                               </table>
+                              <br>
                              	 <div class="row" style="display: block; text-align: center;" >
-                             	 <div class="col-6-medium" style="margin: 0 auto; float: none;display: block;">
+                             	 <div class="col-6-medium" style="margin: 0 auto; float: none;display: block;" >
                              	 
-									<input type="button" value="  로그아웃  " onClick="window.location='LogoutService'" />
-									<input type="button" value="  아이 정보 삭제   " onClick="window.location='ChilddeleteService'" />
-									<input type="button" value="  회원 탈퇴   " onClick="window.location='UserdeleteService'" />
+									<input type="button" value="  로그아웃  " onClick="window.location='LogoutService'" style="
+    										font-family: 'Cafe24Ssurround';"/>
+									<!-- <input type="button" value="  아이 정보 삭제   " onClick="window.location='ChilddeleteService'"style="
+									   		font-family: 'Cafe24Ssurround';" /> -->
+									<input type="button" value="  회원 탈퇴   " onClick="window.location='UserdeleteService'" style="
+    										font-family: 'Cafe24Ssurround';"/>
 									</div>
 									</div>
 								</div>

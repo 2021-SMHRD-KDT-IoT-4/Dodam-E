@@ -25,6 +25,34 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
+		<style>
+@font-face {
+	font-family: 'Cafe24Ssurround';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.id,.pw{
+	font-family: 'Cafe24Ssurround';
+}
+
+
+
+</style>
+		
 	</head>
 	<body class="is-preload">
 	
@@ -85,15 +113,15 @@
                           <div>
                              <div class="row" style="display: block;">
                                 <div class="col-6 col-6-medium" style="margin: 0 auto;float: none;">
-                                   <input type="text" name="id" placeholder="ID" />
+                                   <input class = "id" type="text" name="id" placeholder="ID" />
                                 </div>
                                 <br>
                                 <div class="col-6 col-6-medium" style="margin: 0 auto;float: none;">
-                                   <input type="text" name="pw" placeholder="PW" />
+                                   <input class="pw" type="text" name="pw" placeholder="PW" />
                                 </div>
                                 <br>
                                 <div class="col-12">
-                                   <input type="submit" value="  로그인  " />
+                                   <input type="submit" value="  로그인  " style = "font-family: 'Cafe24Ssurround';" />
                                    
                                 </div>
                         
