@@ -56,7 +56,7 @@ public class Wifi extends HttpServlet {
                if (dto.get(i).getC_send_machine().equals("11")) {
 
                   loca = list.get(i).getReceive_loca();
-                  dao.upload("ss",dto.get(i).getC_name() , loca);
+                  dao.upload("ss",dto.get(i).getC_name(), loca);
                   System.out.println(dto.get(i).getC_name());
                   break;
                }

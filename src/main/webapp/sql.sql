@@ -33,6 +33,8 @@ delete from users where users_id = 'oracle';
 commit;
 
 truncate table route;
+truncate table users;
+truncate table users;
 
 create table reply(
 	reply_seq number,
@@ -44,7 +46,7 @@ create table reply(
 
 create sequence reply_seq increment by 1 start with 1;
 
-
+truncate table ROUTE;
 
 
 
