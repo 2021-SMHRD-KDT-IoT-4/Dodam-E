@@ -21,6 +21,8 @@ insert into faq VALUES(faq_seq.nextval,'제발','my','탈주각','지금이 기회야');
 
 alter table child add(child_machine varchar2(30));
 
+delete from users where users_id = 'admin';
+
 
 commit;
 
@@ -34,7 +36,9 @@ commit;
 
 truncate table route;
 truncate table users;
-truncate table users;
+truncate table faq;
+truncate table send;
+truncate table child;
 
 create table reply(
 	reply_seq number,
