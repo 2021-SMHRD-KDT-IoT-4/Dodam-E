@@ -205,6 +205,7 @@ font-family: 'Cafe24Ssurround';
 											<td><%= c_one_list.get(i).getC_school()%></td>
 											<td><%= c_one_list.get(i).getC_send_machine()%></td>
 											<td class="delete"><a href = "ChilddeleteService?num=<%= c_one_list.get(i).getC_send_machine() %>">ªË¡¶</a></td>
+									
 										</tr>
 									<%} %>
 									<%} %> 

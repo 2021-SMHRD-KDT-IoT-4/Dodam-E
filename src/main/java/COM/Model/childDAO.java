@@ -201,5 +201,45 @@ public class childDAO {
 	
 	
 	
+	public ArrayList<childDTO> Child_one_info(String user) {
+	      
+	      c_one_list = new ArrayList<childDTO>();
+	      
+	      conn();
+	      
+	      try {
+	         String sql = "select * from child where users_id = ?";
+	         
+	         psmt = conn.prepareStatement(sql);
+	         
+	         psmt.setString(1,user);
+	         
+	         rs = psmt.executeQuery();
+	         
+	         while (rs.next()) {
+	            String user_id = rs.getString(1);
+	            String c_name = rs.getString(2);
+	            String c_age = rs.getString(3);
+	            String c_gender = rs.getString(4);
+	            String c_school = rs.getString(5);
+	            String c_send_machine = rs.getString(6);
+	            
+	            
+	            c_dto = new childDTO(user_id, c_name, c_age, c_gender, c_school, c_send_machine);
+	            
+	            c_one_list.add(c_dto);
+	         }
+	         
+	      } catch (SQLException e) {
+	         
+	         e.printStackTrace();
+	      } finally {
+	         close();
+	      }
+	      return c_one_list;
+	   }
+	
+	
+	
 
 }

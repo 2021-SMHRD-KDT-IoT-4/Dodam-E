@@ -58,7 +58,7 @@ public class RouteDAO {
 
 	}
 
-	public int upload(UserDTO user, String child, String route) {
+	public int upload(String user, String child, String route) {
 		conn();
 
 		String sql = "insert into route values(route_seq.nextval,?,?,?,sysdate)";
@@ -66,7 +66,7 @@ public class RouteDAO {
 		try {
 			psmt = conn.prepareStatement(sql);
 
-			psmt.setString(1, user.getId());
+			psmt.setString(1, user);
 			psmt.setString(2,child);
 			psmt.setString(3, route);
 

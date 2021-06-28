@@ -135,7 +135,7 @@
 
 				</header>
 
-				<a href="#" class="image main"><img src="images/kidss.png"
+				<a href="#" class="image main"><img src="images/cc.png"
 					alt="" /></a>
 
 			</article>

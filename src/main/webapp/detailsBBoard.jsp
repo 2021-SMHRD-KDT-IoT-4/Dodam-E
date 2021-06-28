@@ -1,3 +1,4 @@
+
 <%@page import="COM.Model.ReplyDTO"%>
 <%@page import="COM.Model.ReplyDAO"%>
 <%@page import="COM.Model.childDAO"%>
@@ -62,9 +63,10 @@
 	<body class="is-preload">
 	
 	 <%
+
       UserDTO info = (UserDTO)session.getAttribute("login_info");
 	  NoticeDTO result1 = (NoticeDTO)session.getAttribute("seq");
-
+	
       %>
 
 		<!-- Wrapper -->
@@ -130,6 +132,7 @@
 
 					<%
 					int num = Integer.parseInt(request.getParameter("notice_seq"));
+
 					
 					NoticeWriteDAO Noticedao = new NoticeWriteDAO();
 					NoticeDTO dto = Noticedao.showOne(num);
@@ -167,16 +170,21 @@
 						<td class="date">날짜</td>
 						<td class="sdate"><%=dto.getNotice_day()%></td>
 					</tr>
+					
+					
 				</table>
 					
 			<!-- 댓글 보기 -->		
 				
 				<h1 class="con"></h1>
 						<table class="cell" border="1">
+						
+						<hr>
+						
 							<colgroup>
 								<col width="100px">
 							</colgroup>
-					
+				<%-- 	
 					<%
                      for (int i = 0; i < Rlist.size(); i++) {
                      %>		
@@ -196,7 +204,18 @@
 					</tr>
 					<%}%>
 				</table>	
-					
+				 --%>
+				 		<%
+                     for (int i = 0; i < Rlist.size(); i++) {
+                     %>		
+					<tr>
+						<td><%=Rlist.get(i).getUsers_id() %></td>
+						<td style="width: 100px"><%=Rlist.get(i).getReply_content() %></td>
+						<td style="width: 65px"><%=Rlist.get(i).getReply_day()%></td>
+						<td style="width: 20px"><a href = "ReplydeleteService?num=<%= Rlist.get(i).getReply_seq() %>">삭제</a></td>
+					</tr>
+					<%}%>
+				</table>	
 					
 					
 					
@@ -217,8 +236,10 @@
 							<div class="row" style="display: block;  text-align: center;">
                   			<div class="col-6-medium" style="margin: 0 auto; float: none;">
                         
-                        	<input type = "submit" value = "댓글쓰기" style = "font-family: 'Cafe24Ssurround';">
-                        	<input type = "reset" value = "댓글 초기화" style = "font-family: 'Cafe24Ssurround';">
+
+                        	<input type = "submit" value = "댓글쓰기"  style = "font-family: 'Cafe24Ssurround';">
+                        	<input type = "reset" value = "댓글 초기화"  style = "font-family: 'Cafe24Ssurround';">
+                        	<input type="button" value="게시물 삭제" onClick="window.location='DeleteBoardService'" />
                         	</div> 
                         <% session.setAttribute("u_id", info.getId()); %>
                         <%--<% session.setAttribute("n_seq", num);%> --%>
@@ -226,8 +247,8 @@
 						</form>
 						
 				 	<div class="row" style="display: block;">
-				 	
-                   		<div class="col-3 col-6-medium" style="margin: 0 auto; float: none;">
+				 	<!-- col-3 col-6-medium -->
+                   		<div class="col-9-medium" style="margin: 0 auto; float: none;">
                         	<%-- <a href="board.jsp"><button>뒤로가기</button></a> --%>
                         	<input type="button" value="뒤로가기" onClick="window.location='board.jsp'" style = "font-family: 'Cafe24Ssurround';"/>
                         
@@ -237,6 +258,9 @@
                         <form action="DeleteBoardService">
                         <input type="submit" value="삭제하기" style = "font-family: 'Cafe24Ssurround';">
                         </form>
+                        <!-- <form action="DeleteBoardService">
+                        <input type="submit" value="게시물 삭제">
+                        </form> -->
                         
                         
                	   </div>   
