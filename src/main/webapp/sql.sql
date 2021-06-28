@@ -5,6 +5,8 @@ select * from NOTICE;
 select * from CHILD;
 select * from SEND;
 select * from ROUTE;
+select * from reply;
+
 
 insert into notice values( notice_seq.nextval, 'AA', 'ss', 'BB', sysdate);
 desc send;
@@ -31,6 +33,20 @@ delete from users where users_id = 'oracle';
 commit;
 
 truncate table route;
+
+create table reply(
+	reply_seq number,
+	users_id varchar2(50),
+	notice_seq number,
+	reply_content varchar2(80),
+	reply_day date
+);
+
+create sequence reply_seq increment by 1 start with 1;
+
+
+
+
 
 create table route (
 

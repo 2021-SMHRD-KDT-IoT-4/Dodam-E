@@ -1,3 +1,5 @@
+<%@page import="COM.Model.ReplyDTO"%>
+<%@page import="COM.Model.ReplyDAO"%>
 <%@page import="COM.Model.childDAO"%>
 <%@page import="COM.Model.childDTO"%>
 <%@page import="COM.Model.UserDAO"%>
@@ -87,7 +89,7 @@
 
 		<div id="main">
 
-			<!--faq 한개만 보기   -->
+			<!-- 글 1개 보기 -->
 			<article id="FAQ" class="panel">
 				<header>
 				</header>
@@ -97,10 +99,17 @@
 
 					<%
 					int num = Integer.parseInt(request.getParameter("notice_seq"));
-					System.out.println("출력출력" + num);
+					//System.out.println("출력출력" + num);
+					
 					NoticeWriteDAO Noticedao = new NoticeWriteDAO();
 					NoticeDTO dto = Noticedao.showOne(num);
+					
 					session.setAttribute("r_seq", num); 
+					session.getAttribute("notice_seq");
+					
+					ReplyDAO R_dao = new ReplyDAO();
+					ArrayList<ReplyDTO> Rlist = R_dao.showReply(num);
+					
 					%>
 					
 					<h1 class="con"></h1>
@@ -128,15 +137,74 @@
 						<td>날짜</td>
 						<td><%=dto.getNotice_day()%></td>
 					</tr>
-					
 				</table>
+					
+			<!-- 댓글 보기 -->		
 				
-				 <div class="row" style="display: block;">
-                   <div class="col-3 col-6-medium"
-								style="margin: 0 auto; float: none;">
-                        <%-- <a href="board.jsp"><button>뒤로가기</button></a> --%>
-                        <input type="button" value="뒤로가기" onClick="window.location='board.jsp'" />
+				<h1 class="con"></h1>
+						<table class="cell" border="1">
+							<colgroup>
+								<col width="100px">
+							</colgroup>
+					
+					<%
+                     for (int i = 0; i < Rlist.size(); i++) {
+                     %>		
+					<tr>
+						<td style="width: 130px">작성자:</td>
+						<td><%=Rlist.get(i).getUsers_id() %></td>
+					</tr>
+					<tr>
+						<td style="width: 130px">내용:</td>
+						<td><%=Rlist.get(i).getReply_content() %></td>
+						<td><a href = "ReplydeleteService?num=<%= Rlist.get(i).getReply_seq() %>">삭제</a></td>
+						
+					</tr>
+					
+					<tr>
+						<td>날짜</td>
+						<td><%=Rlist.get(i).getReply_day()%></td>
+					</tr>
+					<%}%>
+				</table>	
+					
+					
+					
+					
+					
+			<!-- 댓글 쓰기 -->
+					<h1 class="con"></h1>
+						<form action="ReplyService">
+							<table class="cell" border="1">
+								<colgroup>
+									<col width="100px">
+								</colgroup>
+								<tr class="col-6 col-6-medium" style="margin: 0 auto; float: none;">
+                    				<th>내용 :</th>
+                        			<td colspan="3"><textarea name="r_content"></textarea></td>
+                    			</tr>
+							</table>
+							
+							<div class="row" style="display: block;  text-align: center;">
+                  			<div class="col-6-medium" style="margin: 0 auto; float: none;">
                         
+                        	<input type = "submit" value = "댓글쓰기">
+                        	<input type = "reset" value = "댓글 초기화">
+                        	</div> 
+                        <% session.setAttribute("u_id", info.getId()); %>
+                        <%--<% session.setAttribute("n_seq", num);%> --%>
+               	       </div>
+						</form>
+						
+				 	<div class="row" style="display: block;">
+				 	
+                   		<div class="col-3 col-6-medium" style="margin: 0 auto; float: none;">
+                        	<%-- <a href="board.jsp"><button>뒤로가기</button></a> --%>
+                        	<input type="button" value="뒤로가기" onClick="window.location='board.jsp'" />
+                        
+               	   		</div>   
+               	   	</div>
+               	   		
                         <form action="DeleteBoardService">
                         <input type="submit" value="삭제하기">
                         </form>
