@@ -120,7 +120,7 @@ public class ReplyDAO {
 
 		conn();
 
-		String sql =  "select * from reply where notice_seq = ?";
+		String sql =  "select * from reply where notice_seq = ? order by reply_day asc";
 
 		try {
 			psmt = conn.prepareStatement(sql);
