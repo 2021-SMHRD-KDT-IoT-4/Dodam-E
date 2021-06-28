@@ -15,9 +15,11 @@ public class RouteDTO {
 		Route = route;
 		CheckTime = checkTime;
 	}
-	public RouteDTO(int route_seq, String route, String checkTime) {
+	public RouteDTO(int route_seq,String route_child, String route, String checkTime) {
 		super();
+		
 		Route_seq = route_seq;
+		Route_child = route_child;
 		Route = route;
 		CheckTime = checkTime;
 	}

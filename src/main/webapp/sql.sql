@@ -30,6 +30,7 @@ delete from users where users_id = 'oracle';
 
 commit;
 
+truncate table route;
 
 create table route (
 
@@ -56,7 +57,7 @@ create table receive_info(
 delete from route;
 
 
-insert into route values(route_seq.nextval,'route',sysdate)
+insert into route values(route_seq.nextval,'hyo','±èÈ¿Áø','ÇÐ¿ø',sysdate);
 
 drop sequence num_board;
 
@@ -76,7 +77,7 @@ select * from app1;
 
 delete from NOTICE where notice_seq = 167;
 
-
+delete from route where route_user ='hyo';
 
 
 

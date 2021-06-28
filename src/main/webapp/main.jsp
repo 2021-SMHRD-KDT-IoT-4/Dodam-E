@@ -140,7 +140,9 @@
 
 		<!-- Footer -->
 		<footer id="footer">
-			<section>
+		<%if(info ==null){ %>
+			<section style='display:none'>
+			<%}else{ %>
 				<form method="post" action="#">
 					<div class="fields">
 						<div class="field">
@@ -160,6 +162,7 @@
 						<li><input type="submit" value="Send Message" /></li>
 					</ul>
 				</form>
+				<%} %>
 			</section>
 
 			<section class="split contact">

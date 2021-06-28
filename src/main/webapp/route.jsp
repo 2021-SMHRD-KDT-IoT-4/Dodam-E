@@ -149,9 +149,7 @@
 					} ];
 
 					// 마커 이미지의 이미지 주소입니다
-					var imageSrc = [ "./images/school.png",
-							"./images/piano.png", "./images/traffic.png",
-							"./images/house.png" ];
+					var imageSrc = [ "./images/school.png","./images/piano.png", "./images/traffic.png","./images/house.png" ];
 					//var imageSrc = "./img/piano.png"; 
 					//var imageSrc = "./img/traffic.png"; 
 					//var imageSrc = "./img/school.png"; 
@@ -194,15 +192,29 @@
 				<table border="1" id="hhh">
 					<tr align="center">
 						<td>순서</td>
+						<td>아이이름</td>
 						<td>장소이름</td>
+						<td></td>
+					
 						<td>위치확인시간</td>
 					</tr>
 					
 					<%for(int i=0;i<list.size();i++){%>
 					<tr align="center">
 						<td><%=i+1 %></td>
+						<td><%=list.get(i).getRoute_child()%></td>
 						<td><%=list.get(i).getRoute()%></td>
-						<td><%=list.get(i).getCheckTime() %></td>
+						<td><%if(list.get(i).getRoute().equals("학교")){ %>
+								<img src="./images/school.png" style='width:30px;height:30px'>	
+								<%}else if(list.get(i).getRoute().equals("학원")){ %>	
+									<img src="./images/piano.png"  style='width:30px;height:30px'>	
+									<%}else if(list.get(i).getRoute().equals("신호등")){ %>	
+										<img src="./images/traffic.png" style='width:30px;height:30px'>
+										<%}else if(list.get(i).getRoute().equals("집")){ %>
+											<img src="./images/traffic.png" style='width:30px;height:30px'>
+											<%} %>
+						</td>
+						<td><%=list.get(i).getCheckTime()%></td>
 					</tr>
 <%} %>
 				</table>

@@ -89,7 +89,7 @@ public class RouteDAO {
 		list = new ArrayList<RouteDTO>();
 		conn();
 
-		String sql = "select * from route order by day desc";
+		String sql = "select * from route where route_user";
 
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -99,10 +99,11 @@ public class RouteDAO {
 			while (rs.next()) {
 
 				int route_seq = rs.getInt(1);
-				String route = rs.getString(2);
-				String checktime = rs.getString(3);
+				String route_child=rs.getString(2);
+				String route = rs.getString(3);
+				String checktime = rs.getString(4);
 
-				dto = new RouteDTO(route_seq, route, checktime);
+				dto = new RouteDTO(route_seq,route_child, route, checktime);
 				list.add(dto);
 
 			}
