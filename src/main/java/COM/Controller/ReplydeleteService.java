@@ -31,6 +31,10 @@ public class ReplydeleteService extends HttpServlet {
 		}
 		id = info.getId();
 		
+		/*
+		 * if (num == null) { num = "0"; }
+		 */
+		
 		ReplyDAO dao = new ReplyDAO();
 		
 		int cnt = dao.DeleteOneReply(num);

@@ -25,7 +25,35 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
+
+<style>
+@font-face {
+	font-family: 'Cafe24Ssurround';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.boardFont,.insert {
+	font-family: 'Cafe24Ssurround';
+}
+
+.boardSFont {
+	font-family: 'Cafe24SsurroundAir';
+}
+</style>
+</head>
 	<body class="is-preload">
 	
 	 <%
@@ -88,13 +116,13 @@
                      <article id="board" class="panel">
                      <header>
                         
-                           <a href="insertbboard.jsp">글 작성</a>
+                           <a class="insert" href="insertbboard.jsp">글 작성</a>
                      </header>
                      <form action="#" method="post">
 
 
 					 <table border="1">
-                                 <tr align="center">
+                                 <tr align="center" class="boardFont">
                                  
                                     <td>번호</td>
                                     <td>제목</td>
@@ -106,7 +134,7 @@
                      <%
                      for (int i = 0; i < Nlist.size(); i++) {
                      %>
-                     <tr align="center">
+                     <tr align="center" class="boardSFont">
                         <td><%=Nlist.get(i).getNotice_seq()%></td>
                         <td><a
                            href="detailsBBoard.jsp?notice_seq=<%=Nlist.get(i).getNotice_seq()%>">

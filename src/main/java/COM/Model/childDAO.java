@@ -174,6 +174,7 @@ public class childDAO {
 		}
 		return c_one_list;
 	}
+
 	public ArrayList<childDTO> Child_one_info(String user) {
 
 		c_one_list = new ArrayList<childDTO>();
@@ -211,7 +212,35 @@ public class childDAO {
 		}
 		return c_one_list;
 	}
+
 	
+	public int childdelete(String id, String num) {
+		conn();
+
+		String sql = "delete from child where users_id=? and child_machine=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, num);
+			cnt = psmt.executeUpdate();
+
+			if(cnt !=0) {
+				System.out.println("시앤티작동중");
+			}else {
+				System.out.println("시앤티 인식을 못함");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	
+	
+
 	
 
 }

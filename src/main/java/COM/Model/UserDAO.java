@@ -17,6 +17,7 @@ public class UserDAO {
 	PreparedStatement psmt = null;
 	int cnt = 0;
 	ResultSet rs = null;
+	int result=0;
 
 	public void conn() {
 
@@ -240,7 +241,9 @@ public class UserDAO {
 		return dto;
 	}
 
-	public int childdelete(UserDTO dto) {
+	
+	
+	public int userdelete(UserDTO dto) {
 		conn();
 
 		String sql = "delete from child where users_id=?";
@@ -248,7 +251,17 @@ public class UserDAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getId());
 			
-			cnt = psmt.executeUpdate();
+			result = psmt.executeUpdate();
+			
+			if(result > 0 || result == 0) {
+				sql = "delete from users where users_id=?";
+				
+				psmt = conn.prepareStatement(sql);
+				
+				psmt.setString(1, dto.getId());
+				
+				cnt = psmt.executeUpdate();
+			}
 
 			if(cnt !=0) {
 				System.out.println("시앤티작동중");
@@ -264,29 +277,6 @@ public class UserDAO {
 		return cnt;
 	}
 	
-	public int userdelete(UserDTO dto) {
-		conn();
-
-		String sql = "delete from users where users_id=?";
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getId());
-			
-			cnt = psmt.executeUpdate();
-
-			if(cnt !=0) {
-				System.out.println("시앤티작동중");
-			}else {
-				System.out.println("시앤티 인식을 못함");
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return cnt;
-	}
 
 	public boolean idcheck(String id) {
 		conn();
@@ -317,6 +307,8 @@ public class UserDAO {
 		}
 			return check;
 	}
+
+	
 
 }
 	

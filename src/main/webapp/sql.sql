@@ -54,15 +54,20 @@ create table route (
  route_user varchar2(50),
  route_child varchar2(50),
  route varchar2(50),
+ route_la number,
+ route_ha number,
  checktime date
  );
  
  drop table route;
+ drop table receive_info;
 
 create table receive_info(
 	receive_seq number,
 	receive_num number(20),
-	receive_loca varchar2(50)
+	receive_loca varchar2(50),
+	receive_la number,
+	receive_ha number
 );
  
  select * from ROUTE;
@@ -74,17 +79,20 @@ delete from route;
 
 
 insert into route values(route_seq.nextval,'hyo','김효진','학원',sysdate);
+insert into route values(route_seq.nextval,'hyo','김효진','학원','35.112171','126.873735',sysdate);
 
 drop sequence num_board;
 
 select * from receive_info;
 select * from route;
 
+
 insert into app1 values(111,'신호등')
-insert into receive_info values(receive_seq.nextval,0001,'학교');
-insert into receive_info values(receive_seq.nextval,0002,'신호등');
-insert into receive_info values(receive_seq.nextval,0003,'피아노학원');
-insert into receive_info values(receive_seq.nextval,0004,'집');
+insert into receive_info values(receive_seq.nextval,0001,'학교',35.112171,126.873735);
+insert into receive_info values(receive_seq.nextval,0002,'신호등',35.111548,126.876066);
+insert into receive_info values(receive_seq.nextval,0003,'피아노학원',35.112445,126.875642);
+insert into receive_info values(receive_seq.nextval,0004,'집',35.110974,126.877459);
+
 insert into route values(route_seq.nextval,'ss','sss','집',sysdate);
 
 

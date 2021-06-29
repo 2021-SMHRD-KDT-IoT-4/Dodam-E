@@ -1,5 +1,7 @@
 
 
+<%@page import="jdk.internal.misc.FileSystemOption"%>
+<%@page import="COM.Model.ReceiveDAO"%>
 <%@page import="COM.Model.ReceiveDTO"%>
 <%@page import="COM.Model.RouteDAO"%>
 <%@page import="COM.Model.RouteDTO"%>
@@ -39,6 +41,36 @@
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
 
+<style>
+@font-face {
+	font-family: 'Cafe24Ssurround';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.routeFont{
+	font-family: 'Cafe24Ssurround';
+}
+.routeSFont{
+	font-family: 'Cafe24SsurroundAir';
+}
+
+
+
+</style>
+
 
 </head>
 <body class="is-preload">
@@ -47,8 +79,9 @@
 	UserDTO info = (UserDTO) session.getAttribute("login_info");
     String name =info.getId();
 	ArrayList<RouteDTO> list=null;
-
-
+	childDAO user = new childDAO();
+	ArrayList<childDTO> dto = user.Child_one_info(name);
+	
 		if(info!=null){
 			 list=(ArrayList<RouteDTO>)session.getAttribute("mcr");
 			
@@ -132,6 +165,7 @@
 					var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 					// 마커를 표시할 위치와 title 객체 배열입니다 
+	
 					var positions = [ {
 						title : '학교',
 						latlng : new kakao.maps.LatLng(35.112171, 126.873735),
@@ -173,15 +207,17 @@
 
 						});
 					}
+						<%RouteDAO dao=new RouteDAO();
+						
+						ArrayList<RouteDTO>rout=dao.showboard(info.getId());%>
+					var arr = [];
+					<%for(int i=0;i<rout.size(); i++){%>
+					arr.push(new kakao.maps.LatLng(<%=rout.get(i).getRoute_la()%>,<%=rout.get(i).getRoute_ha()%>))
+					<%}%>
 					var polyline = new kakao.maps.Polyline({
 						map : map, // 선을 표시할 지도 객체 
-						path : [ // 선을 구성하는 좌표 배열
-						new kakao.maps.LatLng(35.112171, 126.873735),
-								new kakao.maps.LatLng(35.112445, 126.875642),
-								new kakao.maps.LatLng(35.111548, 126.876066),
-								new kakao.maps.LatLng(35.110974, 126.877459)
-
-						],
+						path : arr, // 선을 구성하는 좌표 배열
+							
 						strokeWeight : 3, // 선의 두께
 						strokeColor : '#CC33FF', // 선 색
 						strokeOpacity : 0.9, // 선 투명도
@@ -190,23 +226,21 @@
 				</script>
 				<br>
 				<table border="1" id="hhh">
-					<tr align="center">
+					<tr align="center" class="routeFont">
 						<td>순서</td>
 						<td>아이이름</td>
-						<td>장소이름</td>
-						<td></td>
-					
+						<td colspan="2";>장소이름</td>
 						<td>위치확인시간</td>
 					</tr>
 					
 					<%for(int i=0;i<list.size();i++){%>
-					<tr align="center">
+					<tr align="center" class="routeSFont">
 						<td><%=i+1 %></td>
 						<td><%=list.get(i).getRoute_child()%></td>
 						<td><%=list.get(i).getRoute()%></td>
 						<td><%if(list.get(i).getRoute().equals("학교")){ %>
 								<img src="./images/school.png" style='width:30px;height:30px'>	
-								<%}else if(list.get(i).getRoute().equals("학원")){ %>	
+								<%}else if(list.get(i).getRoute().equals("피아노학원")){ %>	
 									<img src="./images/piano.png"  style='width:30px;height:30px'>	
 									<%}else if(list.get(i).getRoute().equals("신호등")){ %>	
 										<img src="./images/traffic.png" style='width:30px;height:30px'>

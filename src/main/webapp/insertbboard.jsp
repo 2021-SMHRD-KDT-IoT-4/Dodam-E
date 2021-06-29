@@ -25,6 +25,37 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="assets/css/main.css" />
       <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+      
+      <style>
+@font-face {
+	font-family: 'Cafe24Ssurround';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.title,.writer,.content,.date,.delete{
+	font-family: 'Cafe24Ssurround';
+}
+
+.stitle,.swriter,.scontent,.sdate,.text{
+	font-family: 'Cafe24SsurroundAir';
+}
+
+
+
+</style>
    </head>
    <body class="is-preload">
    
@@ -95,20 +126,20 @@
                         <tbody>
                            <tr class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
-                              <th>제목 :</th>
-                              <td colspan="3" width="200"><input type="text" name="title"></td>
+                              <th class="title">제목 :</th>
+                              <td colspan="3" width="200"><input  class="stitle" type="text" name="title"></td>
                            </tr>
                            
                            <tr class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
-                              <th>작성자 :</th>
-                              <td colspan="3" width="200"> <%=info.getId() %></td>
+                              <th class="writer">작성자 :</th>
+                              <td class="swriter" colspan="3" width="200"> <%=info.getId() %></td>
                            </tr>
                            
                            <tr class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
-                              <th>내용 :</th>
-                              <td colspan="3"><textarea name="content"></textarea></td>
+                              <th class="content">내용 :</th>
+                              <td class="sconten" colspan="3"><textarea class="text" name="content"></textarea></td>
                            </tr>
                            
                            <tr class="col-6 col-6-medium"
@@ -121,8 +152,8 @@
                        <div class="row" style="display: block;  text-align: center;">
                   		<div class="col-6-medium" style="margin: 0 auto; float: none;">
                         
-                        <input type = "submit" value = "작성하기">
-                        <input type="button" value="뒤로가기" onClick="window.location='board.jsp'" />
+                        <input type = "submit" value = "작성하기" style = "font-family: 'Cafe24Ssurround';">
+                        <input type="button" value="뒤로가기" onClick="window.location='board.jsp'" style = "font-family: 'Cafe24Ssurround';" />
                         </div> 
                         <% session.setAttribute("u_id", info.getId()); %>
                	       </div>

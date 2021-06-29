@@ -34,11 +34,14 @@
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
 
+
+
 </head>
 <body class="is-preload">
 
 	<%
 	UserDTO info = (UserDTO) session.getAttribute("login_info");
+			
 	%>
 
 	<!-- Wrapper -->
@@ -111,6 +114,7 @@
 						class="label">Facebook</span></a></li>
 				<li><a href="#" class="icon brands fa-instagram"><span
 						class="label">Instagram</span></a></li>
+						
 				<li><a href="#" class="icon brands fa-github"><span
 						class="label">GitHub</span></a></li>
 			</ul>
@@ -131,7 +135,7 @@
 
 				</header>
 
-				<a href="#" class="image main"><img src="images/kidss.png"
+				<a href="#" class="image main"><img src="images/cc.png"
 					alt="" /></a>
 
 			</article>

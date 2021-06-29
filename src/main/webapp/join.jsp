@@ -13,13 +13,18 @@
 	pageEncoding="EUC-KR"%>
 <%@page import="COM.Model.UserDTO"%>
 <%@page import="java.util.*"%>
-
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 <!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<%
+	Date nowTime = new Date();
+	SimpleDateFormat sf = new SimpleDateFormat("MM월 dd일  yyyy년  ");
+%>
 <html>
 <head>
 <title>Massively by HTML5 UP</title>
@@ -30,6 +35,33 @@
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
+
+<style>
+@font-face {
+	font-family: 'Cafe24Ssurround';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.date,.id,.pw,.name,.tel{
+	font-family: 'Cafe24Ssurround';
+}
+
+
+
+</style>
 
 </head>
 <body class="is-preload">
@@ -91,8 +123,10 @@
 
 			<!-- Featured Post -->
 			<article class="post featured">
+			
 				<header class="major">
-					<span class="date">April 25, 2017</span>
+			<%-- 	<%= nowTime %> --%>
+					<span class="date"><%= sf.format(nowTime) %> </span>
 					<h2>
 						<a href="#">JOIN<br /> WELCOME
 						</a>
@@ -102,32 +136,42 @@
 				<form action="JoinService" method="post">
 					<div>
 						<div class="row" style="display: block;">
+						
+							
+							<div class="col-6 col-6-medium" style="margin: 0 auto; float: none; width:70%">
+							
+								<input class = "id" type="text" name="id" placeholder="ID" id="input_id" style = "display:inline; width:50%">
+							
+						
+							    <input type="button" value="중복체크" onclick="idCheck()" style = "display:inline; width:auto; 
+                            font-family: 'Cafe24Ssurround';">
+							
+							</div>
+							<span id="sp"  ></span>
+							<br>
 							<div class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
-								<input type="text" name="id" placeholder="ID" id="input_id" >
-								<br>
-							    <input type="button" value="중복체크" onclick="idCheck()"><span id="sp"></span>
+								<input class = "pw" type="text" name="pw" placeholder="PW" />
 							</div>
 							<br>
 							<div class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
-								<input type="text" name="pw" placeholder="PW" />
+								<input class = "name" type="text" name="name" placeholder="이름" />
 							</div>
 							<br>
+							
 							<div class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
-								<input type="text" name="name" placeholder="이름" />
+								<input class = "tel" type="text" name="tel" placeholder="전화번호" />
 							</div>
 							<br>
-							<div class="col-6 col-6-medium"
-								style="margin: 0 auto; float: none;">
-								<input type="text" name="tel" placeholder="전화번호" />
-							</div>
-							<br>
+						
+							
 							<div class="col-12">
 								<input type="submit" value="회원가입"
-									onClick="window.location='#main'" />
+									onClick="window.location='#main'" style = "font-family: 'Cafe24Ssurround';" />
 							</div>
+						
 						</div>
 					</div>
 				</form>
@@ -276,7 +320,10 @@
 			
 			</script>
 	
-	
+	<script type="text/javascript">
+	var now = new Date();	// 현재 날짜 및 시간
+	var day = now.getDay();	//
+	</script>
 			
 			
 	

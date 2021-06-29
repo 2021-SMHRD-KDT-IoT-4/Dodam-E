@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import COM.Model.ReceiveDAO;
 import COM.Model.ReceiveDTO;
 import COM.Model.RouteDAO;
 import COM.Model.RouteDTO;
@@ -22,48 +23,88 @@ import COM.Model.childDTO;
 
 @WebServlet("/Wifi")
 public class Wifi extends HttpServlet {
-   private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-   protected void service(HttpServletRequest request, HttpServletResponse response)
-         throws ServletException, IOException {
-      request.setCharacterEncoding("EUC-KR");
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("EUC-KR");
 //      Integer.parseInt(request.getParameter("sb"));
-      int js = 1;
+		int js = 4;
 
-      System.out.println(js);
+		System.out.println(js);
+		RouteDAO dao = new RouteDAO();
+		ArrayList<ReceiveDTO> list = dao.loca();
+		int num = 0;
+		String loca = "";
+		ReceiveDAO rdao = new ReceiveDAO();
+		ArrayList<ReceiveDTO> rlist = rdao.receive_all();
+		childDAO user = new childDAO();
+		ArrayList<childDTO> dto = user.Child_one_info("ss");
+		if (js > 0) {
 
-      RouteDAO dao = new RouteDAO();
-      ArrayList<ReceiveDTO> list = dao.loca();
-      int num = 0;
-      String loca = "";
-//      HttpSession session = request.getSession();
-//      UserDTO info = (UserDTO) session.getAttribute("login_info");
-//      String mcr = (String) session.getAttribute("mcr");
-//      System.out.println(info.getId());
-//      String cc = (String) session.getAttribute("c_name");
-//      System.out.println(cc);
+			System.out.println(list.size());
+			System.out.println(rlist.size());
 
-//         String id = info.getId();
-      childDAO user = new childDAO();
-      ArrayList<childDTO> dto = user.Child_one_info("ss");
-      if (js > 0) {
+			for (int i = 0; i < list.size(); i++) {
 
-         System.out.println(list.size());
-         for (int i = 0; i <list.size() ; i++) {
-            num = list.get(i).getReceive_num();
+				if (js == 1) {
+					System.out.println("asdasd");
+					System.out.println(i);
 
-            if (num == js) {
-               if (dto.get(i).getC_send_machine().equals("11")) {
+					if (dto.get(i).getC_send_machine().equals("11")) {
 
-                  loca = list.get(i).getReceive_loca();
-                  dao.upload("ss",dto.get(i).getC_name() , loca);
-                  System.out.println(dto.get(i).getC_name());
-                  break;
-               }
-            }
-         }
+						System.out.println("asdasdgjlashnfljas");
+						loca = list.get(js-1).getReceive_loca();
+						dao.upload("ss", dto.get(i).getC_name(), loca, list.get(i).getReceive_la(),
+								list.get(i).getReceive_ha());
+						System.out.println(dto.get(i).getC_name());
+						break;
+					}
+				} else if (js == 2) {
+					System.out.println("asdasd");
+					System.out.println(i);
 
-      }
+					if (dto.get(i).getC_send_machine().equals("11")) {
 
-   }
+						System.out.println("asdasdgjlashnfljas");
+						loca = list.get(js-1).getReceive_loca();
+						dao.upload("ss", dto.get(i).getC_name(), loca, list.get(i).getReceive_la(),
+								list.get(i).getReceive_ha());
+						System.out.println(dto.get(i).getC_name());
+						break;
+					}
+
+				} else if (js == 3) {
+					System.out.println("asdasd");
+					System.out.println(i);
+
+					if (dto.get(i).getC_send_machine().equals("11")) {
+
+						System.out.println("asdasdgjlashnfljas");
+						loca = list.get(js-1).getReceive_loca();
+						dao.upload("ss", dto.get(i).getC_name(), loca, list.get(i).getReceive_la(),
+								list.get(i).getReceive_ha());
+						System.out.println(dto.get(i).getC_name());
+						break;
+					}
+				}else if (js == 4) {
+					System.out.println("asdasd");
+					System.out.println(i);
+
+					if (dto.get(i).getC_send_machine().equals("11")) {
+
+						System.out.println("asdasdgjlashnfljas");
+						loca = list.get(js-1).getReceive_loca();
+						dao.upload("ss", dto.get(i).getC_name(), loca, list.get(i).getReceive_la(),
+								list.get(i).getReceive_ha());
+						System.out.println(dto.get(i).getC_name());
+						break;
+					}
+				}
+
+			}
+
+		}
+
+	}
 }

@@ -1,3 +1,4 @@
+
 <%@page import="COM.Model.ReplyDTO"%>
 <%@page import="COM.Model.ReplyDAO"%>
 <%@page import="COM.Model.childDAO"%>
@@ -27,13 +28,45 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
+			<style>
+@font-face {
+	font-family: 'Cafe24Ssurround';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Cafe24SsurroundAir';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.title,.writer,.content,.date,.delete{
+	font-family: 'Cafe24Ssurround';
+}
+
+.stitle,.swriter,.scontent,.sdate,.text{
+	font-family: 'Cafe24SsurroundAir';
+}
+
+
+
+</style>
 	</head>
 	<body class="is-preload">
 	
 	 <%
+
       UserDTO info = (UserDTO)session.getAttribute("login_info");
 	  NoticeDTO result1 = (NoticeDTO)session.getAttribute("seq");
-
+	
       %>
 
 		<!-- Wrapper -->
@@ -99,7 +132,7 @@
 
 					<%
 					int num = Integer.parseInt(request.getParameter("notice_seq"));
-					//System.out.println("출력출력" + num);
+
 					
 					NoticeWriteDAO Noticedao = new NoticeWriteDAO();
 					NoticeDTO dto = Noticedao.showOne(num);
@@ -118,56 +151,71 @@
 								<col width="100px">
 							</colgroup>
 								<tr>
-						<td>제목 : </td>
-						<td><%=dto.getNotice_title()%></td>
+						<td class="title">제목 : </td>
+						<td class="stitle"><%=dto.getNotice_title()%></td>
 					</tr>
 					<tr>
-						<td style="width: 130px">작성자:</td>
-						<td><%=dto.getNotice_id() %></td>
+						<td class="writer" style="width: 130px">작성자:</td>
+						<td class="swriter"><%=dto.getNotice_id() %></td>
 					</tr>
 					<tr>
-						<td colspan="2">내용</td>
+						<td class="content" colspan="2">내용</td>
 					</tr>
 					<tr>
-						<td colspan="2">
+						<td class="scontent" colspan="2">
 							<%=dto.getNotice_content() %>	
 						</td>
 					</tr>
 					<tr>
-						<td>날짜</td>
-						<td><%=dto.getNotice_day()%></td>
+						<td class="date">날짜</td>
+						<td class="sdate"><%=dto.getNotice_day()%></td>
 					</tr>
+					
+					
 				</table>
 					
 			<!-- 댓글 보기 -->		
 				
 				<h1 class="con"></h1>
 						<table class="cell" border="1">
+						
+						<hr>
+						
 							<colgroup>
 								<col width="100px">
 							</colgroup>
-					
+				<%-- 	
 					<%
                      for (int i = 0; i < Rlist.size(); i++) {
                      %>		
 					<tr>
-						<td style="width: 130px">작성자:</td>
-						<td><%=Rlist.get(i).getUsers_id() %></td>
+						<td class="writer" style="width: 130px">작성자:</td>
+						<td class="swriter"><%=Rlist.get(i).getUsers_id() %></td>
 					</tr>
 					<tr>
-						<td style="width: 130px">내용:</td>
-						<td><%=Rlist.get(i).getReply_content() %></td>
-						<td><a href = "ReplydeleteService?num=<%= Rlist.get(i).getReply_seq() %>">삭제</a></td>
-						
+						<td class="content" style="width: 130px">내용:</td>
+						<td class="scontent"><%=Rlist.get(i).getReply_content() %></td>
 					</tr>
 					
 					<tr>
-						<td>날짜</td>
-						<td><%=Rlist.get(i).getReply_day()%></td>
+						<td class="date">날짜</td>
+						<td class="sdate"><%=Rlist.get(i).getReply_day()%></td>
+						<td class="delete"><a href = "ReplydeleteService?num=<%= Rlist.get(i).getReply_seq() %>">삭제</a></td>
 					</tr>
 					<%}%>
 				</table>	
-					
+				 --%>
+				 		<%
+                     for (int i = 0; i < Rlist.size(); i++) {
+                     %>		
+					<tr>
+						<td><%=Rlist.get(i).getUsers_id() %></td>
+						<td style="width: 100px"><%=Rlist.get(i).getReply_content() %></td>
+						<td style="width: 65px"><%=Rlist.get(i).getReply_day()%></td>
+						<td style="width: 20px"><a href = "ReplydeleteService?num=<%= Rlist.get(i).getReply_seq() %>">삭제</a></td>
+					</tr>
+					<%}%>
+				</table>	
 					
 					
 					
@@ -180,16 +228,18 @@
 									<col width="100px">
 								</colgroup>
 								<tr class="col-6 col-6-medium" style="margin: 0 auto; float: none;">
-                    				<th>내용 :</th>
-                        			<td colspan="3"><textarea name="r_content"></textarea></td>
+                    				<th class="content">내용 :</th>
+                        			<td colspan="3"><textarea class="text" name="r_content"></textarea></td>
                     			</tr>
 							</table>
 							
 							<div class="row" style="display: block;  text-align: center;">
                   			<div class="col-6-medium" style="margin: 0 auto; float: none;">
                         
-                        	<input type = "submit" value = "댓글쓰기">
-                        	<input type = "reset" value = "댓글 초기화">
+
+                        	<input type = "submit" value = "댓글쓰기"  style = "font-family: 'Cafe24Ssurround';">
+                        	<input type = "reset" value = "댓글 초기화"  style = "font-family: 'Cafe24Ssurround';">
+                        	<input type="button" value="게시물 삭제" onClick="window.location='DeleteBoardService'" />
                         	</div> 
                         <% session.setAttribute("u_id", info.getId()); %>
                         <%--<% session.setAttribute("n_seq", num);%> --%>
@@ -197,17 +247,20 @@
 						</form>
 						
 				 	<div class="row" style="display: block;">
-				 	
-                   		<div class="col-3 col-6-medium" style="margin: 0 auto; float: none;">
+				 	<!-- col-3 col-6-medium -->
+                   		<div class="col-9-medium" style="margin: 0 auto; float: none;">
                         	<%-- <a href="board.jsp"><button>뒤로가기</button></a> --%>
-                        	<input type="button" value="뒤로가기" onClick="window.location='board.jsp'" />
+                        	<input type="button" value="뒤로가기" onClick="window.location='board.jsp'" style = "font-family: 'Cafe24Ssurround';"/>
                         
                	   		</div>   
                	   	</div>
                	   		
                         <form action="DeleteBoardService">
-                        <input type="submit" value="삭제하기">
+                        <input type="submit" value="삭제하기" style = "font-family: 'Cafe24Ssurround';">
                         </form>
+                        <!-- <form action="DeleteBoardService">
+                        <input type="submit" value="게시물 삭제">
+                        </form> -->
                         
                         
                	   </div>   
