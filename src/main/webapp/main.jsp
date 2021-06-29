@@ -117,6 +117,7 @@ font-family: 'Cafe24Ssurround';
 				if (info.getId().equals("admin")) {
 				%>
 				<li><a href="admin_userinfo.jsp">user info</a></li>
+				
 				<li><a href="sendview.jsp">send</a></li>
 				<%
 				} else {
