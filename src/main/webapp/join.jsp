@@ -145,7 +145,7 @@ font-family: 'Cafe24Ssurround';
 							<br>
 							<div class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
-								<input class = "pw" type="text" name="pw" placeholder="PW" />
+								<input class = "pw" type="password" name="pw" placeholder="PW" />
 							</div>
 							<br>
 							<div class="col-6 col-6-medium"

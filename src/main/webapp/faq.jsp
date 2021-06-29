@@ -116,7 +116,6 @@ font-family: 'Cafe24Ssurround';
                                     <td>번호</td>
                                     <td>제목</td>
                                     <td>글쓴이</td>
-                                    <td>내용</td>
                                     <td>날짜</td>
                                  </tr>
                                  <%
@@ -129,7 +128,6 @@ font-family: 'Cafe24Ssurround';
                                     <%=list.get(i).getFaq_title()%></a>
                                     </td>
                                     <td><%=list.get(i).getFaq_writer()%></td>
-                                    <td><%=list.get(i).getFaq_content()%></td>
                                     <td><%=list.get(i).getFaq_answer()%></td>
                                  </tr>
                                  <%

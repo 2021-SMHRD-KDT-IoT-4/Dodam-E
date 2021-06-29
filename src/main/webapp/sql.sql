@@ -82,6 +82,7 @@ delete from route;
 insert into route values(route_seq.nextval,'hyo','김효진','학원',sysdate);
 
 drop sequence num_board;
+drop sequence faq_seq;
 
 select * from receive_info;
 select * from route;
@@ -101,5 +102,65 @@ delete from NOTICE where notice_seq = 167;
 
 delete from route where route_user ='hyo';
 
+truncate table faq;
+
+insert into faq values(faq_seq.nextval,'회원탈퇴가 되지 않아요!!!','admin','아이를 먼저 삭제하고 회원을 탈퇴해주세요^^',sysdate
+);
+
+insert into faq values(faq_seq.nextval,'기기번호 변경은 어떻게 하나요???','admin','관리자에게 문의하세요^^',sysdate
+);
+insert into faq values(faq_seq.nextval,'아이디 비밀번호를 잊어버렸어요!!!','admin','관리자 선생님을 제외한 아이디는 학교 안심알리미 담당선생님이나 스쿨메신저 관리지 선생님께 비밀번호 초기화 를 요청해주세요.
+',sysdate
+);
+
+insert into faq values(faq_seq.nextval,'등,하교 정보가 보이지 않아요','admin','학부모님께서 자녀의 책가방에 단말기가 착용되어 있는지 확인해 주세요.',sysdate
+);
 
 
+
+drop table faq;
+
+create table faq(
+faq_seq number,
+faq_title varchar2(50),
+faq_writer varchar2(50),
+faq_content varchar2(200),
+faq_day date
+);
+
+
+select faq_seq.currval from dual;
+select notice_seq.currval from dual;
+select info_seq.currval from dual;
+select receive_seq.currval from dual;
+select reply_seq.currval from dual;
+select route_seq.currval from dual;
+select send_seq.currval from dual;
+
+create SEQUENCE faq_seq
+INCREMENT by 1
+START with 1;
+
+create SEQUENCE notice_seq
+INCREMENT by 1
+START with 1;
+
+create SEQUENCE info_seq
+INCREMENT by 1
+START with 1;
+
+create SEQUENCE reply_seq
+INCREMENT by 1
+START with 1;
+
+create SEQUENCE route_seq
+INCREMENT by 1
+START with 1;
+
+create SEQUENCE receive_seq
+INCREMENT by 1
+START with 1;
+
+create SEQUENCE send_seq
+INCREMENT by 1
+START with 1;
