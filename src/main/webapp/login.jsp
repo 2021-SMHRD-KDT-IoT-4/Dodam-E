@@ -50,6 +50,9 @@
 font-family: 'Cafe24Ssurround';
 
 }
+.id{
+font-family: 'Cafe24SsurroundAir';
+}
 
 
 </style>
@@ -118,7 +121,7 @@ font-family: 'Cafe24Ssurround';
                                 </div>
                                 <br>
                                 <div class="col-6 col-6-medium" style="margin: 0 auto;float: none;">
-                                   <input class="pw" type="password" name="pw" placeholder="PW" />
+                                   <input class="pw" type="password" name="pw" placeholder="password" />
                                 </div>
                                 <br>
                                 <div class="col-12">
