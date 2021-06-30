@@ -117,9 +117,9 @@
 						
 								<div class="row" style="display: block;">
 								 <%if(info != null) {%>
-								 <div class="col-1 col-6-medium"
+								 <div class="col-2 col-6-medium"
 										style="margin: 0 auto; float: none;">
-                     				<h2><%=info.getId() %></h2>
+                     				<h2 style= "font-family: 'Cafe24Ssurround';"><%=info.getName() %></h2>
 								</div>
 									<div class="col-6 col-6-medium"
 										style="margin: 0 auto; float: none;">

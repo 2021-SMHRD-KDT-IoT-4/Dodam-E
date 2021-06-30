@@ -1,6 +1,6 @@
 
 
-<%@page import="jdk.internal.misc.FileSystemOption"%>
+
 <%@page import="COM.Model.ReceiveDAO"%>
 <%@page import="COM.Model.ReceiveDTO"%>
 <%@page import="COM.Model.RouteDAO"%>
@@ -209,7 +209,7 @@
 					}
 						<%RouteDAO dao=new RouteDAO();
 						
-						ArrayList<RouteDTO>rout=dao.showboard(info.getId());%>
+						ArrayList<RouteDTO> rout=dao.showboard(info.getId());%>
 					var arr = [];
 					<%for(int i=0;i<rout.size(); i++){%>
 					arr.push(new kakao.maps.LatLng(<%=rout.get(i).getRoute_la()%>,<%=rout.get(i).getRoute_ha()%>))
@@ -218,7 +218,7 @@
 						map : map, // 선을 표시할 지도 객체 
 						path : arr, // 선을 구성하는 좌표 배열
 							
-						strokeWeight : 3, // 선의 두께
+						strokeWeight : 2, // 선의 두께
 						strokeColor : '#CC33FF', // 선 색
 						strokeOpacity : 0.9, // 선 투명도
 						strokeStyle : 'dash' // 선 스타일

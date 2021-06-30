@@ -16,6 +16,14 @@
 <%@page import="COM.Model.UserDTO"%>
 <%@page import="java.util.*"%>
 
+
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%
+	Date nowTime = new Date();
+	SimpleDateFormat sf = new SimpleDateFormat("yyyy³â MM¿ù ddÀÏ k:mm");
+%>
+
 <!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
@@ -33,6 +41,27 @@
 <noscript>
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
+
+<style >
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.date{
+font-family: 'Cafe24Ssurround';
+
+}
+
+
+</style>
 
 
 
@@ -88,6 +117,7 @@
 				if (info.getId().equals("admin")) {
 				%>
 				<li><a href="admin_userinfo.jsp">user info</a></li>
+				
 				<li><a href="sendview.jsp">send</a></li>
 				<%
 				} else {
@@ -127,7 +157,8 @@
 			<!-- Featured Post -->
 			<article class="post featured">
 				<header class="major">
-					<span class="date">April 25, 2017</span>
+					<span class="date"><%= sf.format(nowTime) %></span>
+					
 					<h2>
 						<a href="#">Dodam Dodam<br /> WELCOME
 						</a>

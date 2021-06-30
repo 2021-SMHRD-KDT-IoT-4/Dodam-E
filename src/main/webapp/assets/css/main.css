@@ -148,7 +148,7 @@ input, select, textarea {
 	}
 
 	body, input, select, textarea {
-		font-family: 'Cafe24Ssurround';
+		/* font-family: 'Cafe24Ssurround'; */
 		font-weight: 300;
 		font-size: 1rem;
 		line-height: 2.375;
@@ -2338,19 +2338,19 @@ input, select, textarea {
 	input[type="email"],
 	select,
 	textarea {
-		-moz-appearance: none;
+		 -moz-appearance: none;
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
 		background: transparent;
 		border-radius: 0;
 		border: solid 2px;
-		color: inherit;
+		color: black;
 		display: block;
 		outline: 0;
 		padding: 0 1rem;
 		text-decoration: none;
-		width: 100%;
+		width: 100%; 
 	}
 
 		input[type="text"]:invalid,
@@ -2358,7 +2358,7 @@ input, select, textarea {
 		input[type="email"]:invalid,
 		select:invalid,
 		textarea:invalid {
-			box-shadow: none;
+			 box-shadow: none; 
 		}
 
 	select {
@@ -2382,7 +2382,7 @@ input, select, textarea {
 	input[type="password"],
 	input[type="email"],
 	select {
-		height: 3rem;
+		 height: 3rem; 
 	}
 
 	textarea {
@@ -2486,7 +2486,7 @@ input, select, textarea {
 	input[type="email"],
 	select,
 	textarea {
-		border-color: #eeeeee;
+		 border-color: #eeeeee; 
 	}
 
 		input[type="text"]:focus,
@@ -2494,7 +2494,7 @@ input, select, textarea {
 		input[type="email"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #18bfef;
+			 border-color: #18bfef; 
 		}
 
 	select {
@@ -4053,7 +4053,7 @@ input, select, textarea {
 		#footer input[type="email"],
 		#footer select,
 		#footer textarea {
-			border-color: #e2e2e2;
+			 border-color: #e2e2e2; 
 		}
 
 			#footer input[type="text"]:focus,
@@ -4061,7 +4061,7 @@ input, select, textarea {
 			#footer input[type="email"]:focus,
 			#footer select:focus,
 			#footer textarea:focus {
-				border-color: #18bfef;
+				 border-color: #18bfef; 
 			}
 
 		#footer select {

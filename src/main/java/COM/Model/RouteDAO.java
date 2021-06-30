@@ -58,7 +58,7 @@ public class RouteDAO {
 
 	}
 
-	public int upload(String user, String child, String route,float Route_la,float Route_ha) {
+	public int upload(String user, String child, String route,double Route_la,double Route_ha) {
 		conn();
 
 		String sql = "insert into route values(route_seq.nextval,?,?,?,?,?,sysdate)";
@@ -69,8 +69,8 @@ public class RouteDAO {
 			psmt.setString(1, user);
 			psmt.setString(2,child);
 			psmt.setString(3, route);
-			psmt.setFloat(4, Route_la);
-			psmt.setFloat(5,Route_ha);
+			psmt.setDouble(4, Route_la);
+			psmt.setDouble(5,Route_ha);
 
 			cnt = psmt.executeUpdate();
 
@@ -105,8 +105,8 @@ public class RouteDAO {
 				String route_user=rs.getString(2);
 				String route_child=rs.getString(3);
 				String route = rs.getString(4);
-				float route_la = rs.getFloat(5);
-				float route_ha = rs.getFloat(6);
+				double route_la = rs.getDouble(5);
+				double route_ha = rs.getDouble(6);
 				String checktime = rs.getString(7);
 				
 
@@ -140,8 +140,8 @@ public class RouteDAO {
 				String route_user = rs.getString(2);
 				String route_child = rs.getString(3);
 				String route = rs.getString(4);
-				 float route_la = rs.getFloat(5);
-				 float route_ha = rs.getFloat(6);
+				 double route_la = rs.getDouble(5);
+				 double route_ha = rs.getDouble(6);
 				String checktime = rs.getString(7);
 
 				dto = new RouteDTO(route_seq, route_user, route_child, route,route_la ,route_ha, checktime);
@@ -171,8 +171,8 @@ public class RouteDAO {
 				int receive_seq = rs.getInt(1);
 				int receive_num=rs.getInt(2);
 				String receive_loca=rs.getString(3);
-				 float receive_la= rs.getFloat(4);
-				 float receive_ha= rs.getFloat(5);
+				 double receive_la= rs.getDouble(4);
+				 double receive_ha= rs.getDouble(5);
 			
 				
 

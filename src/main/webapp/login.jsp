@@ -12,6 +12,13 @@
 <%@page import = "COM.Model.UserDTO"%>  
 <%@page import = "java.util.*" %>  
 
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%
+	Date nowTime = new Date();
+	SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 k:mm");
+%>
+
 <!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
@@ -26,29 +33,26 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		
-		<style>
+	<style >
 @font-face {
-	font-family: 'Cafe24Ssurround';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-
 @font-face {
-	font-family: 'Cafe24SsurroundAir';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
+.date{
+font-family: 'Cafe24Ssurround';
 
-.id,.pw{
-	font-family: 'Cafe24Ssurround';
 }
-
+.id{
+font-family: 'Cafe24SsurroundAir';
+}
 
 
 </style>
@@ -102,7 +106,7 @@
 					<div id="main">
 					
 					<header class="major">
-									<span class="date">April 25, 2017</span>
+									<span class="date"><%= sf.format(nowTime) %></span>
 									<h1><a href="#">Login<br /></a></h1>
 							
 
@@ -117,14 +121,15 @@
                                 </div>
                                 <br>
                                 <div class="col-6 col-6-medium" style="margin: 0 auto;float: none;">
-                                   <input class="pw" type="text" name="pw" placeholder="PW" />
+                                   <input class="pw" type="password" name="pw" placeholder="password" />
                                 </div>
                                 <br>
                                 <div class="col-12">
                                    <input type="submit" value="  로그인  " style = "font-family: 'Cafe24Ssurround';" />
                                    
                                 </div>
-                        
+                                
+                               
                                 
                           </div>
                        </form>

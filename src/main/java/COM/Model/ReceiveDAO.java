@@ -74,8 +74,8 @@ public class ReceiveDAO {
 				int receive_seq = rs.getInt(1);
 				int receive_num=rs.getInt(2);
 				String receive_loca=rs.getString(3);
-				 float receive_la= rs.getFloat(4);
-				 float receive_ha= rs.getFloat(5);
+				 double receive_la= rs.getDouble(4);
+				 double receive_ha= rs.getDouble(5);
 			
 				
 

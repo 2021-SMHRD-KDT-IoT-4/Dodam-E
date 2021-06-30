@@ -6,12 +6,12 @@ public class RouteDTO {
 	private String Route_user;
 	private String Route_child;
 	private String Route;
-	private float Route_la;
-	private float Route_ha;
+	private double Route_la;
+	private double Route_ha;
 	private String CheckTime;
 
 
-	public RouteDTO(int route_seq, String route_user, String route_child, String route, Float route_la, Float route_ha, String checkTime) {
+	public RouteDTO(int route_seq, String route_user, String route_child, String route, double route_la, double route_ha, String checkTime) {
 		super();
 		Route_seq = route_seq;
 		Route_user = route_user;
@@ -40,19 +40,19 @@ public class RouteDTO {
 		CheckTime = checkTime;
 	}
 
-	public  float getRoute_la() {
+	public  double getRoute_la() {
 		return Route_la;
 	}
 	
-	public void setRoute_la(  float route_la) {
+	public void setRoute_la(  double route_la) {
 		Route_la = route_la;
 	}
 	
-	public  float getRoute_ha() {
+	public  double getRoute_ha() {
 		return Route_ha;
 	}
 	
-	public void setRoute_ha(  float route_ha) {
+	public void setRoute_ha(  double route_ha) {
 		Route_ha = route_ha;
 	}
 	public RouteDTO(String route_child) {

@@ -13,18 +13,25 @@
 	pageEncoding="EUC-KR"%>
 <%@page import="COM.Model.UserDTO"%>
 <%@page import="java.util.*"%>
+<<<<<<< HEAD
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
+=======
+
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%
+	Date nowTime = new Date();
+	SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 k:mm");
+%>
+
 <!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<%
-	Date nowTime = new Date();
-	SimpleDateFormat sf = new SimpleDateFormat("MM월 dd일  yyyy년  ");
-%>
+
 <html>
 <head>
 <title>Massively by HTML5 UP</title>
@@ -36,29 +43,27 @@
 	<link rel="stylesheet" href="assets/css/noscript.css" />
 </noscript>
 
-<style>
+<style >
 @font-face {
-	font-family: 'Cafe24Ssurround';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-
 @font-face {
-	font-family: 'Cafe24SsurroundAir';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'Cafe24SsurroundAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
+.date{
+font-family: 'Cafe24Ssurround';
 
-.date,.id,.pw,.name,.tel{
-	font-family: 'Cafe24Ssurround';
 }
+.id,.name,.tel{
+ font-family: 'Cafe24SsurroundAir';
 
+}
 
 
 </style>
@@ -126,7 +131,7 @@
 			
 				<header class="major">
 			<%-- 	<%= nowTime %> --%>
-					<span class="date"><%= sf.format(nowTime) %> </span>
+					<span class="date"><%= sf.format(nowTime) %></span>
 					<h2>
 						<a href="#">JOIN<br /> WELCOME
 						</a>
@@ -151,12 +156,19 @@
 							<br>
 							<div class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
-								<input class = "pw" type="text" name="pw" placeholder="PW" />
+								<input class = "pw" id="firstpw" type="password" name="pw" placeholder="password" />
+								<br>
+								<input class = "pw2" id="secondpw" type="password" name="pw2" placeholder="passwordCheck">
+								<br>
+								<span id="pwcheck" ></span>
 							</div>
+							
+						
+							
 							<br>
 							<div class="col-6 col-6-medium"
 								style="margin: 0 auto; float: none;">
-								<input class = "name" type="text" name="name" placeholder="이름" />
+								<input class = "name" type="text" name="name" placeholder="이름" onclick="pwcheck()"/>
 							</div>
 							<br>
 							
@@ -169,7 +181,7 @@
 							
 							<div class="col-12">
 								<input type="submit" value="회원가입"
-									onClick="window.location='#main'" style = "font-family: 'Cafe24Ssurround';" />
+									onClick="test()" style = "font-family: 'Cafe24Ssurround';" />
 							</div>
 						
 						</div>
@@ -278,6 +290,10 @@
 	<script src="assets/js/main.js"></script>
 	
     <script type="text/javascript" >
+    
+    let pw = "";
+    let pw2 = "";
+
 			
 			function idCheck(){
 			
@@ -300,7 +316,7 @@
 							sp.innerHTML="이미 사용중인 아이디입니다.";
 							
 							sp.style.color = "red";
-							sp.style.fontSize="6px"
+							
 							
 						}else{
 							
@@ -316,7 +332,25 @@
 				});
 				
 			}
-			
+
+			function pwcheck() {
+				
+				console.log("확인");
+
+				pw = document.getElementById("firstpw").value;
+				pw2 = document.getElementById("secondpw").value;
+				
+				console.log(pw);
+				console.log(pw2);
+
+				 if (pw === pw2) {
+
+					document.getElementById("pwcheck").innerHTML = "<span style = 'color:grkeen' id = pwcheck>비밀번호가 일치합니다</span>";
+				} else {
+					document.getElementById("pwcheck").innerHTML = "<span style = 'color:red' id = pwcheck>비밀번호가 일치하지 않습니다</span>";
+
+				} 
+			};
 			
 			</script>
 	
