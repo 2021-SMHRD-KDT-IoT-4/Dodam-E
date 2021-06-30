@@ -245,7 +245,7 @@
 									<%}else if(list.get(i).getRoute().equals("신호등")){ %>	
 										<img src="./images/traffic.png" style='width:30px;height:30px'>
 										<%}else if(list.get(i).getRoute().equals("집")){ %>
-											<img src="./images/traffic.png" style='width:30px;height:30px'>
+											<img src="./images/house.png" style='width:30px;height:30px'>
 											<%} %>
 						</td>
 						<td><%=list.get(i).getCheckTime()%></td>

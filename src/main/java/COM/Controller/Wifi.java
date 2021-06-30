@@ -29,7 +29,7 @@ public class Wifi extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("EUC-KR");
 //      Integer.parseInt(request.getParameter("sb"));
-		int js = 3;
+		int js = 4;
 
 		System.out.println(js);
 		RouteDAO dao = new RouteDAO();
@@ -58,49 +58,13 @@ public class Wifi extends HttpServlet {
 						
 						System.out.println("asdasdgjlashnfljas");
 						loca = list.get(js-1).getReceive_loca();
-						dao.upload("ss", dto.get(j).getC_name(), loca, list.get(i).getReceive_la(),list.get(i).getReceive_ha());
+						dao.upload("ss", dto.get(j).getC_name(), loca, list.get(js-1).getReceive_la(),list.get(js-1).getReceive_ha());
 						
 						System.out.println(dto.get(j).getC_name());
 						break;
 					}
 					}
 				}
-//				}else if (num == 2) {
-//					System.out.println("asdasd");
-//					System.out.println("2"+i);
-//
-//                  loca = list.get(i).getReceive_loca();
-//                  dao.upload("ss", dto.get(i).getC_name(), loca, list.get(i).getReceive_la(),list.get(i).getReceive_ha());
-//                  System.out.println(dto.get(i).getC_name());
-//                  break;
-//               } else if (num == 3) {
-//					System.out.println("asdasd");
-//					System.out.println("3"+i);
-//
-//					if (dto.get(i).getC_send_machine().equals("11")) {
-//
-//						System.out.println("asdasdgjlashnfljas");
-//						loca = list.get(js-1).getReceive_loca();
-//						dao.upload("ss", dto.get(i).getC_name(), loca, list.get(i).getReceive_la(),list.get(i).getReceive_ha());
-//						System.out.println(dto.get(i).getC_name());
-//						break;
-//					}
-//				}else if (num == 4) {
-//					System.out.println("asdasd");
-//					System.out.println("4"+i);
-//
-//					if (dto.get(i).getC_send_machine().equals("11")) {
-//
-//						System.out.println("asdasdgjlashnfljas");
-//						loca = list.get(js-1).getReceive_loca();
-//						dao.upload("ss", dto.get(i).getC_name(), loca, list.get(i).getReceive_la(),list.get(i).getReceive_ha());
-//						System.out.println(list.get(i).getReceive_la());
-//						break;
-//					}
-//				}
-//
-//			}
-
 		}
 
 	}
