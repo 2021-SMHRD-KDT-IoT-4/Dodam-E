@@ -315,6 +315,7 @@ font-family: 'Cafe24Ssurround';
 							
 							sp.innerHTML="이미 사용중인 아이디입니다.";
 							
+							
 							sp.style.color = "red";
 							
 							
